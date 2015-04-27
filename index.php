@@ -26,12 +26,14 @@ if (isset($_GET['fp_layout'])) $layout = $_GET['fp_layout'];
 <?php get_header(); ?>
     <button id="menu-toggle" class="menu-toggle"><span>Menu</span></button>
     <div id="theSidebar" class="sidebar">
-        <button class="close-button fa fa-fw fa-close"></button>
-        <h1><?php bloginfo('name'); ?></h1>
-        <div class="subtitle"><?php bloginfo('description'); ?></div>
+        <div class="title-area">
+            <button class="close-button fa fa-fw fa-close"></button>
+            <h1><?php bloginfo('name'); ?></h1>
+            <div class="subtitle"><?php bloginfo('description'); ?></div>
+        </div>
 
 
-        <div class="related">
+        <div class="pages-nav">
             <nav>
             <?php wp_nav_menu( array (
                 'theme_location'  => 'primary',

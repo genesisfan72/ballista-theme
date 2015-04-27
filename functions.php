@@ -117,6 +117,8 @@ function ballista_scripts()
 
     wp_enqueue_script( 'classie', get_template_directory_uri() . '/assets/js/classie.js', array(), '20130115', true );
 
+    wp_enqueue_script( 'isotope', get_template_directory_uri() . '/assets/js/isotope.pkgd.min.js', array(), '20130115', true );
+
     wp_enqueue_script( 'ballista', get_template_directory_uri() . '/assets/js/ballista.js', array( 'jquery' ), '20130115', true );
 
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -162,10 +164,41 @@ function ballista_first_image()
  */
 function ballista_new_excerpt_more( $more )
 {
-    return '[...]<br/><a class="post__link" href="'. get_permalink( get_the_ID() ) . '">' . __('Read More', 'ballista') . '</a>';
+    return '[...]<br/><br />';
 }
 
 add_filter( 'excerpt_more', 'ballista_new_excerpt_more' );
+
+/**
+ * Limit the excerpt length
+ */
+function ballista_new_excerpt_length($length) {
+    return 20;
+}
+add_filter('excerpt_length', 'ballista_new_excerpt_length', 999);
+
+/**
+ * Set the max length for custom excerpt entries
+ * @param $charlength
+ */
+function ballista_the_excerpt_max_charlength($charlength) {
+    $excerpt = get_the_excerpt();
+    $charlength++;
+
+    if ( mb_strlen( $excerpt ) > $charlength ) {
+        $subex = mb_substr( $excerpt, 0, $charlength - 5 );
+        $exwords = explode( ' ', $subex );
+        $excut = - ( mb_strlen( $exwords[ count( $exwords ) - 1 ] ) );
+        if ( $excut < 0 ) {
+            echo mb_substr( $subex, 0, $excut );
+        } else {
+            echo $subex;
+        }
+        echo '[...]<br /><br />';
+    } else {
+        echo $excerpt;
+    }
+}
 
 
 /**

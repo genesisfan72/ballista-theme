@@ -45,7 +45,8 @@ jQuery(function($) {
 		lockScroll = false, xscroll, yscroll,
 		isAnimating = false,
 		menuCtrl = document.getElementById('menu-toggle'),
-		menuCloseCtrl = sidebarEl.querySelector('.close-button');
+		menuCloseCtrl = sidebarEl.querySelector('.close-button'),
+        $isoContainer = $('.grid__item__container');
 
 	/**
 	 * gets the viewport width and height
@@ -69,7 +70,15 @@ jQuery(function($) {
 
 	function init() {
 		initEvents();
+        initIsotope();
 	}
+
+    function initIsotope() {
+        $isoContainer.isotope({
+            itemSelector: '.grid__item',
+            layout: 'fitRows'
+        });
+    }
 
 	function initEvents() {
 		[].slice.call(gridItems).forEach(function(item, pos) {
@@ -127,6 +136,14 @@ jQuery(function($) {
 				classie.remove(sidebarEl, 'sidebar--open');
 			}
 		});
+
+        $(document).on('click', '.case-study-filter', function() {
+            $('.case-study-filter').removeClass('selected');
+            $(this).addClass('selected');
+            var filterValue = $(this).attr('data-filter');
+            $isoContainer.isotope({ filter: filterValue });
+            return false;
+        });
 	}
 
 	function loadContent(item, data) {

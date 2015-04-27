@@ -8,19 +8,7 @@
     <section class="grid">
         <header class="top-bar">
 
-            <div class="categories">
-                <?php
-                $args = array(
-                    'orderby' => 'name',
-                    'parent' => 0,
-                    'number' => 5
-                );
-                $categories = get_categories( $args );
-                foreach ( $categories as $category ) {
-                    echo '<a href="' . get_category_link( $category->term_id ) . '">' . $category->name . '</a>';
-                }
-                ?>
-            </div>
+            <?php get_template_part( 'filter', 'categories' ); ?>
 
             <div class="social-icons">
                 <span>Filter by:</span>
