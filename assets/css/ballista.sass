@@ -87,6 +87,7 @@ button:focus
     @include flex-wrap(wrap)
     @include align-items(center)
     @include justify-content(center)
+    @include flex-direction(column)
     h1
       margin-bottom: 15px
       font-size: 3.1em
@@ -95,11 +96,15 @@ button:focus
       font-family: "Roboto Slab", serif
       text-transform: uppercase
       color: rgba(51, 51, 51, 1)
+      @include flex(1)
       span
         display: block
     .subtitle
+      font-family: "Roboto", sans-serif
+      letter-spacing: 1px
       text-transform: uppercase
       font-size: 1.2em
+      @include flex(1)
   .pages-nav
     font-size: 1.4em
     font-family: "Roboto", sans-serif
@@ -126,13 +131,14 @@ button:focus
       @include display(flex)
       @include justify-content(flex-start)
       @include flex(1)
+      @include flex-wrap(wrap)
       a
         margin-right: 10px
         @include transition(all 0.35s ease)
     .social-icons
-      width: 30%
       @include display(flex)
-      @include flex(1)
+      @include flex-wrap(wrap)
+      @include flex-shrink(1)
       @include justify-content(flex-end)
   &::after
     content: ''
@@ -149,6 +155,11 @@ button:focus
     color: rgba(248, 141, 26, 1)
   .post__link--bold
     font-weight: 700
+
+.slide-content
+  height: 100vh
+  @include display(flex)
+  @include align-items(flex-end)
 
 
 /* Overlay
@@ -170,7 +181,7 @@ button:focus
 /* Top bar above the grid
 
 .top-bar
-  height: 120px
+  min-height: 120px
   background: rgba(255, 255, 255, 1)
   font-size: 1.4em
   width: 100%
@@ -180,6 +191,10 @@ button:focus
   text-transform: uppercase
   @include display(flex)
   @include align-items(flex-end)
+  .icon-container
+    padding-right: 25px
+    &:last-child
+      padding-right: 0
 
 .top-bar__headline
   margin: 0
@@ -249,6 +264,7 @@ button:focus
     color: inherit
     background: rgba(0, 0, 0, 1)
     min-height: 300px
+    overflow: hidden
     @include display(flex)
     @include flex-flow(row wrap)
     @include align-items(flex-end)
@@ -596,13 +612,13 @@ button:focus
   text-align: center
   @include align-self(center)
   @include flex(1)
-  h2
+  .title
     color: rgba(255, 255, 255, 1)
     font-family: "Roboto", sans-serif
     font-size: 2.4em
     font-weight: 700
     text-transform: uppercase
-  p
+  .details
     color: rgba(255, 255, 255, 1)
 
 .excerpt--box
@@ -631,16 +647,42 @@ button:focus
     .excerpt__title
       text-transform: uppercase
       color: rgba(0, 0, 0, 1)
-      width: 80%
       @include align-self(center)
+      @include flex(1)
     .excerpt__likes
-      width: 20%
       text-align: right
       @include align-self(center)
+      @include flex-shrink(1)
   .excerpt__content--row, .excerpt__byline--row
     width: 100%
     color: rgba(135, 135, 135, 1)
     font-size: 0.79em
+
+.ballista-slider
+  .excerpt--box
+    max-height: inherit
+    height: auto
+    position: absolute
+    bottom: 20px
+    left: 20px
+    right: 20px
+    @include flex-direction(row)
+    @include justify-content(flex-start)
+    @include flex-wrap(nowrap)
+    @include align-items(center)
+    .excerpt__title--row
+      width: auto
+      height: auto
+      padding: 30px
+      @include display(flex)
+      @include flex-direction(column)
+      @include flex-wrap(wrap)
+      @include flex-shrink(0)
+      .excerpt__title
+        @include align-self(auto)
+    .excerpt__byline--row
+      width: auto
+      @include flex(1)
 
 
 .grid__item:hover .excerpt--box
@@ -809,7 +851,7 @@ button:focus
     opacity: 0.78
   &:hover .portfolio__overlay
     z-index: inherit
-  &:hover h2
+  &:hover .title
     opacity: 1
     -webkit-transform: translate3d(0, 0, 0)
     transform: translate3d(0, 0, 0)
@@ -825,15 +867,15 @@ button:focus
       transition: transform 0.35s
       -webkit-transform: translate3d(-40%, 0, 0)
       transform: translate3d(-40%, 0, 0)
-  &:hover h2::after
+  &:hover .title::after
     -webkit-transform: translate3d(0, 0, 0)
     transform: translate3d(0, 0, 0)
-  &:hover p
+  &:hover .details
     opacity: 1
     -webkit-transform: translate3d(0, 0, 0)
     transform: translate3d(0, 0, 0)
 
-  h2
+  .title
     position: relative
     overflow: hidden
     padding: 0.5em 0
@@ -845,7 +887,7 @@ button:focus
     -webkit-transform: translate3d(-100%, 0, 0)
     transform: translate3d(-100%, 0, 0)
 
-  p
+  .details
     position: relative
     opacity: 0
     -webkit-transition: opacity 0.35s, -webkit-transform 0.35s
@@ -860,4 +902,30 @@ button:focus
     .fa
       padding-right: 5px
 
+/*------------------------------------
+/**** "I Recommend This" plugin styles
+/*------------------------------------
 
+.dot-irecommendthis
+  background-position: 0 8px
+  color: rgba(51, 51, 51, 1) !important
+  margin-bottom: 0 !important
+  &:hover, &.active
+    color: rgba(51, 51, 51, 1) !important
+    background-position: 0 -18px
+    margin-bottom: 0 !important
+
+.portfolio__overlay
+  .dot-irecommendthis
+    background-position: 0 3px
+    color: rgba(255, 255, 255, 1) !important
+    &:hover, &.active
+      color: rgba(255, 255, 255, 1) !important
+      background-position: 0 -23px
+
+/*------------------------------------
+/**** Flexslider
+/*------------------------------------
+.flexslider
+  margin: 0 !important
+  border: 0 !important

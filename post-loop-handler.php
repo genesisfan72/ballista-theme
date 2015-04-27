@@ -46,6 +46,8 @@ setup_postdata( $post );
         the_post_thumbnail();
     }
     the_content();
+
+    if( function_exists('dot_irecommendthis') ) dot_irecommendthis();
     ?>
 
 </article>

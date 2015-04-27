@@ -107,7 +107,17 @@ button:focus {
     -ms-justify-content: center;
     -o-justify-content: center;
     justify-content: center;
-    -ms-flex-pack: center; }
+    -ms-flex-pack: center;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    box-orient: vertical;
+    -webkit-box-direction: normal;
+    -moz-box-direction: normal;
+    box-direction: normal;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-direction: column; }
     .sidebar .title-area h1 {
       margin-bottom: 15px;
       font-size: 3.1em;
@@ -115,12 +125,28 @@ button:focus {
       line-height: 1;
       font-family: "Roboto Slab", serif;
       text-transform: uppercase;
-      color: #333333; }
+      color: #333333;
+      -webkit-box-flex: 1;
+      -moz-box-flex: 1;
+      box-flex: 1;
+      -webkit-flex: 1;
+      -moz-flex: 1;
+      -ms-flex: 1;
+      flex: 1; }
       .sidebar .title-area h1 span {
         display: block; }
     .sidebar .title-area .subtitle {
+      font-family: "Roboto", sans-serif;
+      letter-spacing: 1px;
       text-transform: uppercase;
-      font-size: 1.2em; }
+      font-size: 1.2em;
+      -webkit-box-flex: 1;
+      -moz-box-flex: 1;
+      box-flex: 1;
+      -webkit-flex: 1;
+      -moz-flex: 1;
+      -ms-flex: 1;
+      flex: 1; }
   .sidebar .pages-nav {
     font-size: 1.4em;
     font-family: "Roboto", sans-serif;
@@ -160,14 +186,20 @@ button:focus {
     -webkit-flex: 1;
     -moz-flex: 1;
     -ms-flex: 1;
-    flex: 1; }
+    flex: 1;
+    -webkit-box-lines: multiple;
+    -moz-box-lines: multiple;
+    box-lines: multiple;
+    -webkit-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap; }
     .grid header .categories a {
       margin-right: 10px;
       -webkit-transition: all 0.35s ease;
       -moz-transition: all 0.35s ease;
       transition: all 0.35s ease; }
   .grid header .social-icons {
-    width: 30%;
     display: -webkit-box;
     display: -moz-box;
     display: box;
@@ -175,13 +207,17 @@ button:focus {
     display: -moz-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-flex: 1;
-    -moz-box-flex: 1;
-    box-flex: 1;
-    -webkit-flex: 1;
-    -moz-flex: 1;
-    -ms-flex: 1;
-    flex: 1;
+    -webkit-box-lines: multiple;
+    -moz-box-lines: multiple;
+    box-lines: multiple;
+    -webkit-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-flex-shrink: 1;
+    -moz-flex-shrink: 1;
+    flex-shrink: 1;
+    -ms-flex-negative: 1;
     -webkit-box-pack: end;
     -moz-box-pack: end;
     box-pack: end;
@@ -209,6 +245,25 @@ button:focus {
   .grid .post__link--bold {
     font-weight: 700; }
 
+.slide-content {
+  height: 100vh;
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+  -moz-box-align: end;
+  box-align: end;
+  -webkit-align-items: flex-end;
+  -moz-align-items: flex-end;
+  -ms-align-items: flex-end;
+  -o-align-items: flex-end;
+  align-items: flex-end;
+  -ms-flex-align: end; }
+
 /* Overlay */
 .view-single .grid::after {
   opacity: 1; }
@@ -228,7 +283,7 @@ button:focus {
 
 /* Top bar above the grid */
 .top-bar {
-  height: 120px;
+  min-height: 120px;
   background: white;
   font-size: 1.4em;
   width: 100%;
@@ -252,6 +307,10 @@ button:focus {
   -o-align-items: flex-end;
   align-items: flex-end;
   -ms-flex-align: end; }
+  .top-bar .icon-container {
+    padding-right: 25px; }
+    .top-bar .icon-container:last-child {
+      padding-right: 0; }
 
 .top-bar__headline {
   margin: 0;
@@ -327,6 +386,7 @@ button:focus {
   color: inherit;
   background: black;
   min-height: 300px;
+  overflow: hidden;
   display: -webkit-box;
   display: -moz-box;
   display: box;
@@ -801,13 +861,13 @@ button:focus {
   -moz-flex: 1;
   -ms-flex: 1;
   flex: 1; }
-  .portfolio__overlay h2 {
+  .portfolio__overlay .title {
     color: white;
     font-family: "Roboto", sans-serif;
     font-size: 2.4em;
     font-weight: 700;
     text-transform: uppercase; }
-  .portfolio__overlay p {
+  .portfolio__overlay .details {
     color: white; }
 
 .excerpt--box {
@@ -885,22 +945,120 @@ button:focus {
     .excerpt--box .excerpt__title--row .excerpt__title {
       text-transform: uppercase;
       color: black;
-      width: 80%;
       -webkit-align-self: center;
       -moz-align-self: center;
       align-self: center;
-      -ms-flex-item-align: center; }
+      -ms-flex-item-align: center;
+      -webkit-box-flex: 1;
+      -moz-box-flex: 1;
+      box-flex: 1;
+      -webkit-flex: 1;
+      -moz-flex: 1;
+      -ms-flex: 1;
+      flex: 1; }
     .excerpt--box .excerpt__title--row .excerpt__likes {
-      width: 20%;
       text-align: right;
       -webkit-align-self: center;
       -moz-align-self: center;
       align-self: center;
-      -ms-flex-item-align: center; }
+      -ms-flex-item-align: center;
+      -webkit-flex-shrink: 1;
+      -moz-flex-shrink: 1;
+      flex-shrink: 1;
+      -ms-flex-negative: 1; }
   .excerpt--box .excerpt__content--row, .excerpt--box .excerpt__byline--row {
     width: 100%;
     color: #878787;
     font-size: 0.79em; }
+
+.ballista-slider .excerpt--box {
+  max-height: inherit;
+  height: auto;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  box-direction: normal;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-direction: row;
+  -webkit-box-pack: start;
+  -moz-box-pack: start;
+  box-pack: start;
+  -webkit-justify-content: flex-start;
+  -moz-justify-content: flex-start;
+  -ms-justify-content: flex-start;
+  -o-justify-content: flex-start;
+  justify-content: flex-start;
+  -ms-flex-pack: start;
+  -webkit-box-lines: single;
+  -moz-box-lines: single;
+  box-lines: single;
+  -webkit-flex-wrap: nowrap;
+  -moz-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  box-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
+  align-items: center;
+  -ms-flex-align: center; }
+  .ballista-slider .excerpt--box .excerpt__title--row {
+    width: auto;
+    height: auto;
+    padding: 30px;
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    box-orient: vertical;
+    -webkit-box-direction: normal;
+    -moz-box-direction: normal;
+    box-direction: normal;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-direction: column;
+    -webkit-box-lines: multiple;
+    -moz-box-lines: multiple;
+    box-lines: multiple;
+    -webkit-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-flex-shrink: 0;
+    -moz-flex-shrink: 0;
+    flex-shrink: 0;
+    -ms-flex-negative: 0; }
+    .ballista-slider .excerpt--box .excerpt__title--row .excerpt__title {
+      -webkit-align-self: auto;
+      -moz-align-self: auto;
+      align-self: auto;
+      -ms-flex-item-align: auto; }
+  .ballista-slider .excerpt--box .excerpt__byline--row {
+    width: auto;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    box-flex: 1;
+    -webkit-flex: 1;
+    -moz-flex: 1;
+    -ms-flex: 1;
+    flex: 1; }
 
 .grid__item:hover .excerpt--box {
   max-height: 100%;
@@ -1081,11 +1239,11 @@ button:focus {
     opacity: 0.78; }
   .effect-sarah:hover .portfolio__overlay {
     z-index: inherit; }
-  .effect-sarah:hover h2 {
+  .effect-sarah:hover .title {
     opacity: 1;
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0); }
-    .effect-sarah:hover h2::after {
+    .effect-sarah:hover .title::after {
       position: absolute;
       bottom: 0;
       left: 0;
@@ -1097,14 +1255,14 @@ button:focus {
       transition: transform 0.35s;
       -webkit-transform: translate3d(-40%, 0, 0);
       transform: translate3d(-40%, 0, 0); }
-  .effect-sarah:hover h2::after {
+  .effect-sarah:hover .title::after {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0); }
-  .effect-sarah:hover p {
+  .effect-sarah:hover .details {
     opacity: 1;
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0); }
-  .effect-sarah h2 {
+  .effect-sarah .title {
     position: relative;
     overflow: hidden;
     padding: 0.5em 0;
@@ -1115,7 +1273,7 @@ button:focus {
     transition: transform 0.35s;
     -webkit-transform: translate3d(-100%, 0, 0);
     transform: translate3d(-100%, 0, 0); }
-  .effect-sarah p {
+  .effect-sarah .details {
     position: relative;
     opacity: 0;
     -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
@@ -1127,7 +1285,33 @@ button:focus {
     font-size: 1.4em;
     color: white;
     text-transform: uppercase; }
-    .effect-sarah p .fa {
+    .effect-sarah .details .fa {
       padding-right: 5px; }
+
+/*------------------------------------ */
+/**** "I Recommend This" plugin styles */
+/*------------------------------------ */
+.dot-irecommendthis {
+  background-position: 0 8px;
+  color: #333333 !important;
+  margin-bottom: 0 !important; }
+  .dot-irecommendthis:hover, .dot-irecommendthis.active {
+    color: #333333 !important;
+    background-position: 0 -18px;
+    margin-bottom: 0 !important; }
+
+.portfolio__overlay .dot-irecommendthis {
+  background-position: 0 3px;
+  color: white !important; }
+  .portfolio__overlay .dot-irecommendthis:hover, .portfolio__overlay .dot-irecommendthis.active {
+    color: white !important;
+    background-position: 0 -23px; }
+
+/*------------------------------------ */
+/**** Flexslider */
+/*------------------------------------ */
+.flexslider {
+  margin: 0 !important;
+  border: 0 !important; }
 
 /*# sourceMappingURL=ballista.css.map */

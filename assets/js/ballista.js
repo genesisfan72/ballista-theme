@@ -38,7 +38,7 @@ jQuery(function($) {
 		gridItemsContainer = gridEl.querySelector('section.grid'),
 		contentItemsContainer = gridEl.querySelector('section.content'),
         contentItemsScrollWrap = contentItemsContainer.querySelector('.scroll-wrap'),
-		gridItems = gridItemsContainer.querySelectorAll('.grid__item'),
+		gridItems = gridItemsContainer !== null ? gridItemsContainer.querySelectorAll('.grid__item') : null,
 		//contentItems = contentItemsContainer.querySelectorAll('.content__item'),
 		//closeCtrl = contentItemsContainer.querySelector('.close-button'),
 		current = -1,
@@ -47,6 +47,7 @@ jQuery(function($) {
 		menuCtrl = document.getElementById('menu-toggle'),
 		menuCloseCtrl = sidebarEl.querySelector('.close-button'),
         $isoContainer = $('.grid__item__container');
+
 
 	/**
 	 * gets the viewport width and height
@@ -71,45 +72,55 @@ jQuery(function($) {
 	function init() {
 		initEvents();
         initIsotope();
+        initSlider();
 	}
 
     function initIsotope() {
         $isoContainer.isotope({
             itemSelector: '.grid__item',
-            layout: 'fitRows'
+            layout: 'masonry'
+        });
+    }
+
+    function initSlider() {
+        $('.flexslider').flexslider({
+            slideshow: false,
+            controlNav : false
         });
     }
 
 	function initEvents() {
-		[].slice.call(gridItems).forEach(function(item, pos) {
-			// grid item click event
-			item.addEventListener('click', function(ev) {
-				ev.preventDefault();
-				if(isAnimating || current === pos) {
-					return false;
-				}
-				isAnimating = true;
-				// index of current item
-				current = pos;
-				// simulate loading time..
-				classie.add(item, 'grid__item--loading');
+        if (gridItems !== null) {
+            [].slice.call(gridItems).forEach(function (item, pos) {
+                // grid item click event
+                item.addEventListener('click', function (ev) {
+                    ev.preventDefault();
+                    if (isAnimating || current === pos) {
+                        return false;
+                    }
+                    isAnimating = true;
+                    // index of current item
+                    current = pos;
+                    // simulate loading time..
+                    classie.add(item, 'grid__item--loading');
 
-                setTimeout(function() {
-                    classie.add(item, 'grid__item--animate');
-                    $.ajax({
-                        type: 'POST',
-                        data: {'post_id': item.dataset.id},
-                        dataType: 'html',
-                        url: '/wp-content/themes/ballista/post-loop-handler.php',
-                        success: function(data) {
-                            setTimeout(function() {
-                                loadContent(item, data);
-                            }, 500);
-                        }
-                    });
-                }, 1000);
-			});
-		});
+                    setTimeout(function () {
+                        classie.add(item, 'grid__item--animate');
+                        $.ajax({
+                            type: 'POST',
+                            data: {'post_id': item.dataset.id},
+                            dataType: 'html',
+                            url: '/wp-content/themes/ballista/post-loop-handler.php',
+                            success: function (data) {
+                                setTimeout(function () {
+                                    loadContent(item, data);
+                                }, 500);
+                            }
+                        });
+                    }, 1000);
+                });
+            });
+        }
 
 		// keyboard esc - hide content
 		document.addEventListener('keydown', function(ev) {

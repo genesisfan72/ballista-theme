@@ -12,6 +12,74 @@ if ( !isset( $content_width ) ) {
     $content_width = 640; /* pixels */
 }
 
+/**
+ * Include the TGM_Plugin_Activation class.
+ */
+require_once dirname( __FILE__ ) . '/class-tgm-plugin-activation.php';
+
+add_action( 'tgmpa_register', 'ballista_register_required_plugins' );
+/**
+ * Register the required plugins for this theme.
+ */
+function ballista_register_required_plugins() {
+
+    $plugins = array(
+        array(
+            'name'     => 'Wordpress Retina 2x',
+            'slug'     => 'wp-retina-2x',
+            'required' => true,
+        ),
+        array(
+            'name'     => 'Responsive Lightbox',
+            'slug'     => 'responsive-lightbox',
+            'required' => false,
+        ),
+        array(
+            'name'      => 'Intuitive Custom Post Order',
+            'slug'      => 'intuitive-custom-post-order',
+            'required'  => 'false'
+        )
+    );
+
+    $theme_text_domain = 'woc_broadsword';
+
+    /**
+     * Array of configuration settings. Uncomment and amend each line as needed.
+     * If you want the default strings to be available under your own theme domain,
+     * uncomment the strings and domain.
+     * Some of the strings are added into a sprintf, so see the comments at the
+     * end of each line for what each argument will be.
+     */
+    $config = array(
+        'domain'       => $theme_text_domain,
+        'menu'         => 'install-my-theme-plugins',
+        'has_notices'  => true,
+        // Show admin notices
+        'dismissable'  => false,
+        // If false, a user cannot dismiss the nag message.
+        'dismiss_msg'  => '',
+        // If 'dismissable' is false, this message will be output at top of nag.
+        'is_automatic' => false,
+        // Automatically activate plugins after installation or not.
+        'strings'      => array(
+            'page_title'             => __( 'Install Recommended Plugins', $theme_text_domain ),
+            'menu_title'             => __( 'Install Plugins', $theme_text_domain ),
+            'instructions_install'   => __( 'The %1$s plugin is recommended for this theme. Click on the big blue button below to install and activate %1$s.', $theme_text_domain ),
+            'instructions_activate'  => __( 'The %1$s is installed but currently inactive. Please go to the <a href="%2$s">plugin administration page</a> page to activate it.', $theme_text_domain ),
+            'button'                 => __( 'Install %s Now', $theme_text_domain ),
+            'installing'             => __( 'Installing Plugin: %s', $theme_text_domain ),
+            'oops'                   => __( 'Something went wrong with the plugin API.', $theme_text_domain ),
+            'notice_can_install'     => __( 'This theme recommends the use of the %1$s plugin. <a href="%2$s"><strong>Click here to begin the installation process</strong></a>. You may be asked for FTP credentials based on your server setup.', $theme_text_domain ),
+            'notice_cannot_install'  => __( 'Sorry, but you do not have the correct permissions to install the %s plugin. Contact the administrator of this site for help on getting the plugin installed.', $theme_text_domain ),
+            'notice_can_activate'    => __( 'This theme recommends the use of the %1$s plugin. That plugin is currently inactive, so please go to the <a href="%2$s">plugin administration page</a> to activate it.', $theme_text_domain ),
+            'notice_cannot_activate' => __( 'Sorry, but you do not have the correct permissions to activate the %s plugin. Contact the administrator of this site for help on getting the plugin activated.', $theme_text_domain ),
+            'return'                 => __( 'Return to Plugins Installer', $theme_text_domain ),
+        ),
+    );
+
+    tgmpa( $plugins, $config );
+}
+
 if ( !function_exists( 'ballista_setup' ) ) :
     /**
      * Sets up theme defaults and registers support for various WordPress features.
@@ -107,6 +175,8 @@ function ballista_scripts()
 
     wp_enqueue_style( 'ballista', get_template_directory_uri() . '/assets/css/ballista.css' );
 
+    wp_enqueue_style( 'flexslider', get_template_directory_uri() . '/assets/js/flexslider/flexslider.css' );
+
     wp_enqueue_style( 'fontawesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' );
 
     wp_enqueue_script( 'ballista-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), '20120206', true );
@@ -118,6 +188,8 @@ function ballista_scripts()
     wp_enqueue_script( 'classie', get_template_directory_uri() . '/assets/js/classie.js', array(), '20130115', true );
 
     wp_enqueue_script( 'isotope', get_template_directory_uri() . '/assets/js/isotope.pkgd.min.js', array(), '20130115', true );
+
+    wp_enqueue_script( 'flexslider', get_template_directory_uri() . '/assets/js/flexslider/jquery.flexslider-min.js', array(), '20130115', true );
 
     wp_enqueue_script( 'ballista', get_template_directory_uri() . '/assets/js/ballista.js', array( 'jquery' ), '20130115', true );
 
