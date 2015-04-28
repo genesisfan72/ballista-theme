@@ -213,6 +213,18 @@ function ballista_change_avatar_css( $class )
 }
 
 /**
+ * Remove any 'p' tags surrounding images in content
+ */
+function ballista_filter_ptags_on_images($content)
+{
+    return preg_replace('/<p>(\s*)(<img .* \/>)(\s*)<\/p>/iU', '\2', $content);
+}
+
+// we want it to be run after the autop stuff... 10 is default.
+add_filter('the_content', 'ballista_filter_ptags_on_images');
+
+
+/**
  * Find the first image in post content. Used for portfolio layouts.
  * @return string
  */
