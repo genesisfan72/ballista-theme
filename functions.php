@@ -39,6 +39,8 @@ function ballista_register_required_plugins() {
             'slug'      => 'intuitive-custom-post-order',
             'required'  => 'false'
         )
+
+        // TODO - Add recommend this plugin
     );
 
     $theme_text_domain = 'woc_broadsword';

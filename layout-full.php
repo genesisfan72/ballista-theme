@@ -57,7 +57,7 @@ if ( isset( $_GET[ 'fp_layout' ] ) ) $layout = $_GET[ 'fp_layout' ];
                                     <div class="excerpt--box">
                                         <div class="excerpt__title--row">
                                             <div class="excerpt__title">
-                                                <? the_title(); ?>
+                                                <?php the_title(); ?>
                                             </div>
 
                                             <div class="excerpt__byline--row">
