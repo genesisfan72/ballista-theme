@@ -18,12 +18,13 @@
  * 4. Blog - default
  */
 
-$layout = get_theme_mod( 'layout', 'blog' );
+$layout = get_theme_mod( 'woc_front_page_style' );
 
 if ( isset( $_GET[ 'fp_layout' ] ) ) $layout = $_GET[ 'fp_layout' ];
 ?>
 
 <?php get_header(); ?>
+
     <button id="menu-toggle" class="menu-toggle"><span>Menu</span></button>
     <div id="theSidebar" class="sidebar">
         <div class="title-area">
@@ -46,7 +47,7 @@ if ( isset( $_GET[ 'fp_layout' ] ) ) $layout = $_GET[ 'fp_layout' ];
     </div>
 
 <?php
-if ( $layout === 'blog' || $layout === 'portfolio' ) {
+if ( $layout === 'blog' || $layout === 'portfolio' || $layout === 'portfolio-full' ) {
     get_template_part( 'layout', 'grid' );
 }
 

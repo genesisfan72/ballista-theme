@@ -5,7 +5,7 @@
 ?>
 
 <?php
-$layout = get_theme_mod( 'layout', 'blog' );
+$layout = get_theme_mod( 'woc_front_page_style' );
 
 if (isset($_GET['fp_layout'])) $layout = $_GET['fp_layout'];
 ?>
@@ -59,7 +59,7 @@ if (isset($_GET['fp_layout'])) $layout = $_GET['fp_layout'];
                     ?>
 
                     <?php if ( $layout === 'blog' ) { ?>
-                        <div class="grid__item <?php echo $term_classes; ?>" data-id="<?php echo the_ID(); ?>" <?php echo $img; ?>>
+                        <div class="grid__item grid__item--flex <?php echo $term_classes; ?>" data-id="<?php echo the_ID(); ?>" <?php echo $img; ?>>
                             <div class="excerpt--box">
                                 <div class="excerpt__title--row">
                                     <div class="excerpt__title">
@@ -84,7 +84,21 @@ if (isset($_GET['fp_layout'])) $layout = $_GET['fp_layout'];
                     <?php }
 
                     else if ( $layout === 'portfolio' ) { ?>
-                        <div class="grid__item effect-sarah hover--overlay " data-id="<?php echo the_ID(); ?>" <?php echo $img; ?>>
+                        <div class="grid__item grid__item--flex effect-sarah hover--overlay <?php echo $term_classes; ?>" data-id="<?php echo the_ID(); ?>" <?php echo $img; ?>>
+                            <div class="portfolio__overlay">
+                                <h2 class="title"><?php the_title(); ?></span></h2>
+                                <div class="details">
+                                    <p><?php echo esc_html( $term_classes ); ?></p>
+                                    <div class="excerpt__likes">
+                                        <?php if( function_exists('dot_irecommendthis') ) dot_irecommendthis(); ?>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <?php }
+
+                    else if ( $layout === 'portfolio-full' ) { ?>
+                        <div class="grid__item grid__item--flex grid__item--portfolio--full effect-sarah hover--overlay <?php echo $term_classes; ?>" data-id="<?php echo the_ID(); ?>" <?php echo $img; ?>>
                             <div class="portfolio__overlay">
                                 <h2 class="title"><?php the_title(); ?></span></h2>
                                 <div class="details">

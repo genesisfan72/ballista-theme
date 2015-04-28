@@ -5,7 +5,7 @@
 ?>
 
 <?php
-$layout = get_theme_mod( 'layout', 'blog' );
+$layout = get_theme_mod( 'woc_front_page_style' );
 
 if ( isset( $_GET[ 'fp_layout' ] ) ) $layout = $_GET[ 'fp_layout' ];
 ?>

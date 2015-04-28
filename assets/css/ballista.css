@@ -386,7 +386,10 @@ button:focus {
   color: inherit;
   background: black;
   min-height: 300px;
-  overflow: hidden;
+  overflow: hidden; }
+  .grid__item__container .grid__item * {
+    z-index: 10; }
+.grid__item__container .grid__item--flex {
   display: -webkit-box;
   display: -moz-box;
   display: box;
@@ -410,8 +413,9 @@ button:focus {
   -moz-align-content: stretch;
   align-content: stretch;
   -ms-flex-line-pack: stretch; }
-  .grid__item__container .grid__item * {
-    z-index: 10; }
+.grid__item__container .grid__item--portfolio--full {
+  width: 100%;
+  height: 70vh; }
 
 /* Grid item "border" */
 /* grid item element and full content element styles */
@@ -850,6 +854,7 @@ button:focus {
   padding: 0 5em;
   z-index: -1;
   text-align: center;
+  overflow: hidden;
   -webkit-align-self: center;
   -moz-align-self: center;
   align-self: center;
@@ -866,7 +871,8 @@ button:focus {
     font-family: "Roboto", sans-serif;
     font-size: 2.4em;
     font-weight: 700;
-    text-transform: uppercase; }
+    text-transform: uppercase;
+    overflow: hidden; }
   .portfolio__overlay .details {
     color: white; }
 
@@ -1267,19 +1273,17 @@ button:focus {
     overflow: hidden;
     padding: 0.5em 0;
     opacity: 0;
-    -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
-    transition: opacity 0.35s, transform 0.35s;
-    -webkit-transition: -webkit-transform 0.35s;
-    transition: transform 0.35s;
+    -webkit-transition: all 0.35s linear;
+    -moz-transition: all 0.35s linear;
+    transition: all 0.35s linear;
     -webkit-transform: translate3d(-100%, 0, 0);
     transform: translate3d(-100%, 0, 0); }
   .effect-sarah .details {
     position: relative;
     opacity: 0;
-    -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
-    transition: opacity 0.35s, transform 0.35s;
-    -webkit-transition: -webkit-transform 0.35s;
-    transition: transform 0.35s;
+    -webkit-transition: all 0.35s linear;
+    -moz-transition: all 0.35s linear;
+    transition: all 0.35s linear;
     -webkit-transform: translate3d(40%, 0, 0);
     transform: translate3d(40%, 0, 0);
     font-size: 1.4em;
