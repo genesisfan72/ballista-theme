@@ -107,6 +107,8 @@ if (isset($_GET['fp_layout'])) $layout = $_GET['fp_layout'];
                                         <?php if( function_exists('dot_irecommendthis') ) dot_irecommendthis(); ?>
                                     </div>
                                 </div>
+
+                                <div class="loader"></div>
                             </div>
                         </div>
                     <?php } ?>

@@ -203,6 +203,10 @@ button:focus
     padding-right: 25px
     &:last-child
       padding-right: 0
+  &.animate
+    @include transition-delay(0s)
+    opacity: 0
+    @include transform(translate3d(0, -20px, 0))
 
 .top-bar__headline
   margin: 0
@@ -309,7 +313,7 @@ button:focus
   width: 40%
   margin: 1em auto
   position: relative
-  background: rgba(0, 0, 0, 0.1)
+  background: rgba(0, 0, 0, 0)
   &::before
     content: ''
     position: absolute
@@ -365,14 +369,14 @@ button:focus
 /* opening
 
 .grid__item--animate
-  .title--preview
+  .top-bar
     @include transition-delay(0s)
     opacity: 0
     @include transform(translate3d(0, -20px, 0))
   .loader
     @include transition-delay(0.1s)
     opacity: 0
-    @include transform(translate3d(0, -30px, 0))
+    @include transform(translate3d(0, 30px, 0))
   .category
     @include transition-delay(0.15s)
     opacity: 0
@@ -595,7 +599,7 @@ button:focus
     @include transform(scale3d(0.5, 0.5, 1))
 
 .content__item--show
-  .category--full, .title--full
+  .category--full, .title--full, .top-bar
     opacity: 1
     @include transform(translate3d(0, 0, 0))
     -webkit-transition: -webkit-transform 0.3s, opacity 0.3s
@@ -608,7 +612,7 @@ button:focus
       -webkit-transition: -webkit-transform 0.3s, opacity 0.3s
       transition: transform 0.3s, opacity 0.3s
       @include transition-timing-function(cubic-bezier(0.2, 1, 0.3, 1))
-  .category--full
+  .category--full, .top-bar
     @include transition-timing-function(ease-out)
   .title--full
     @include transition-timing-function(ease-out)
@@ -623,6 +627,11 @@ button:focus
   &.content__item p
     opacity: 1
     @include transition(opacity 0.5s 0.25s)
+
+.post-nav
+  @include display(flex)
+  .grid__item
+    width: 50%
 
 .portfolio__overlay
   padding: 0 5em

@@ -46,6 +46,7 @@ jQuery(function($) {
 		isAnimating = false,
 		menuCtrl = document.getElementById('menu-toggle'),
 		menuCloseCtrl = sidebarEl.querySelector('.close-button'),
+        topBar = gridEl.querySelector('.top-bar'),
         $isoContainer = $('.grid__item__container');
 
 
@@ -103,6 +104,7 @@ jQuery(function($) {
                     current = pos;
                     // simulate loading time..
                     classie.add(item, 'grid__item--loading');
+                    classie.add(topBar, 'animate');
 
                     setTimeout(function () {
                         classie.add(item, 'grid__item--animate');
@@ -236,6 +238,7 @@ jQuery(function($) {
 				gridItemsContainer.removeChild(dummy);
 				classie.remove(gridItem, 'grid__item--loading');
 				classie.remove(gridItem, 'grid__item--animate');
+                classie.remove(topBar, 'animate');
 				lockScroll = false;
 				window.removeEventListener( 'scroll', noscroll );
 			});

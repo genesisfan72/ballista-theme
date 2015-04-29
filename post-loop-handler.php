@@ -33,5 +33,7 @@ setup_postdata( $post );
 
     <?php the_content(); ?>
 
+    <?php get_template_part( 'nav', 'footer-post' ); ?>
+
 </article>
 
