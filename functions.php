@@ -21,23 +21,24 @@ add_action( 'tgmpa_register', 'ballista_register_required_plugins' );
 /**
  * Register the required plugins for this theme.
  */
-function ballista_register_required_plugins() {
+function ballista_register_required_plugins()
+{
 
     $plugins = array(
         array(
-            'name'     => 'Wordpress Retina 2x',
-            'slug'     => 'wp-retina-2x',
+            'name' => 'Wordpress Retina 2x',
+            'slug' => 'wp-retina-2x',
             'required' => true,
         ),
         array(
-            'name'     => 'Responsive Lightbox',
-            'slug'     => 'responsive-lightbox',
+            'name' => 'Responsive Lightbox',
+            'slug' => 'responsive-lightbox',
             'required' => false,
         ),
         array(
-            'name'      => 'Intuitive Custom Post Order',
-            'slug'      => 'intuitive-custom-post-order',
-            'required'  => 'false'
+            'name' => 'Intuitive Custom Post Order',
+            'slug' => 'intuitive-custom-post-order',
+            'required' => 'false'
         )
 
         // TODO - Add recommend this plugin
@@ -53,29 +54,29 @@ function ballista_register_required_plugins() {
      * end of each line for what each argument will be.
      */
     $config = array(
-        'domain'       => $theme_text_domain,
-        'menu'         => 'install-my-theme-plugins',
-        'has_notices'  => true,
+        'domain' => $theme_text_domain,
+        'menu' => 'install-my-theme-plugins',
+        'has_notices' => true,
         // Show admin notices
-        'dismissable'  => false,
+        'dismissable' => false,
         // If false, a user cannot dismiss the nag message.
-        'dismiss_msg'  => '',
+        'dismiss_msg' => '',
         // If 'dismissable' is false, this message will be output at top of nag.
         'is_automatic' => false,
         // Automatically activate plugins after installation or not.
-        'strings'      => array(
-            'page_title'             => __( 'Install Recommended Plugins', $theme_text_domain ),
-            'menu_title'             => __( 'Install Plugins', $theme_text_domain ),
-            'instructions_install'   => __( 'The %1$s plugin is recommended for this theme. Click on the big blue button below to install and activate %1$s.', $theme_text_domain ),
-            'instructions_activate'  => __( 'The %1$s is installed but currently inactive. Please go to the <a href="%2$s">plugin administration page</a> page to activate it.', $theme_text_domain ),
-            'button'                 => __( 'Install %s Now', $theme_text_domain ),
-            'installing'             => __( 'Installing Plugin: %s', $theme_text_domain ),
-            'oops'                   => __( 'Something went wrong with the plugin API.', $theme_text_domain ),
-            'notice_can_install'     => __( 'This theme recommends the use of the %1$s plugin. <a href="%2$s"><strong>Click here to begin the installation process</strong></a>. You may be asked for FTP credentials based on your server setup.', $theme_text_domain ),
-            'notice_cannot_install'  => __( 'Sorry, but you do not have the correct permissions to install the %s plugin. Contact the administrator of this site for help on getting the plugin installed.', $theme_text_domain ),
-            'notice_can_activate'    => __( 'This theme recommends the use of the %1$s plugin. That plugin is currently inactive, so please go to the <a href="%2$s">plugin administration page</a> to activate it.', $theme_text_domain ),
+        'strings' => array(
+            'page_title' => __( 'Install Recommended Plugins', $theme_text_domain ),
+            'menu_title' => __( 'Install Plugins', $theme_text_domain ),
+            'instructions_install' => __( 'The %1$s plugin is recommended for this theme. Click on the big blue button below to install and activate %1$s.', $theme_text_domain ),
+            'instructions_activate' => __( 'The %1$s is installed but currently inactive. Please go to the <a href="%2$s">plugin administration page</a> page to activate it.', $theme_text_domain ),
+            'button' => __( 'Install %s Now', $theme_text_domain ),
+            'installing' => __( 'Installing Plugin: %s', $theme_text_domain ),
+            'oops' => __( 'Something went wrong with the plugin API.', $theme_text_domain ),
+            'notice_can_install' => __( 'This theme recommends the use of the %1$s plugin. <a href="%2$s"><strong>Click here to begin the installation process</strong></a>. You may be asked for FTP credentials based on your server setup.', $theme_text_domain ),
+            'notice_cannot_install' => __( 'Sorry, but you do not have the correct permissions to install the %s plugin. Contact the administrator of this site for help on getting the plugin installed.', $theme_text_domain ),
+            'notice_can_activate' => __( 'This theme recommends the use of the %1$s plugin. That plugin is currently inactive, so please go to the <a href="%2$s">plugin administration page</a> to activate it.', $theme_text_domain ),
             'notice_cannot_activate' => __( 'Sorry, but you do not have the correct permissions to activate the %s plugin. Contact the administrator of this site for help on getting the plugin activated.', $theme_text_domain ),
-            'return'                 => __( 'Return to Plugins Installer', $theme_text_domain ),
+            'return' => __( 'Return to Plugins Installer', $theme_text_domain ),
         ),
     );
 
@@ -215,13 +216,13 @@ function ballista_change_avatar_css( $class )
 /**
  * Remove any 'p' tags surrounding images in content
  */
-function ballista_filter_ptags_on_images($content)
+function ballista_filter_ptags_on_images( $content )
 {
-    return preg_replace('/<p>(\s*)(<img .* \/>)(\s*)<\/p>/iU', '\2', $content);
+    return preg_replace( '/<p>(\s*)(<img .* \/>)(\s*)<\/p>/iU', '\2', $content );
 }
 
 // we want it to be run after the autop stuff... 10 is default.
-add_filter('the_content', 'ballista_filter_ptags_on_images');
+add_filter( 'the_content', 'ballista_filter_ptags_on_images' );
 
 
 /**
@@ -258,23 +259,26 @@ add_filter( 'excerpt_more', 'ballista_new_excerpt_more' );
 /**
  * Limit the excerpt length
  */
-function ballista_new_excerpt_length($length) {
+function ballista_new_excerpt_length( $length )
+{
     return 20;
 }
-add_filter('excerpt_length', 'ballista_new_excerpt_length', 999);
+
+add_filter( 'excerpt_length', 'ballista_new_excerpt_length', 999 );
 
 /**
  * Set the max length for custom excerpt entries
  * @param $charlength
  */
-function ballista_the_excerpt_max_charlength($charlength) {
+function ballista_the_excerpt_max_charlength( $charlength )
+{
     $excerpt = get_the_excerpt();
     $charlength++;
 
     if ( mb_strlen( $excerpt ) > $charlength ) {
         $subex = mb_substr( $excerpt, 0, $charlength - 5 );
         $exwords = explode( ' ', $subex );
-        $excut = - ( mb_strlen( $exwords[ count( $exwords ) - 1 ] ) );
+        $excut = -( mb_strlen( $exwords[ count( $exwords ) - 1 ] ) );
         if ( $excut < 0 ) {
             echo mb_substr( $subex, 0, $excut );
         } else {
@@ -285,6 +289,39 @@ function ballista_the_excerpt_max_charlength($charlength) {
         echo $excerpt;
     }
 }
+
+/**
+ * Custom padding shortcode
+ * @param $atts
+ * @param null $content
+ * @return string
+ */
+function ballista_padding( $atts, $content = null )
+{
+    extract( shortcode_atts( array( 'left' => 0, 'right' => 0, 'top' => 0, 'bottom' => 0 ), $atts ) );
+    return '<div style="padding: ' . $top . 'px ' . $right . 'px ' . $bottom . 'px ' . $left . 'px">' . do_shortcode( $content ) . '</div>';
+}
+
+add_shortcode( 'bPadding', 'ballista_padding' );
+
+/**
+ * Custom columns shortcode
+ * @param $atts
+ * @param null $content
+ * @return string
+ */
+function ballista_columns( $atts, $content = null )
+{
+    extract( shortcode_atts( array( 'cols' => 1, 'gap' => 20 ), $atts ) );
+    return '<div style="-webkit-column-count: ' . $cols . ';
+  -moz-column-count: ' . $cols . ';
+  column-count: ' . $cols . ';
+  -webkit-column-gap: ' . $gap . 'px;
+  -moz-column-gap: ' . $gap . 'px;
+  column-gap: ' . $gap . 'px;">' . do_shortcode( $content ) . '</div>';
+}
+
+add_shortcode( 'bColumns', 'ballista_columns' );
 
 
 /**
