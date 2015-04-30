@@ -157,7 +157,32 @@ jQuery(function($) {
             $isoContainer.isotope({ filter: filterValue });
             return false;
         });
+
+        $(document).on('click', '.post-nav .grid__item', function() {
+            $(this).addClass('grid__item--animate');
+            var id = $(this).data('id')
+            loadCaseStudy(id);
+        });
+
+        $(document).on('click', '.post__nav--arrow', function() {
+            var id = $(this).data('id')
+            loadCaseStudy(id);
+        });
 	}
+
+    function loadCaseStudy(id) {
+        $.ajax({
+            type: 'POST',
+            data: {'post_id': id},
+            dataType: 'html',
+            url: '/wp-content/themes/ballista/post-loop-handler.php',
+            success: function (data) {
+                setTimeout(function () {
+                    loadContent($(this).get(0), data);
+                }, 500);
+            }
+        });
+    }
 
 	function loadContent(item, data) {
         // set the content

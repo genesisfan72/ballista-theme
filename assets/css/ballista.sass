@@ -48,13 +48,8 @@ body
   color: rgba(51, 51, 51, 1)
   font-weight: 700
 
-
-.content--columns
-  @include column-count(2)
-  @include column-gap(20px)
-
-.padding--40
-  padding: 40px
+.text-center
+  text-align: center
 
 a
   outline: none
@@ -211,6 +206,22 @@ button:focus
 .top-bar__headline
   margin: 0
   font-size: 0.75em
+
+.top-bar__single--header
+  @include justify-content(flex-end)
+
+.top-bar__post-nav--arrows
+  position: absolute
+  width: 200px
+  left: 50%
+  bottom: 30px
+  @include transform(translateX(-50%))
+  text-align: center
+  .post__nav--arrow
+    margin: 0 2em
+    display: inline
+    font-size: 14px
+    cursor: pointer
 
 
 /* Menu button for toggling the sidebar (appears on small screen)
@@ -632,6 +643,13 @@ button:focus
   @include display(flex)
   .grid__item
     width: 50%
+  .grid__item--flex
+    @include display(flex)
+    @include flex-flow(row wrap)
+    @include align-items(flex-end)
+    @include align-content(stretch)
+  .excerpt--box
+    margin: 0 1em 1em 1em
 
 .portfolio__overlay
   padding: 0 5em
@@ -714,10 +732,11 @@ button:focus
       @include flex(1)
 
 
-.grid__item:hover .excerpt--box
-  max-height: 100%
-  height: 100%
-  opacity: 0.9
+.grid__item__container
+  .grid__item:hover .excerpt--box
+    max-height: 100%
+    height: 100%
+    opacity: 0.9
 
 /* close button (for content and sidebar)
 
@@ -767,6 +786,8 @@ button:focus
     font-size: 1em
   .grid__item
     height: 300px
+  .post-nav .grid__item
+    height: 430px
   /* Demo ad
   body #cdawrap
     right: auto
