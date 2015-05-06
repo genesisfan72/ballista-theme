@@ -21,13 +21,17 @@ add_action( 'tgmpa_register', 'ballista_register_required_plugins' );
 /**
  * Register the required plugins for this theme.
  */
-function ballista_register_required_plugins()
-{
+function ballista_register_required_plugins() {
 
     $plugins = array(
         array(
             'name' => 'Wordpress Retina 2x',
             'slug' => 'wp-retina-2x',
+            'required' => true,
+        ),
+        array(
+            'name' => 'I Recommend This',
+            'slug' => 'i-recommend-this',
             'required' => true,
         ),
         array(
@@ -38,10 +42,18 @@ function ballista_register_required_plugins()
         array(
             'name' => 'Intuitive Custom Post Order',
             'slug' => 'intuitive-custom-post-order',
-            'required' => 'false'
+            'required' => false
+        ),
+        array(
+            'name' => 'Logo Slider',
+            'slug' => 'logo-slider',
+            'required' => false
+        ),
+        array(
+            'name' => 'Instagram Feed',
+            'slug' => 'instagram-feed',
+            'required' => false
         )
-
-        // TODO - Add recommend this plugin
     );
 
     $theme_text_domain = 'woc_broadsword';
@@ -91,8 +103,7 @@ if ( !function_exists( 'ballista_setup' ) ) :
      * runs before the init hook. The init hook is too late for some features, such
      * as indicating support for post thumbnails.
      */
-    function ballista_setup()
-    {
+    function ballista_setup() {
 
         /*
          * Make theme available for translation.
@@ -154,8 +165,7 @@ add_action( 'after_setup_theme', 'ballista_setup' );
  *
  * @link http://codex.wordpress.org/Function_Reference/register_sidebar
  */
-function ballista_widgets_init()
-{
+function ballista_widgets_init() {
     register_sidebar( array(
         'name' => __( 'Sidebar', 'ballista' ),
         'id' => 'sidebar-1',
@@ -172,8 +182,7 @@ add_action( 'widgets_init', 'ballista_widgets_init' );
 /**
  * Enqueue scripts and styles.
  */
-function ballista_scripts()
-{
+function ballista_scripts() {
     wp_enqueue_style( 'ballista-style', get_stylesheet_uri() );
 
     wp_enqueue_style( 'ballista', get_template_directory_uri() . '/assets/css/ballista.css' );
@@ -207,8 +216,7 @@ add_action( 'wp_enqueue_scripts', 'ballista_scripts' );
  * Filter the avatar display
  */
 add_filter( 'get_avatar', 'ballista_change_avatar_css' );
-function ballista_change_avatar_css( $class )
-{
+function ballista_change_avatar_css( $class ) {
     $class = str_replace( "class='avatar", "class='meta__avatar ", $class );
     return $class;
 }
@@ -216,8 +224,7 @@ function ballista_change_avatar_css( $class )
 /**
  * Remove any 'p' tags surrounding images in content
  */
-function ballista_filter_ptags_on_images( $content )
-{
+function ballista_filter_ptags_on_images( $content ) {
     return preg_replace( '/<p>(\s*)(<img .* \/>)(\s*)<\/p>/iU', '\2', $content );
 }
 
@@ -229,8 +236,7 @@ add_filter( 'the_content', 'ballista_filter_ptags_on_images' );
  * Find the first image in post content. Used for portfolio layouts.
  * @return string
  */
-function ballista_first_image()
-{
+function ballista_first_image() {
     global $post, $posts;
     $first_img = '';
     ob_start();
@@ -249,8 +255,7 @@ function ballista_first_image()
  * @param $more
  * @return string
  */
-function ballista_new_excerpt_more( $more )
-{
+function ballista_new_excerpt_more( $more ) {
     return '[...]<br/><br />';
 }
 
@@ -259,8 +264,7 @@ add_filter( 'excerpt_more', 'ballista_new_excerpt_more' );
 /**
  * Limit the excerpt length
  */
-function ballista_new_excerpt_length( $length )
-{
+function ballista_new_excerpt_length( $length ) {
     return 20;
 }
 
@@ -270,8 +274,7 @@ add_filter( 'excerpt_length', 'ballista_new_excerpt_length', 999 );
  * Set the max length for custom excerpt entries
  * @param $charlength
  */
-function ballista_the_excerpt_max_charlength( $charlength )
-{
+function ballista_the_excerpt_max_charlength( $charlength ) {
     $excerpt = get_the_excerpt();
     $charlength++;
 
@@ -296,8 +299,7 @@ function ballista_the_excerpt_max_charlength( $charlength )
  * @param null $content
  * @return string
  */
-function ballista_padding( $atts, $content = null )
-{
+function ballista_padding( $atts, $content = null ) {
     extract( shortcode_atts( array( 'left' => 0, 'right' => 0, 'top' => 0, 'bottom' => 0 ), $atts ) );
     return '<div style="padding: ' . $top . 'px ' . $right . 'px ' . $bottom . 'px ' . $left . 'px">' . do_shortcode( $content ) . '</div>';
 }
@@ -310,8 +312,7 @@ add_shortcode( 'bPadding', 'ballista_padding' );
  * @param null $content
  * @return string
  */
-function ballista_columns( $atts, $content = null )
-{
+function ballista_columns( $atts, $content = null ) {
     extract( shortcode_atts( array( 'cols' => 1, 'gap' => 20 ), $atts ) );
     return '<div style="-webkit-column-count: ' . $cols . ';
   -moz-column-count: ' . $cols . ';

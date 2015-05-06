@@ -46,6 +46,9 @@ body {
 .text-center {
   text-align: center; }
 
+.fullwidth {
+  width: 100% !important; }
+
 a {
   outline: none;
   color: #878787;
@@ -356,6 +359,18 @@ button:focus {
     display: inline;
     font-size: 14px;
     cursor: pointer; }
+
+/* Page */
+.page__hero {
+  height: 450px; }
+
+.contact__hero {
+  width: 50%;
+  height: 100%;
+  float: left; }
+
+.contact__hero iframe {
+  width: 100%; }
 
 /* Menu button for toggling the sidebar (appears on small screen) */
 .menu-toggle {

@@ -37,7 +37,7 @@ jQuery(function($) {
 		sidebarEl = document.getElementById('theSidebar'),
 		gridItemsContainer = gridEl.querySelector('section.grid'),
 		contentItemsContainer = gridEl.querySelector('section.content'),
-        contentItemsScrollWrap = contentItemsContainer.querySelector('.scroll-wrap'),
+        //contentItemsScrollWrap = contentItemsContainer.querySelector('.scroll-wrap'),
 		gridItems = gridItemsContainer !== null ? gridItemsContainer.querySelectorAll('.grid__item') : null,
 		//contentItems = contentItemsContainer.querySelectorAll('.content__item'),
 		//closeCtrl = contentItemsContainer.querySelector('.close-button'),
