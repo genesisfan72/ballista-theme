@@ -35,18 +35,8 @@ function ballista_register_required_plugins() {
             'required' => true,
         ),
         array(
-            'name' => 'Responsive Lightbox',
-            'slug' => 'responsive-lightbox',
-            'required' => false,
-        ),
-        array(
             'name' => 'Intuitive Custom Post Order',
             'slug' => 'intuitive-custom-post-order',
-            'required' => false
-        ),
-        array(
-            'name' => 'Logo Slider',
-            'slug' => 'logo-slider',
             'required' => false
         ),
         array(
@@ -323,6 +313,15 @@ function ballista_columns( $atts, $content = null ) {
 }
 
 add_shortcode( 'bColumns', 'ballista_columns' );
+
+function ballista_register_cpt_post_templates( $tpl ) {
+
+    $tpl['case_study'] = __( 'Case Studies', 'ballista' );
+
+    return $tpl;
+
+} add_filter( 'dslc_post_templates_post_types', 'ballista_register_cpt_post_templates' );
+
 
 
 /**

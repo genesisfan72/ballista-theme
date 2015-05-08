@@ -38,7 +38,7 @@ jQuery(function($) {
 		gridItemsContainer = gridEl.querySelector('section.grid'),
 		contentItemsContainer = gridEl.querySelector('section.content'),
         //contentItemsScrollWrap = contentItemsContainer.querySelector('.scroll-wrap'),
-		gridItems = gridItemsContainer !== null ? gridItemsContainer.querySelectorAll('.grid__item') : null,
+        gridItems = gridItemsContainer !== null ? gridItemsContainer.querySelectorAll('.grid__item') : null,
 		//contentItems = contentItemsContainer.querySelectorAll('.content__item'),
 		//closeCtrl = contentItemsContainer.querySelector('.close-button'),
 		current = -1,
@@ -91,7 +91,7 @@ jQuery(function($) {
     }
 
 	function initEvents() {
-        if (gridItems !== null) {
+        if (typeof gridItems !== 'undefined' && gridItems !== null) {
             [].slice.call(gridItems).forEach(function (item, pos) {
                 // grid item click event
                 item.addEventListener('click', function (ev) {
@@ -108,17 +108,19 @@ jQuery(function($) {
 
                     setTimeout(function () {
                         classie.add(item, 'grid__item--animate');
-                        $.ajax({
-                            type: 'POST',
-                            data: {'post_id': item.dataset.id},
-                            dataType: 'html',
-                            url: '/wp-content/themes/ballista/post-loop-handler.php',
-                            success: function (data) {
-                                setTimeout(function () {
-                                    loadContent(item, data);
-                                }, 500);
-                            }
-                        });
+                        console.log(item.dataset.href);
+                        location.href = item.dataset.href;
+                        //$.ajax({
+                        //    type: 'POST',
+                        //    data: {'post_id': item.dataset.id},
+                        //    dataType: 'html',
+                        //    url: '/wp-content/themes/ballista/post-loop-handler.php',
+                        //    success: function (data) {
+                        //        setTimeout(function () {
+                        //            loadContent(item, data);
+                        //        }, 500);
+                        //    }
+                        //});
                     }, 1000);
                 });
             });
@@ -138,17 +140,21 @@ jQuery(function($) {
 		} );
 
 		// hamburger menu button (mobile) and close cross
-		menuCtrl.addEventListener('click', function() {
-			if( !classie.has(sidebarEl, 'sidebar--open') ) {
-				classie.add(sidebarEl, 'sidebar--open');	
-			}
-		});
+        if (typeof menuCtrl !== 'undefined' && menuCtrl !== null) {
+            menuCtrl.addEventListener('click', function () {
+                if (!classie.has(sidebarEl, 'sidebar--open')) {
+                    classie.add(sidebarEl, 'sidebar--open');
+                }
+            });
+        }
 
-		menuCloseCtrl.addEventListener('click', function() {
-			if( classie.has(sidebarEl, 'sidebar--open') ) {
-				classie.remove(sidebarEl, 'sidebar--open');
-			}
-		});
+        if (typeof menuCloseCtrl !== 'undefined' && menuCloseCtrl !== null) {
+            menuCloseCtrl.addEventListener('click', function () {
+                if (classie.has(sidebarEl, 'sidebar--open')) {
+                    classie.remove(sidebarEl, 'sidebar--open');
+                }
+            });
+        }
 
         $(document).on('click', '.case-study-filter', function() {
             $('.case-study-filter').removeClass('selected');
@@ -185,6 +191,7 @@ jQuery(function($) {
     }
 
 	function loadContent(item, data) {
+        /*
         // set the content
         contentItemsScrollWrap.innerHTML = data;
         var contentItem = contentItemsContainer.querySelector('.content__item'),
@@ -237,6 +244,7 @@ jQuery(function($) {
 
 			isAnimating = false;
 		});
+		*/
 	}
 
 	function hideContent() {

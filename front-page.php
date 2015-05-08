@@ -25,8 +25,6 @@ if ( isset( $_GET[ 'fp_layout' ] ) ) $layout = $_GET[ 'fp_layout' ];
 
 <?php get_header(); ?>
 
-    <button id="menu-toggle" class="menu-toggle"><span>Menu</span></button>
-
     <?php get_template_part( 'content', 'sidebar' ); ?>
 
 <?php

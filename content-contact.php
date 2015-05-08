@@ -16,6 +16,8 @@
             <?php global $response; ?>
             <?php echo $response; ?>
 
+            <?php the_content(); ?>
+
             <form action="<?php esc_url( the_permalink() ); ?>" method="post" id="contactform" novalidate="">
                 <span class="input input--nao">
 					<input class="input__field input__field--nao" type="text" id="author">

@@ -6,6 +6,8 @@
  */
 ?>
 
+<button id="menu-toggle" class="menu-toggle"><span>Menu</span></button>
+
 <div id="theSidebar" class="sidebar">
     <div class="title-area">
         <button class="close-button fa fa-fw fa-close"></button>
