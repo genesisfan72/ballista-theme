@@ -64,6 +64,4 @@ if ( has_post_thumbnail( $next_post->ID ) ) {
             </div>
         </div>
     </div>
-
-
 </div>

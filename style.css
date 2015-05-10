@@ -283,6 +283,19 @@ h4,
 h5,
 h6 {
 	clear: both;
+    color: rgba(51, 51, 51, 1);
+}
+
+h1 {
+    font-family: "Roboto Slab", serif;
+    font-size: 2.8em;
+    font-weight: 900;
+}
+
+h2 {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 1.4em;
 }
 
 p {
@@ -808,7 +821,12 @@ a:active {
 
 .hentry {
 	margin: 0 0 1.5em;
-    padding: 70px 10% 0;
+    padding: 65px 10% 0;
+}
+
+.hentry h2 {
+    margin-top: 0;
+    letter-spacing: 2px;
 }
 
 .page-template-contact .hentry {
@@ -828,12 +846,22 @@ a:active {
 .page-content,
 .entry-content,
 .entry-summary {
-	margin: 1.5em 0 0;
+	margin: 0;
 }
 
 .page-links {
 	clear: both;
 	margin: 0 0 1.5em;
+}
+
+.entry-title {
+    font-family: "Roboto Slab", serif;
+    font-size: 2.8em;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 900;
+    color: rgba(51, 51, 51, 1);
+    margin: 0;
 }
 
 /*--------------------------------------------------------------

@@ -1208,7 +1208,7 @@ button:focus {
 /* 4 columns */
 /* 5 columns */
 /* 6 columns */
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 1024px) {
   html, body, .container {
     height: 100vh; }
 
@@ -1280,7 +1280,7 @@ button:focus {
   .grid__item {
     width: 16.66%; } }
 /* small screen changes for sidebar (it becomes an off-canvas menu) */
-@media screen and (max-width: 599px) {
+@media screen and (max-width: 1023px) {
   .sidebar {
     -webkit-transform: translate3d(-100%, 0, 0);
     -moz-transform: translate3d(-100%, 0, 0);
