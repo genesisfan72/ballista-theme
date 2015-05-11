@@ -363,12 +363,14 @@ button:focus {
 
 /* Page */
 .page__hero {
-  height: 450px; }
+  height: 450px;
+  opacity: 0; }
 
 .contact__hero {
   width: 50%;
   height: 100%;
-  float: left; }
+  float: left;
+  opacity: 0; }
 
 .contact__hero iframe {
   width: 100%; }
@@ -443,7 +445,8 @@ button:focus {
   color: inherit;
   background: black;
   min-height: 300px;
-  overflow: hidden; }
+  overflow: hidden;
+  opacity: 0; }
   .grid__item__container .grid__item * {
     z-index: 10; }
 .grid__item__container .grid__item--flex {

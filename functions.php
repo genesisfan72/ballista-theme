@@ -350,43 +350,34 @@ add_action( 'wp_print_styles', 'ballista_load_fonts' );
  */
 function ballista_load_lc_templates() {
     global $dslc_var_templates;
-    $dslc_var_templates['about-page'] = array(
-        'title' => __('About Page', 'ballista'),
-        'id' => 'about-page',
+
+    $dslc_var_templates['ballista-about-page'] = array(
+        'title' => __('About Page Default', 'ballista'),
+        'id' => 'ballista-about-page',
         'code' => '[dslc_modules_section show_on="desktop tablet phone" type="full" columns_spacing="spacing" bg_color="" bg_image_thumb="disabled" bg_image="" bg_image_repeat="repeat" bg_image_position="left top" bg_image_attachment="scroll" bg_image_size="auto" bg_video="" bg_video_overlay_color="#000000" bg_video_overlay_opacity="0" border_color="" border_width="0" border_style="solid" border="top right bottom left" margin_h="0" margin_b="0" padding="0" padding_h="0" custom_class="" custom_id="" ] [dslc_modules_area last="yes" first="no" size="12"] [dslc_module]YTo4OntzOjc6ImNvbnRlbnQiO3M6MzY6IjxoMj5ISSwgV0UgQVJFIFdBUlJJT1JTIE9GIENPREU8L2gyPiI7czoxMjoiY3NzX2gyX2NvbG9yIjtzOjE1OiJyZ2IoNTEsIDUxLCA1MSkiO3M6MTY6ImNzc19oMl9mb250X3NpemUiO3M6MjoiMTQiO3M6MTg6ImNzc19oMl9mb250X2ZhbWlseSI7czo2OiJSb2JvdG8iO3M6MTg6Im1vZHVsZV9pbnN0YW5jZV9pZCI7czoyOiI0NyI7czo3OiJwb3N0X2lkIjtzOjQ6IjE3MzUiO3M6MTE6ImRzbGNfbV9zaXplIjtzOjI6IjEyIjtzOjk6Im1vZHVsZV9pZCI7czoxNjoiRFNMQ19UZXh0X1NpbXBsZSI7fQ==[/dslc_module] [/dslc_modules_area] [dslc_modules_area last="no" first="yes" size="6"] [dslc_module]YTo1OntzOjc6ImNvbnRlbnQiO3M6MzkwOiI8cD5JXCdtIGEgU3BhbGRpbmcgR3JheSBpbiBhIFJpY2sgRGVlcyB3b3JsZC4gRmFjdHMgYXJlIG1lYW5pbmdsZXNzLiBZb3UgY291bGQgdXNlIGZhY3RzIHRvIHByb3ZlIGFueXRoaW5nIHRoYXRcJ3MgZXZlbiByZW1vdGVseSB0cnVlISBXaGF0XCdzIHRoZSBwb2ludCBvZiBnb2luZyBvdXQ/IFdlXCdyZSBqdXN0IGdvaW5nIHRvIHdpbmQgdXAgYmFjayBoZXJlIGFueXdheS4gSSBjYW5cJ3QgZ28gdG8ganV2aWUuIFRoZXkgdXNlIGd1eXMgbGlrZSBtZSBhcyBjdXJyZW5jeS4gU2xvdyBkb3duLCBCYXJ0ISBNeSBsZWdzIGRvblwndCBrbm93IGhvdyB0byBiZSBhcyBsb25nIGFzIHlvdXJzLiBBYWFoISBOYXR1cmFsIGxpZ2h0ISBHZXQgaXQgb2ZmIG1lISBHZXQgaXQgb2ZmIG1lITwvcD4iO3M6MTg6Im1vZHVsZV9pbnN0YW5jZV9pZCI7czoyOiI0OCI7czo3OiJwb3N0X2lkIjtzOjQ6IjE3MzUiO3M6MTE6ImRzbGNfbV9zaXplIjtzOjI6IjEyIjtzOjk6Im1vZHVsZV9pZCI7czoxNjoiRFNMQ19UZXh0X1NpbXBsZSI7fQ==[/dslc_module] [/dslc_modules_area] [dslc_modules_area last="yes" first="no" size="6"] [dslc_module]YTo1OntzOjc6ImNvbnRlbnQiO3M6NDI5OiI8cD5Zb3Uga25vdywgdGhlIG9uZSB3aXRoIGFsbCB0aGUgd2VsbCBtZWFuaW5nIHJ1bGVzIHRoYXQgZG9uXCd0IHdvcmsgb3V0IGluIHJlYWwgbGlmZSwgdWgsIENocmlzdGlhbml0eS4gS2lkcywgd2UgbmVlZCB0byB0YWxrIGZvciBhIG1vbWVudCBhYm91dCBLcnVzdHkgQnJhbmQgQ2hldyBHb28gR3VtIExpa2UgU3Vic3RhbmNlLiBXZSBhbGwga25ldyBpdCBjb250YWluZWQgc3BpZGVyIGVnZ3MsIGJ1dCB0aGUgaGFudGF2aXJ1cz8gVGhhdCBjYW1lIG91dCBvZiBsZWZ0IGZpZWxkLiBTbyBpZiB5b3VcJ3JlIGV4cGVyaWVuY2luZyBudW1ibmVzcyBhbmQvb3IgY29tYXMsIHNlbmQgZml2ZSBkb2xsYXJzIHRvIGFudGlkb3RlLCBQTyBib3jigKYgVGhleSBvbmx5IGNvbWUgb3V0IGluIHRoZSBuaWdodC4gT3IgaW4gdGhpcyBjYXNlLCB0aGUgZGF5LjwvcD4iO3M6MTg6Im1vZHVsZV9pbnN0YW5jZV9pZCI7czoyOiI1MSI7czo3OiJwb3N0X2lkIjtzOjQ6IjE3MzUiO3M6MTE6ImRzbGNfbV9zaXplIjtzOjI6IjEyIjtzOjk6Im1vZHVsZV9pZCI7czoxNjoiRFNMQ19UZXh0X1NpbXBsZSI7fQ==[/dslc_module] [/dslc_modules_area] [/dslc_modules_section] [dslc_modules_section show_on="desktop tablet phone" type="full" columns_spacing="spacing" bg_color="" bg_image_thumb="disabled" bg_image="" bg_image_repeat="repeat" bg_image_position="left top" bg_image_attachment="scroll" bg_image_size="auto" bg_video="" bg_video_overlay_color="#000000" bg_video_overlay_opacity="0" border_color="" border_width="0" border_style="solid" border="top right bottom left" margin_h="0" margin_b="0" padding="80" padding_h="0" custom_class="" custom_id="" ] [dslc_modules_area last="no" first="yes" size="3"] [dslc_module]YTo4OntzOjc6ImNvbnRlbnQiO3M6MTA2OiI8cD48c3Ryb25nPkRFU0lHTjwvc3Ryb25nPjwvcD48dWw+PGxpPlVzZXIgRXhwZXJpZW5jZTwvbGk+PGxpPkludGVyYWN0aW9uPC9saT48bGk+VXNlciBJbnRlcmZhY2U8L2xpPjwvdWw+IjtzOjIyOiJjc3NfbWFpbl9tYXJnaW5fYm90dG9tIjtzOjE6IjUiO3M6MTg6ImNzc191bF9tYXJnaW5fbGVmdCI7czoxOiIwIjtzOjIzOiJjc3NfdWxfbGlfbWFyZ2luX2JvdHRvbSI7czoxOiIwIjtzOjE4OiJtb2R1bGVfaW5zdGFuY2VfaWQiO3M6MjoiMzUiO3M6NzoicG9zdF9pZCI7czo0OiIxNzM1IjtzOjExOiJkc2xjX21fc2l6ZSI7czoyOiIxMiI7czo5OiJtb2R1bGVfaWQiO3M6MTY6IkRTTENfVGV4dF9TaW1wbGUiO30=[/dslc_module] [/dslc_modules_area] [dslc_modules_area last="no" first="no" size="3"] [dslc_module]YTo4OntzOjc6ImNvbnRlbnQiO3M6MTA2OiI8cD48c3Ryb25nPkRFU0lHTjwvc3Ryb25nPjwvcD48dWw+PGxpPlVzZXIgRXhwZXJpZW5jZTwvbGk+PGxpPkludGVyYWN0aW9uPC9saT48bGk+VXNlciBJbnRlcmZhY2U8L2xpPjwvdWw+IjtzOjIyOiJjc3NfbWFpbl9tYXJnaW5fYm90dG9tIjtzOjE6IjUiO3M6MTg6ImNzc191bF9tYXJnaW5fbGVmdCI7czoxOiIwIjtzOjIzOiJjc3NfdWxfbGlfbWFyZ2luX2JvdHRvbSI7czoxOiIwIjtzOjE4OiJtb2R1bGVfaW5zdGFuY2VfaWQiO3M6MjoiMzYiO3M6NzoicG9zdF9pZCI7czo0OiIxNzM1IjtzOjExOiJkc2xjX21fc2l6ZSI7czoyOiIxMiI7czo5OiJtb2R1bGVfaWQiO3M6MTY6IkRTTENfVGV4dF9TaW1wbGUiO30=[/dslc_module] [/dslc_modules_area] [dslc_modules_area last="no" first="no" size="3"] [dslc_module]YTo4OntzOjc6ImNvbnRlbnQiO3M6MTA2OiI8cD48c3Ryb25nPkRFU0lHTjwvc3Ryb25nPjwvcD48dWw+PGxpPlVzZXIgRXhwZXJpZW5jZTwvbGk+PGxpPkludGVyYWN0aW9uPC9saT48bGk+VXNlciBJbnRlcmZhY2U8L2xpPjwvdWw+IjtzOjIyOiJjc3NfbWFpbl9tYXJnaW5fYm90dG9tIjtzOjE6IjUiO3M6MTg6ImNzc191bF9tYXJnaW5fbGVmdCI7czoxOiIwIjtzOjIzOiJjc3NfdWxfbGlfbWFyZ2luX2JvdHRvbSI7czoxOiIwIjtzOjE4OiJtb2R1bGVfaW5zdGFuY2VfaWQiO3M6MjoiMzciO3M6NzoicG9zdF9pZCI7czo0OiIxNzM1IjtzOjExOiJkc2xjX21fc2l6ZSI7czoyOiIxMiI7czo5OiJtb2R1bGVfaWQiO3M6MTY6IkRTTENfVGV4dF9TaW1wbGUiO30=[/dslc_module] [/dslc_modules_area] [dslc_modules_area last="yes" first="no" size="3"] [dslc_module]YTo4OntzOjc6ImNvbnRlbnQiO3M6MTA2OiI8cD48c3Ryb25nPkRFU0lHTjwvc3Ryb25nPjwvcD48dWw+PGxpPlVzZXIgRXhwZXJpZW5jZTwvbGk+PGxpPkludGVyYWN0aW9uPC9saT48bGk+VXNlciBJbnRlcmZhY2U8L2xpPjwvdWw+IjtzOjIyOiJjc3NfbWFpbl9tYXJnaW5fYm90dG9tIjtzOjE6IjUiO3M6MTg6ImNzc191bF9tYXJnaW5fbGVmdCI7czoxOiIwIjtzOjIzOiJjc3NfdWxfbGlfbWFyZ2luX2JvdHRvbSI7czoxOiIwIjtzOjE4OiJtb2R1bGVfaW5zdGFuY2VfaWQiO3M6MjoiMzgiO3M6NzoicG9zdF9pZCI7czo0OiIxNzM1IjtzOjExOiJkc2xjX21fc2l6ZSI7czoyOiIxMiI7czo5OiJtb2R1bGVfaWQiO3M6MTY6IkRTTENfVGV4dF9TaW1wbGUiO30=[/dslc_module] [/dslc_modules_area] [/dslc_modules_section]',
         'section' => 'theme'
     );
 
-    $dslc_var_templates['contact-page'] = array(
-        'title' => __('Contact Page', 'ballista'),
-        'id' => 'contact-page',
+    $dslc_var_templates['ballista-contact-page'] = array(
+        'title' => __('Contact Page Default', 'ballista'),
+        'id' => 'ballista-contact-page',
         'code' => '[dslc_modules_section show_on="desktop tablet phone" type="full" columns_spacing="spacing" bg_color="" bg_image_thumb="disabled" bg_image="" bg_image_repeat="repeat" bg_image_position="left top" bg_image_attachment="scroll" bg_image_size="auto" bg_video="" bg_video_overlay_color="#000000" bg_video_overlay_opacity="0" border_color="" border_width="0" border_style="solid" border="top right bottom left" margin_h="0" margin_b="0" padding="0" padding_h="0" custom_class="" custom_id="" ] [dslc_modules_area last="yes" first="no" size="12"] [dslc_module]YTo2OntzOjc6ImNvbnRlbnQiO3M6MjU6IjxoMj5EUk9QIFVTIEFOIEVNQUlMPC9oMj4iO3M6MTY6ImNzc19oMl9mb250X3NpemUiO3M6MjoiMTQiO3M6MTg6Im1vZHVsZV9pbnN0YW5jZV9pZCI7czoyOiI4NiI7czo3OiJwb3N0X2lkIjtzOjQ6IjE3NzQiO3M6MTE6ImRzbGNfbV9zaXplIjtzOjI6IjEyIjtzOjk6Im1vZHVsZV9pZCI7czoxNjoiRFNMQ19UZXh0X1NpbXBsZSI7fQ==[/dslc_module] [dslc_module]YTo3OntzOjc6ImNvbnRlbnQiO3M6MTQ0OiI8cD5XZSBhcmUgYSBzbWFsbCwgbmltYmxlIHRlYW0gb2YgV29yZHByZXNzIHdhcnJpb3JzIHdpdGggYSByZWFsIHBhc3Npb24gdG8gZGVsaXZlciBzaW1wbGUgeWV0IGVmZmVjdGl2ZSB0aGVtZXMgZm9yIGEgYnJvYWQgcmFuZ2Ugb2YgbmljaGVzLjwvcD4iO3M6MTg6ImNzc19tYWluX2ZvbnRfc2l6ZSI7czoyOiIxNCI7czoyMDoiY3NzX21haW5fZm9udF9mYW1pbHkiO3M6NjoiUm9ib3RvIjtzOjE4OiJtb2R1bGVfaW5zdGFuY2VfaWQiO3M6MjoiODciO3M6NzoicG9zdF9pZCI7czo0OiIxNzc0IjtzOjExOiJkc2xjX21fc2l6ZSI7czoyOiIxMiI7czo5OiJtb2R1bGVfaWQiO3M6MTY6IkRTTENfVGV4dF9TaW1wbGUiO30=[/dslc_module] [/dslc_modules_area] [/dslc_modules_section] [dslc_modules_section show_on="desktop tablet phone" type="full" columns_spacing="spacing" bg_color="" bg_image_thumb="disabled" bg_image="" bg_image_repeat="repeat" bg_image_position="left top" bg_image_attachment="scroll" bg_image_size="auto" bg_video="" bg_video_overlay_color="#000000" bg_video_overlay_opacity="0" border_color="" border_width="0" border_style="solid" border="top right bottom left" margin_h="0" margin_b="0" padding="0" padding_h="0" custom_class="" custom_id="" ] [dslc_modules_area last="yes" first="no" size="12"] [dslc_module]YTo0OntzOjE4OiJtb2R1bGVfaW5zdGFuY2VfaWQiO2k6OTI7czo3OiJwb3N0X2lkIjtzOjQ6IjE3NzQiO3M6MTE6ImRzbGNfbV9zaXplIjtzOjI6IjEyIjtzOjk6Im1vZHVsZV9pZCI7czoyODoiQmFsbGlzdGFfQ29udGFjdF9Gb3JtX01vZHVsZSI7fQ==[/dslc_module] [/dslc_modules_area] [/dslc_modules_section]',
+        'section' => 'theme'
+    );
+
+    $dslc_var_templates['ballista-blog-page'] = array(
+        'title' => __('Blog Page Default', 'ballista'),
+        'id' => 'ballista-blog-page',
+        'code' => '[dslc_modules_section show_on="desktop tablet phone" type="full" columns_spacing="spacing" bg_color="" bg_image_thumb="disabled" bg_image="" bg_image_repeat="repeat" bg_image_position="left top" bg_image_attachment="scroll" bg_image_size="auto" bg_video="" bg_video_overlay_color="#000000" bg_video_overlay_opacity="0" border_color="" border_width="0" border_style="solid" border="top right bottom left" margin_h="0" margin_b="0" padding="80" padding_h="0" custom_class="" custom_id="" ] [dslc_modules_area last="yes" first="no" size="12"] [dslc_module]YTo3OntzOjY6ImFtb3VudCI7czoyOiIxMCI7czoxNToicGFnaW5hdGlvbl90eXBlIjtzOjg6InByZXZuZXh0IjtzOjc6ImNvbHVtbnMiO3M6MjoiMTIiO3M6MTg6Im1vZHVsZV9pbnN0YW5jZV9pZCI7czozOiIxMzUiO3M6NzoicG9zdF9pZCI7czozOiI3MDMiO3M6MTE6ImRzbGNfbV9zaXplIjtzOjI6IjEyIjtzOjk6Im1vZHVsZV9pZCI7czo5OiJEU0xDX0Jsb2ciO30=[/dslc_module] [/dslc_modules_area] [/dslc_modules_section]',
         'section' => 'theme'
     );
 }
 add_action( 'init', 'ballista_load_lc_templates' );
 
-//function ballista_alter_lc_defaults( $options, $id ) {
-//
-//    // The array that will hold new defaults
-//    $new_defaults = array();
-//
-//    // Alter defaults for Staff module
-//    if ( $id == 'DSLC_Staff' ) {
-//
-//        $new_defaults = array(
-//            'option_name' => 'new_value',
-//            'option_name' => 'new_value',
-//            'option_name' => 'new_value',
-//        );
-//
-//    }
-//
-//    // Call the function that alters the defaults and return
-//    return dslc_set_defaults( $new_defaults, $options );
-//
-//} add_filter( 'dslc_module_options', 'alter_lc_defaults', 10, 2 );
 
+/**
+ * Custom Ballista Contact Form Live Composer Module
+ */
 add_action('dslc_hook_register_modules',
     create_function('', 'return dslc_register_module( "Ballista_Contact_Form_Module" );')
 );

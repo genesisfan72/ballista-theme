@@ -428,6 +428,54 @@ table {
 }
 
 /*--------------------------------------------------------------
+# Flex
+--------------------------------------------------------------*/
+
+.flex-row-container {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-direction: normal;
+    -moz-box-direction: normal;
+    -webkit-box-orient: horizontal;
+    -moz-box-orient: horizontal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+}
+
+.flex-centered {
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-align-content: stretch;
+    -ms-flex-line-pack: stretch;
+    align-content: stretch;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.flex-child {
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    box-flex: 1;
+    -webkit-flex: 1;
+    -moz-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}
+
+/*--------------------------------------------------------------
 # Forms
 --------------------------------------------------------------*/
 .input {
@@ -812,17 +860,62 @@ a:active {
 /*--------------------------------------------------------------
 # Content
 --------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+## Blog page
+--------------------------------------------------------------*/
+.blog-excerpt {
+    height: 250px;
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.blog-excerpt:hover .excerpt-background {
+    opacity: 0.1;
+}
+
+.excerpt-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    -webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    -ms-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+    z-index: -1;
+}
+
+.excerpt-categories {
+    color: rgba(51, 51, 51, 1);
+    text-transform: uppercase;
+    font-size: 1.4em;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.excerpt-meta {
+    text-align: center;
+}
+
+.excerpt-meta .post-meta {
+    width: 200px;
+    color: rgba(135, 135, 135, 1);
+    font-size: 1.4em;
+}
+
+.post-meta .fa {
+    padding-right: 5px;
+}
+
+
 /*--------------------------------------------------------------
 ## Posts and pages
 --------------------------------------------------------------*/
-.sticky {
-	display: block;
-}
-
-.hentry {
-	margin: 0 0 1.5em;
-    padding: 65px 10% 0;
-}
 
 .hentry h2 {
     margin-top: 0;
@@ -861,8 +954,14 @@ a:active {
     letter-spacing: 3px;
     font-weight: 900;
     color: rgba(51, 51, 51, 1);
-    margin: 0;
+    margin: 0 0 15px 0;
+    text-align: center;
 }
+
+.post-meta {
+    text-align: center;
+}
+
 
 /*--------------------------------------------------------------
 ## Asides

@@ -74,6 +74,16 @@ jQuery(function($) {
 		initEvents();
         initIsotope();
         initSlider();
+
+        if (classie.has( bodyEl, 'home')) {
+            $('.grid__item').each(function(i) {
+                $(this).delay((i++) * 250).fadeTo(1000, 1); })
+        }
+
+        if (classie.has( bodyEl, 'page')) {
+            $('.page__hero, .contact__hero').each(function(i) {
+                $(this).delay((i++) * 250).fadeTo(1000, 1); })
+        }
 	}
 
     function initIsotope() {
