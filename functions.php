@@ -375,54 +375,55 @@ function ballista_load_lc_templates() {
 add_action( 'init', 'ballista_load_lc_templates' );
 
 
-/**
- * Custom Ballista Contact Form Live Composer Module
- */
-add_action('dslc_hook_register_modules',
-    create_function('', 'return dslc_register_module( "Ballista_Contact_Form_Module" );')
-);
+if (class_exists('DSLC_Module')) {
+    /**
+     * Custom Ballista Contact Form Live Composer Module
+     */
+    add_action( 'dslc_hook_register_modules',
+        create_function( '', 'return dslc_register_module( "Ballista_Contact_Form_Module" );' )
+    );
 
-class Ballista_Contact_Form_Module extends DSLC_Module {
+    class Ballista_Contact_Form_Module extends DSLC_Module {
 
-    // Module Attributes
-    var $module_id = 'Ballista_Contact_Form_Module';
-    var $module_title = 'Ballista Contact Form';
-    var $module_icon = 'circle';
-    var $module_category = 'general';
+        // Module Attributes
+        var $module_id = 'Ballista_Contact_Form_Module';
+        var $module_title = 'Ballista Contact Form';
+        var $module_icon = 'circle';
+        var $module_category = 'general';
 
-    // Module Options
-    function options() {
+        // Module Options
+        function options() {
 
-        // The options array
-        $options = array(
+            // The options array
+            $options = array(
 
-            // A simple text input option
-            array(
-                'label' => 'Text Input',
-                'id' => 'text_input',
-                'std' => 'Default value',
-                'type' => 'text',
-            ),
+                // A simple text input option
+                array(
+                    'label' => 'Text Input',
+                    'id' => 'text_input',
+                    'std' => 'Default value',
+                    'type' => 'text',
+                ),
 
-        );
+            );
 
-        // Return the array
-        return apply_filters( 'dslc_module_options', $options, $this->module_id );
+            // Return the array
+            return apply_filters( 'dslc_module_options', $options, $this->module_id );
 
-    }
+        }
 
-    // Module Output
-    function output( $options ) {
+        // Module Output
+        function output( $options ) {
 
-        // REQUIRED
-        $this->module_start( $options );
+            // REQUIRED
+            $this->module_start( $options );
 
-        // Your content
-        echo '<form action="' . esc_url( get_the_permalink() ) . '" method="post" id="contactform" novalidate="">
+            // Your content
+            echo '<form action="' . esc_url( get_the_permalink() ) . '" method="post" id="contactform" novalidate="">
                 <span class="input input--nao">
 					<input class="input__field input__field--nao" type="text" id="author">
 					<label class="input__label input__label--nao" for="author">
-                        <span class="input__label-content input__label-content--nao">' . __( 'Your name:' , 'ballista' ) . '</span>
+                        <span class="input__label-content input__label-content--nao">' . __( 'Your name:', 'ballista' ) . '</span>
                     </label>
 					<svg class="graphic graphic--nao" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">
                         <path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"></path>
@@ -431,7 +432,7 @@ class Ballista_Contact_Form_Module extends DSLC_Module {
 				<span class="input input--nao">
 					<input class="input__field input__field--nao" type="text" id="email">
 					<label class="input__label input__label--nao" for="email">
-                        <span class="input__label-content input__label-content--nao">' . __( 'Your email:' , 'ballista' ) . '</span>
+                        <span class="input__label-content input__label-content--nao">' . __( 'Your email:', 'ballista' ) . '</span>
                     </label>
 					<svg class="graphic graphic--nao" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">
                         <path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"></path>
@@ -440,7 +441,7 @@ class Ballista_Contact_Form_Module extends DSLC_Module {
 				<span class="input input--nao">
 					<input class="input__field input__field--nao" type="text" id="contactmessage">
 					<label class="input__label input__label--nao" for="contactmessage">
-                        <span class="input__label-content input__label-content--nao">' . __( 'Your message' , 'ballista' ) . '</span>
+                        <span class="input__label-content input__label-content--nao">' . __( 'Your message', 'ballista' ) . '</span>
                     </label>
 					<svg class="graphic graphic--nao" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">
                         <path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"></path>
@@ -448,22 +449,22 @@ class Ballista_Contact_Form_Module extends DSLC_Module {
 				</span>
 
 				<div class="form-group contact-form-human">
-					<label for="human">' . __( 'Human verification:' , 'woc_broadsword' ) . '</label>
+					<label for="human">' . __( 'Human verification:', 'woc_broadsword' ) . '</label>
 					<input id="human" name="human" type="text" class="form-control" required value=""><span> + 3 = 5</span>
 				</div>
 
                 <p class="form-submit">
-                    <input name="form_submit" type="submit" id="form_submit" value="' . __( 'Send' , 'ballista' ) . '">
+                    <input name="form_submit" type="submit" id="form_submit" value="' . __( 'Send', 'ballista' ) . '">
                 </p>
             </form>';
 
-        // REQUIRED
-        $this->module_end( $options );
+            // REQUIRED
+            $this->module_end( $options );
+
+        }
 
     }
-
 }
-
 
 /**
  * Implement the Custom Header feature.
