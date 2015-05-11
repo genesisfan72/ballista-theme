@@ -27,6 +27,7 @@ function ballista_register_required_plugins() {
         array(
             'name' => 'Live Composer',
             'slug' => 'ds-live-composer',
+            'source'             => get_stylesheet_directory() . '/assets/plugins/ds-live-composer.zip',
             'required' => true
         ),
         array(
@@ -38,6 +39,7 @@ function ballista_register_required_plugins() {
             'name' => 'I Recommend This',
             'slug' => 'i-recommend-this',
             'required' => true,
+            'force_activation' => true
         ),
         array(
             'name' => 'Intuitive Custom Post Order',
