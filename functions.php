@@ -27,7 +27,7 @@ function ballista_register_required_plugins() {
         array(
             'name' => 'Live Composer',
             'slug' => 'ds-live-composer',
-            'source'             => get_stylesheet_directory() . '/assets/plugins/ds-live-composer.zip',
+            'source'             => get_stylesheet_directory() . '/assets/plugins/livecomposer/ds-live-composer.zip',
             'required' => true
         ),
         array(
