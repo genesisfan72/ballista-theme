@@ -443,12 +443,7 @@ button:focus {
   color: inherit;
   background: black;
   min-height: 300px;
-  overflow: hidden;
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -ms-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-    -o-transition-transition: all 0.5s ease; }
+  overflow: hidden; }
   .grid__item__container .grid__item * {
     z-index: 10; }
 .grid__item__container .grid__item--flex {
