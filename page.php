@@ -1,35 +1,41 @@
 <?php
 /**
- * The template for displaying all pages.
+ * The template for displaying a standard page.
  *
- * This is the template that displays all pages by default.
- * Please note that this is the WordPress construct of pages
- * and that other 'pages' on your WordPress site will use a
- * different template.
+ * Template Name: Ballista Page
  *
  * @package Ballista
  */
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+<button id="menu-toggle" class="menu-toggle"><span>Menu</span></button>
 
-			<?php while ( have_posts() ) : the_post(); ?>
+<?php get_template_part( 'content', 'sidebar' ); ?>
 
-				<?php get_template_part( 'content', 'page' ); ?>
+<div id="theGrid" class="main">
+    <section class="grid">
+        <div class="grid__item__container">
 
-				<?php
-					// If comments are open or we have at least one comment, load up the comment template
-					if ( comments_open() || get_comments_number() ) :
-						comments_template();
-					endif;
-				?>
+            <?php while ( have_posts() ) : the_post(); ?>
 
-			<?php endwhile; // end of the loop. ?>
+                <?php get_template_part( 'content', 'header-image' ); ?>
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+                <?php get_template_part( 'content', 'page' ); ?>
 
-<?php get_sidebar(); ?>
+                <?php the_post_navigation(); ?>
+
+                <?php
+                // If comments are open or we have at least one comment, load up the comment template
+                if ( comments_open() || get_comments_number() ) :
+                    comments_template();
+                endif;
+                ?>
+
+            <?php endwhile; // end of the loop. ?>
+
+        </div>
+    </section>
+</div>
+
 <?php get_footer(); ?>

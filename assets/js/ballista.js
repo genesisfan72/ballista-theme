@@ -77,13 +77,19 @@ jQuery(function($) {
 
         if (classie.has( bodyEl, 'home')) {
             $('.grid__item').each(function(i) {
-                $(this).delay((i++) * 250).fadeTo(1000, 1); })
+                var self = this;
+                setTimeout(function() {
+                    $(self).removeClass('transparent');
+                },300 * i);
+            });
         }
 
-        if (classie.has( bodyEl, 'page')) {
-            $('.page__hero, .contact__hero').each(function(i) {
-                $(this).delay((i++) * 250).fadeTo(1000, 1); })
-        }
+        $('.page__hero, .contact__hero, .header-image').each(function(i) {
+            var self = this;
+            setTimeout(function () {
+                $(self).removeClass('transparent');
+            }, 300 * i);
+        });
 	}
 
     function initIsotope() {

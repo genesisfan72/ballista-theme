@@ -476,6 +476,25 @@ table {
 }
 
 /*--------------------------------------------------------------
+# Helpers
+--------------------------------------------------------------*/
+.opaque {
+    opacity: 1;
+}
+
+.transparent {
+    opacity: 0;
+}
+
+.quick-transition {
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+/*--------------------------------------------------------------
 # Forms
 --------------------------------------------------------------*/
 .input {
@@ -917,6 +936,15 @@ a:active {
 ## Posts and pages
 --------------------------------------------------------------*/
 
+.blog .header-image {
+    height: 35em;
+}
+
+.single .header-image, .page .header-image {
+    height: 70vh;
+    margin-bottom: 5em;
+}
+
 .hentry h2 {
     margin-top: 0;
     letter-spacing: 2px;
@@ -938,8 +966,13 @@ a:active {
 
 .page-content,
 .entry-content,
-.entry-summary {
+.entry-summary,
+.entry-footer {
 	margin: 0;
+    padding: 5% 10%;
+    font-size: 1.4em;
+    color: rgba(135, 135, 135, 1);
+    font-family: "Roboto", sans-serif;
 }
 
 .page-links {

@@ -23,11 +23,11 @@ get_header(); ?>
                     $thumb_id = get_post_thumbnail_id();
                     $thumb_url_array = wp_get_attachment_image_src( $thumb_id, 'thumbnail-size', true );
                     $thumb_url = $thumb_url_array[ 0 ];
-                    $img = 'style="background: url(' . esc_url( $thumb_url ) . ') 100% / cover"';
+                    $img = 'style="background: url(' . esc_url( $thumb_url ) . ') 60% / cover"';
                 }
                 ?>
 
-                <div class="page__hero flex" <?php echo $img; ?>></div>
+                <div class="page__hero transparent quick-transition" <?php echo $img; ?>></div>
 
                 <?php echo do_shortcode( '[instagram-feed num=5 cols=5]' ); ?>
 

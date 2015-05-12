@@ -81,7 +81,7 @@ get_header(); ?>
 
             <?php while ( have_posts() ) : the_post(); ?>
 
-                <div class="page__hero">
+                <div class="page__hero transparent quick-transition">
                     <?php
                     $left_block = get_theme_mod( 'woc_contact_page_header_left' );
                     $right_block = get_theme_mod( 'woc_contact_page_header_right' );

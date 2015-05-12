@@ -284,6 +284,62 @@ function ballista_customize_register( $wp_customize ) {
         'priority' => 6
     ) );
 
+    /**
+     * Page Header Image Section
+     */
+    $wp_customize->add_section( 'woc_default_pages_section', array(
+        'title' => __( 'Page Header Images', 'ballista' ),
+        'priority' => 7,
+    ) );
+
+    $wp_customize->add_setting( 'woc_blog_image_header', array(
+        'default' => '',
+        'transport' => 'refresh' ) );
+
+    $wp_customize->add_control(
+        new WP_Customize_Image_Control(
+            $wp_customize,
+            'woc_blog_image_header',
+            array(
+                'label' => __( 'Blog Page Header Image', 'ballista' ),
+                'section' => 'woc_default_pages_section',
+                'settings' => 'woc_blog_image_header'
+            )
+        )
+    );
+
+    $wp_customize->add_setting( 'woc_archive_image_header', array(
+        'default' => '',
+        'transport' => 'refresh' ) );
+
+    $wp_customize->add_control(
+        new WP_Customize_Image_Control(
+            $wp_customize,
+            'woc_archive_image_header',
+            array(
+                'label' => __( 'Archive Page Header Image', 'ballista' ),
+                'section' => 'woc_default_pages_section',
+                'settings' => 'woc_archive_image_header'
+            )
+        )
+    );
+
+    $wp_customize->add_setting( 'woc_search_image_header', array(
+        'default' => '',
+        'transport' => 'refresh' ) );
+
+    $wp_customize->add_control(
+        new WP_Customize_Image_Control(
+            $wp_customize,
+            'woc_search_image_header',
+            array(
+                'label' => __( 'Search Page Header Image', 'ballista' ),
+                'section' => 'woc_default_pages_section',
+                'settings' => 'woc_search_image_header'
+            )
+        )
+    );
+
     $wp_customize->get_setting( 'blogname' )->transport = 'postMessage';
     $wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
     $wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';

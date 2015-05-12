@@ -363,14 +363,12 @@ button:focus {
 
 /* Page */
 .page__hero {
-  height: 450px;
-  opacity: 0; }
+  height: 450px; }
 
 .contact__hero {
   width: 50%;
   height: 100%;
-  float: left;
-  opacity: 0; }
+  float: left; }
 
 .contact__hero iframe {
   width: 100%; }
@@ -446,7 +444,11 @@ button:focus {
   background: black;
   min-height: 300px;
   overflow: hidden;
-  opacity: 0; }
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+    -o-transition-transition: all 0.5s ease; }
   .grid__item__container .grid__item * {
     z-index: 10; }
 .grid__item__container .grid__item--flex {
@@ -1413,6 +1415,9 @@ button:focus {
   .portfolio__overlay .dot-irecommendthis:hover, .portfolio__overlay .dot-irecommendthis.active {
     color: white !important;
     background-position: 0 -23px; }
+
+.entry-content .dot-irecommendthis {
+  display: none; }
 
 /*------------------------------------ */
 /**** Flexslider */

@@ -7,26 +7,33 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+    <button id="menu-toggle" class="menu-toggle"><span>Menu</span></button>
 
-		<?php while ( have_posts() ) : the_post(); ?>
+    <?php get_template_part( 'content', 'sidebar' ); ?>
 
-			<?php get_template_part( 'content', 'single' ); ?>
+    <div id="theGrid" class="main">
+        <section class="grid">
+            <div class="grid__item__container">
 
-			<?php the_post_navigation(); ?>
+                <?php while ( have_posts() ) : the_post(); ?>
 
-			<?php
-				// If comments are open or we have at least one comment, load up the comment template
-				if ( comments_open() || get_comments_number() ) :
-					comments_template();
-				endif;
-			?>
+                    <?php get_template_part( 'content', 'header-image' ); ?>
 
-		<?php endwhile; // end of the loop. ?>
+                    <?php get_template_part( 'content', 'single' ); ?>
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+                    <?php the_post_navigation(); ?>
 
-<?php get_sidebar(); ?>
+                    <?php
+                    // If comments are open or we have at least one comment, load up the comment template
+                    if ( comments_open() || get_comments_number() ) :
+                        comments_template();
+                    endif;
+                    ?>
+
+                <?php endwhile; // end of the loop. ?>
+
+            </div>
+        </section>
+    </div>
+
 <?php get_footer(); ?>

@@ -53,7 +53,7 @@ if (isset($_GET['fp_layout'])) $layout = $_GET['fp_layout'];
                     ?>
 
                     <?php if ( $layout === 'blog' ) { ?>
-                        <div class="grid__item grid__item--flex <?php echo $term_classes; ?>" data-href="<?php echo the_permalink(); ?>" <?php echo $img; ?>>
+                        <div class="grid__item grid__item--flex transparent <?php echo $term_classes; ?>" data-href="<?php echo the_permalink(); ?>" <?php echo $img; ?>>
                             <div class="excerpt--box">
                                 <div class="excerpt__title--row">
                                     <div class="excerpt__title">
@@ -78,7 +78,7 @@ if (isset($_GET['fp_layout'])) $layout = $_GET['fp_layout'];
                     <?php }
 
                     else if ( $layout === 'portfolio' ) { ?>
-                        <div class="grid__item grid__item--flex effect-sarah hover--overlay <?php echo $term_classes; ?>" data-id="<?php echo the_ID(); ?>" <?php echo $img; ?>>
+                        <div class="grid__item grid__item--flex effect-sarah hover--overlay transparent <?php echo $term_classes; ?>" data-id="<?php echo the_ID(); ?>" <?php echo $img; ?>>
                             <div class="portfolio__overlay">
                                 <h2 class="title"><?php the_title(); ?></span></h2>
                                 <div class="details">
@@ -92,7 +92,7 @@ if (isset($_GET['fp_layout'])) $layout = $_GET['fp_layout'];
                     <?php }
 
                     else if ( $layout === 'portfolio-full' ) { ?>
-                        <div class="grid__item grid__item--flex grid__item--portfolio--full effect-sarah hover--overlay <?php echo $term_classes; ?>" data-id="<?php echo the_ID(); ?>" <?php echo $img; ?>>
+                        <div class="grid__item grid__item--flex grid__item--portfolio--full effect-sarah hover--overlay transparent <?php echo $term_classes; ?>" data-id="<?php echo the_ID(); ?>" <?php echo $img; ?>>
                             <div class="portfolio__overlay">
                                 <h2 class="title"><?php the_title(); ?></span></h2>
                                 <div class="details">
@@ -115,13 +115,6 @@ if (isset($_GET['fp_layout'])) $layout = $_GET['fp_layout'];
 
             <?php endif; ?>
         </div>
-
-<!--        <section class="content">-->
-<!--            <div class="scroll-wrap">-->
-<!--            </div>-->
-<!--            <button class="close-button"><i class="fa fa-close"></i><span>--><?php //echo __( 'Close', 'ballista' ); ?><!--</span></button>-->
-<!--        </section>-->
-
     </section>
 
 </div>

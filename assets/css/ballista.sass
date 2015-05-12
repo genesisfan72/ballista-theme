@@ -230,13 +230,11 @@ button:focus
 /* Page
 .page__hero
   height: 450px
-  opacity: 0
 
 .contact__hero
   width: 50%
   height: 100%
   float: left
-  opacity: 0
 
 .contact__hero
   iframe
@@ -307,7 +305,11 @@ button:focus
     background: rgba(0, 0, 0, 1)
     min-height: 300px
     overflow: hidden
-    opacity: 0
+    -webkit-transition: all 0.5s ease
+    -moz-transition: all 0.5s ease
+    -ms-transition: all 0.5s ease
+    -o-transition: all 0.5s ease
+      transition: all 0.5s ease
 
     *
       z-index: 10
@@ -986,6 +988,10 @@ button:focus
     &:hover, &.active
       color: rgba(255, 255, 255, 1) !important
       background-position: 0 -23px
+
+.entry-content
+  .dot-irecommendthis
+    display: none
 
 /*------------------------------------
 /**** Flexslider
