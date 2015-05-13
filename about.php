@@ -9,7 +9,7 @@ get_header(); ?>
 
 <button id="menu-toggle" class="menu-toggle"><span>Menu</span></button>
 
-<?php get_template_part( 'content', 'sidebar' ); ?>
+<?php get_template_part( 'template-content/content', 'sidebar' ); ?>
 
 <div id="theGrid" class="main">
     <section class="grid">
@@ -31,7 +31,7 @@ get_header(); ?>
 
                 <?php echo do_shortcode( '[instagram-feed num=5 cols=5]' ); ?>
 
-                <?php get_template_part( 'content', 'page' ); ?>
+                <?php get_template_part( 'template-content/content', 'page' ); ?>
 
             <?php endwhile; // end of the loop. ?>
 

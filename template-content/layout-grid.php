@@ -13,7 +13,7 @@ if (isset($_GET['fp_layout'])) $layout = $_GET['fp_layout'];
 <div id="theGrid" class="main">
     <section class="grid">
 
-        <?php get_template_part( 'content', 'top-bar' ); ?>
+        <?php get_template_part( 'template-content/content', 'top-bar' ); ?>
 
         <div class="grid__item__container">
 

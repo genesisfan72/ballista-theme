@@ -7,14 +7,6 @@
 ?>
 
 <?php
-$img = '';
-if ( has_post_thumbnail() ) {
-    $thumb_id = get_post_thumbnail_id();
-    $thumb_url_array = wp_get_attachment_image_src( $thumb_id, 'thumbnail-size', true );
-    $thumb_url = $thumb_url_array[ 0 ];
-    $img = 'style="background: url(' . esc_url( $thumb_url ) . ') 80% / cover"';
-}
-
 $post_categories = wp_get_post_categories( get_the_ID() );
 $cats = array();
 
@@ -44,7 +36,8 @@ foreach ( $post_categories as $c ) {
 
     <div class="excerpt-meta flex-row-container flex-centered">
         <div class="post-meta post-date"><i class="fa fa-clock-o"></i><?php the_date(); ?></div>
-        <div class="post-meta post-author"><i class="fa fa-user"></i><?php the_author_meta( 'display_name' ); ?>
+        <div class="post-meta post-author"><i
+                class="fa fa-user"></i><?php echo __( 'Posted by', 'ballista' ) . ' ' . get_the_author_meta( 'display_name' ); ?>
         </div>
         <div class="post-meta num-comments"><i class="fa fa-comment"></i><?php comments_number(); ?></div>
     </div>

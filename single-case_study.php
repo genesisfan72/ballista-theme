@@ -43,13 +43,13 @@ get_header();
                                 class="fa fa-arrow-right"></i></div>
                     </div>
                     <div class="social-icons">
-                        <?php get_template_part( 'links', 'social' ); ?>
+                        <?php get_template_part( 'template-content/links', 'social' ); ?>
                     </div>
                 </header>
 
                 <?php the_content(); ?>
 
-                <?php get_template_part( 'nav', 'footer-post' ); ?>
+                <?php get_template_part( 'template-content/nav', 'footer-post' ); ?>
 
             </article>
         </section>

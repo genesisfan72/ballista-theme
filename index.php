@@ -9,33 +9,32 @@ get_header(); ?>
 
 <button id="menu-toggle" class="menu-toggle"><span>Menu</span></button>
 
-<?php get_template_part( 'content', 'sidebar' ); ?>
+<?php get_template_part( 'template-content/content', 'sidebar' ); ?>
 
 <div id="theGrid" class="main">
     <section class="grid">
         <div class="grid__item__container">
 
-            <?php
-            // Get the header image for the blog page
-            $src = get_theme_mod('woc_blog_image_header');
-
-            if ($src != '') {
-                $img = 'style="background: url(' . esc_url( $src ) . ') 60% / cover"';
-            ?>
-                <div class="header-image transparent quick-transition" <?php echo $img; ?>></div>
-            <?php } ?>
-
             <?php if ( have_posts() ) : ?>
 
+                <?php /* Start the Loop */ ?>
                 <?php while ( have_posts() ) : the_post(); ?>
 
-                    <?php get_template_part( 'content', 'blog' ); ?>
+                    <?php
+                    /* Include the Post-Format-specific template for the content.
+                     * If you want to override this in a child theme, then include a file
+                     * called content-___.php (where ___ is the Post Format name) and that will be used instead.
+                     */
+                    get_template_part( 'template-content/content', get_post_format() );
+                    ?>
 
-                <?php endwhile; // end of the loop. ?>
+                <?php endwhile; ?>
+
+                <?php the_posts_navigation(); ?>
 
             <?php else : ?>
 
-                <?php get_template_part( 'content', 'none' ); ?>
+                <?php get_template_part( 'template-content/content', 'none' ); ?>
 
             <?php endif; ?>
 

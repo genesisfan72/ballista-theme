@@ -1,6 +1,8 @@
 <?php
 /**
- * The main front-page template file for Ballista
+ * The case studies front page template for Ballista
+ *
+ * Template Name: Case Studies Front Page
  *
  * @package Ballista
  * @since 1.0
@@ -25,15 +27,15 @@ if ( isset( $_GET[ 'fp_layout' ] ) ) $layout = $_GET[ 'fp_layout' ];
 
 <?php get_header(); ?>
 
-    <?php get_template_part( 'content', 'sidebar' ); ?>
+    <?php get_template_part( 'template-content/content', 'sidebar' ); ?>
 
 <?php
 if ( $layout === 'blog' || $layout === 'portfolio' || $layout === 'portfolio-full' ) {
-    get_template_part( 'layout', 'grid' );
+    get_template_part( 'template-content/layout', 'grid' );
 }
 
 if ( $layout === 'fullpage') {
-    get_template_part( 'layout', 'full' );
+    get_template_part( 'template-content/layout', 'full' );
 }
 ?>
 

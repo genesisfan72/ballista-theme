@@ -26,4 +26,10 @@
                 'menu_class' => 'menu' ) ); ?>
         </nav>
     </div>
+
+    <?php get_sidebar(); ?>
+
+    <div class="site-info">
+        <?php echo get_theme_mod( 'woc_copyright_text' ); ?>
+    </div><!-- .site-info -->
 </div>

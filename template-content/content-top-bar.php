@@ -8,9 +8,9 @@
 
 <header class="top-bar">
 
-    <?php get_template_part( 'filter', 'categories' ); ?>
+    <?php get_template_part( 'template-content/filter', 'categories' ); ?>
 
     <div class="social-icons">
-        <?php get_template_part( 'links', 'social' ); ?>
+        <?php get_template_part( 'template-content/links', 'social' ); ?>
     </div>
 </header>
