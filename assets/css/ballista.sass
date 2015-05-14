@@ -196,6 +196,13 @@ button:focus
   padding: 0 40px 30px 40px
   color: rgba(135, 135, 135, 1)
   text-transform: uppercase
+  -webkit-transition: -webkit-transform 0.2s, opacity 0.2s
+  transition: transform 0.2s, opacity 0.2s
+  -webkit-transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1)
+  transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1)
+  @include transition-delay(0.15s)
+  opacity: 0
+  @include transform(translate3d(0, -20px, 0))
   @include display(flex)
   @include align-items(flex-end)
   .icon-container
@@ -206,6 +213,17 @@ button:focus
     @include transition-delay(0s)
     opacity: 0
     @include transform(translate3d(0, -20px, 0))
+
+.top-bar
+  &.animate
+    @include transition-delay(0s)
+    opacity: 0
+    @include transform(translate3d(0, -20px, 0))
+
+.top-bar
+  &.loaded
+    opacity: 1
+    @include transform(translate3d(0, 0, 0))
 
 .top-bar__headline
   margin: 0

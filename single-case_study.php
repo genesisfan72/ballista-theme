@@ -7,7 +7,9 @@
 get_header();
 ?>
 
-<?php get_template_part( 'content', 'sidebar' ); ?>
+    <button id="menu-toggle" class="menu-toggle"><span>Menu</span></button>
+
+<?php get_template_part( 'template-content/content', 'sidebar' ); ?>
 
 <?php while ( have_posts() ) : the_post(); ?>
 
@@ -35,12 +37,12 @@ get_header();
             <article>
                 <header class="top-bar top-bar__single--header">
                     <div class="top-bar__post-nav--arrows">
-                        <div class="post__nav--arrow post__nav--arrow-prev"
-                             data-id="<?php echo esc_attr( $prev_post->ID ); ?>"><i
-                                class="fa fa-arrow-left"></i></div>
-                        <div class="post__nav--arrow post__nav--arrow-next"
-                             data-id="<?php echo esc_attr( $next_post->ID ); ?>"><i
-                                class="fa fa-arrow-right"></i></div>
+                        <a href="<?php echo get_permalink($prev_post->ID); ?>">
+                            <div class="post__nav--arrow post__nav--arrow-prev"><i class="fa fa-arrow-left"></i></div>
+                        </a>
+                        <a href="<?php echo get_permalink($next_post->ID); ?>">
+                            <div class="post__nav--arrow post__nav--arrow-next"><i class="fa fa-arrow-right"></i></div>
+                        </a>
                     </div>
                     <div class="social-icons">
                         <?php get_template_part( 'template-content/links', 'social' ); ?>

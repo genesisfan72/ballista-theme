@@ -21,16 +21,19 @@ get_header(); ?>
 
                 <?php get_template_part( 'template-content/content', 'header-image' ); ?>
 
-                <?php get_template_part( 'template-content/content', 'page' ); ?>
+                <div class="content-container">
 
-                <?php the_post_navigation(); ?>
+                    <?php get_template_part( 'template-content/content', 'page' ); ?>
 
-                <?php
-                // If comments are open or we have at least one comment, load up the comment template
-                if ( comments_open() || get_comments_number() ) :
-                    comments_template();
-                endif;
-                ?>
+                    <?php the_post_navigation(); ?>
+
+                    <?php
+                    // If comments are open or we have at least one comment, load up the comment template
+                    if ( comments_open() || get_comments_number() ) :
+                        comments_template();
+                    endif;
+                    ?>
+                </div>
 
             <?php endwhile; // end of the loop. ?>
 

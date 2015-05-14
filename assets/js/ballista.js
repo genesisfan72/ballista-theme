@@ -41,11 +41,11 @@ jQuery(function($) {
         gridItems = gridItemsContainer !== null ? gridItemsContainer.querySelectorAll('.grid__item') : null,
 		//contentItems = contentItemsContainer.querySelectorAll('.content__item'),
 		//closeCtrl = contentItemsContainer.querySelector('.close-button'),
-		current = -1,
+		//current = -1,
 		lockScroll = false, xscroll, yscroll,
 		isAnimating = false,
 		menuCtrl = document.getElementById('menu-toggle'),
-		menuCloseCtrl = sidebarEl.querySelector('.close-button'),
+		//menuCloseCtrl = sidebarEl.querySelector('.close-button'),
         topBar = gridEl.querySelector('.top-bar'),
         $isoContainer = $('.grid__item__container');
 
@@ -80,7 +80,15 @@ jQuery(function($) {
                 var self = this;
                 setTimeout(function() {
                     $(self).removeClass('transparent');
-                },300 * i);
+                    $(self).on('click', function(ev) {
+                        ev.preventDefault();
+                        var href = $(self).data('href');
+                        $('.top-bar').toggleClass('loaded');
+                        onEndTransition(topBar, function() {
+                            location.href = href;
+                        });
+                    });
+                },200 * i);
             });
         }
 
@@ -88,8 +96,10 @@ jQuery(function($) {
             var self = this;
             setTimeout(function () {
                 $(self).removeClass('transparent');
-            }, 300 * i);
+            }, 300);
         });
+
+        $('.top-bar').addClass('loaded');
 	}
 
     function initIsotope() {
@@ -110,7 +120,9 @@ jQuery(function($) {
         if (typeof gridItems !== 'undefined' && gridItems !== null) {
             [].slice.call(gridItems).forEach(function (item, pos) {
                 // grid item click event
+                /*
                 item.addEventListener('click', function (ev) {
+
                     ev.preventDefault();
                     if (isAnimating || current === pos) {
                         return false;
@@ -124,7 +136,6 @@ jQuery(function($) {
 
                     setTimeout(function () {
                         classie.add(item, 'grid__item--animate');
-                        console.log(item.dataset.href);
                         location.href = item.dataset.href;
                         //$.ajax({
                         //    type: 'POST',
@@ -139,12 +150,13 @@ jQuery(function($) {
                         //});
                     }, 1000);
                 });
+                */
             });
         }
 
 		// keyboard esc - hide content
 		document.addEventListener('keydown', function(ev) {
-			if(!isAnimating && current !== -1) {
+			if(!isAnimating) {
 				var keyCode = ev.keyCode || ev.which;
 				if( keyCode === 27 ) {
 					ev.preventDefault();
@@ -164,13 +176,13 @@ jQuery(function($) {
             });
         }
 
-        if (typeof menuCloseCtrl !== 'undefined' && menuCloseCtrl !== null) {
-            menuCloseCtrl.addEventListener('click', function () {
-                if (classie.has(sidebarEl, 'sidebar--open')) {
-                    classie.remove(sidebarEl, 'sidebar--open');
-                }
-            });
-        }
+        //if (typeof menuCloseCtrl !== 'undefined' && menuCloseCtrl !== null) {
+        //    menuCloseCtrl.addEventListener('click', function () {
+        //        if (classie.has(sidebarEl, 'sidebar--open')) {
+        //            classie.remove(sidebarEl, 'sidebar--open');
+        //        }
+        //    });
+        //}
 
         $(document).on('click', '.case-study-filter', function() {
             $('.case-study-filter').removeClass('selected');
@@ -207,7 +219,7 @@ jQuery(function($) {
     }
 
 	function loadContent(item, data) {
-        /*
+
         // set the content
         contentItemsScrollWrap.innerHTML = data;
         var contentItem = contentItemsContainer.querySelector('.content__item'),
@@ -260,7 +272,7 @@ jQuery(function($) {
 
 			isAnimating = false;
 		});
-		*/
+
 	}
 
 	function hideContent() {
