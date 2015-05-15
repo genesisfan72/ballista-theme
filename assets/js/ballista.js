@@ -192,16 +192,6 @@ jQuery(function($) {
             return false;
         });
 
-        $(document).on('click', '.post-nav .grid__item', function() {
-            $(this).addClass('grid__item--animate');
-            var id = $(this).data('id')
-            loadCaseStudy(id);
-        });
-
-        $(document).on('click', '.post__nav--arrow', function() {
-            var id = $(this).data('id')
-            loadCaseStudy(id);
-        });
 	}
 
     function loadCaseStudy(id) {

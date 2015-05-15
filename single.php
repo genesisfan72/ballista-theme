@@ -22,8 +22,6 @@ get_header(); ?>
 
                     <?php get_template_part( 'template-content/content', 'single' ); ?>
 
-                    <?php the_post_navigation(); ?>
-
                     <?php
                     // If comments are open or we have at least one comment, load up the comment template
                     if ( comments_open() || get_comments_number() ) :
@@ -31,6 +29,8 @@ get_header(); ?>
                     endif;
                     ?>
                 </div>
+
+                <?php ballista_post_navigation(); ?>
 
             <?php endwhile; // end of the loop. ?>
         </div>

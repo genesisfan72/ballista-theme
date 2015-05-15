@@ -37,31 +37,37 @@ if ( has_post_thumbnail( $next_post->ID ) ) {
 ?>
 
 <div class="post-nav">
-    <div class="grid__item grid__item--flex text-center"
-         data-id="<?php echo esc_attr( $prev_post->ID ); ?>" <?php echo $prev_bg_style; ?>>
-        <div class="excerpt--box">
-            <div class="excerpt__title--row">
-                <div class="excerpt__likes">
-                    <i class="fa fa-long-arrow-left"></i>
-                </div>
-                <div class="excerpt__title">
-                    <?php echo $prev_post->post_title; ?>
+    <div class="grid__item grid__item--flex text-center post-nav-block relative"
+         data-id="<?php echo esc_attr( $prev_post->ID ); ?>">
+        <a href="<?php echo get_permalink($prev_post->ID); ?>" class="full-width">
+            <div class="quick-transition post-nav-background" <?php echo $prev_bg_style; ?>></div>
+            <div class="excerpt--box">
+                <div class="excerpt__title--row">
+                    <div class="excerpt__likes">
+                        <i class="fa fa-long-arrow-left"></i>
+                    </div>
+                    <div class="excerpt__title">
+                        <?php echo $prev_post->post_title; ?>
+                    </div>
                 </div>
             </div>
-        </div>
+        </a>
     </div>
 
-    <div class="grid__item grid__item--flex text-center"
-         data-id="<?php echo esc_attr( $next_post->ID ); ?>" <?php echo $next_bg_style; ?>>
-        <div class="excerpt--box">
-            <div class="excerpt__title--row">
-                <div class="excerpt__title">
-                    <?php echo $next_post->post_title; ?>
-                </div>
-                <div class="excerpt__likes">
-                    <i class="fa fa-long-arrow-right"></i>
+    <div class="grid__item grid__item--flex text-center post-nav-block relative"
+         data-id="<?php echo esc_attr( $next_post->ID ); ?>">
+        <a href="<?php echo get_permalink($next_post->ID); ?>" class="full-width">
+            <div class="quick-transition post-nav-background" <?php echo $next_bg_style; ?>></div>
+            <div class="excerpt--box">
+                <div class="excerpt__title--row">
+                    <div class="excerpt__title">
+                        <?php echo $next_post->post_title; ?>
+                    </div>
+                    <div class="excerpt__likes">
+                        <i class="fa fa-long-arrow-right"></i>
+                    </div>
                 </div>
             </div>
-        </div>
+        </a>
     </div>
 </div>

@@ -1006,6 +1006,7 @@ button:focus {
   font-size: 1.8em;
   color: #333333;
   overflow: hidden;
+  position: relative;
   -webkit-transition: max-height 0.8s, opacity 0.8s;
   -moz-transition: max-height 0.8s, opacity 0.8s;
   transition: max-height 0.8s, opacity 0.8s;
