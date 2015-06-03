@@ -561,8 +561,11 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
                 else {
                     // Make sure message doesn't display again if bulk activation is performed immediately after a single activation.
                     if ( ! isset( $_POST['action'] ) ) {
-                        $msg = $this->strings['activated_successfully'] . ' <strong>' . $plugin['name'] . '</strong>';
+                        $msg = $this->strings['activated_successfully'] . ' <strong>' . $plugin['name'] . '.</strong>';
                         echo '<div id="message" class="updated"><p>' . $msg . '</p></div>';
+                        if ( $plugin_to_activate == 'ds-live-composer/ds-live-composer.php' ) {
+                            update_option( 'ds_def_tpl_install', 'step_2' );
+                        }
                     }
                 }
             }
@@ -753,7 +756,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
             }
 
             // Admin options pages already output settings_errors, so this is to avoid duplication.
-            if ( 'options-general' !== $current_screen->parent_base ) {
+            if ( 'options-general' !== $current_screen->parent_base && 'dslc_plugin_options' !== $current_screen->parent_base ) {
                 settings_errors( 'tgmpa' );
             }
 
@@ -1640,6 +1643,9 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
                 if ( is_wp_error( $activate ) ) {
                     echo '<div id="message" class="error"><p>' . $activate->get_error_message() . '</p></div>';
                 } else {
+                    if ( in_array( 'ds-live-composer/ds-live-composer.php', $plugins ) ) {
+                        update_option( 'ds_def_tpl_install', 'step_2' );
+                    }
                     printf( '<div id="message" class="updated"><p>%1$s %2$s</p></div>', _n( 'The following plugin was activated successfully:', 'The following plugins were activated successfully:', $count, 'tgmpa' ), $imploded );
                 }
 

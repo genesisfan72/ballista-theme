@@ -20,7 +20,7 @@
  * 4. Blog - default
  */
 
-$layout = get_theme_mod( 'woc_front_page_style' );
+$layout = get_theme_mod( 'woc_front_page_style', 'blog' );
 
 if ( isset( $_GET[ 'fp_layout' ] ) ) $layout = $_GET[ 'fp_layout' ];
 ?>

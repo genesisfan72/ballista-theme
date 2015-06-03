@@ -381,7 +381,7 @@ button:focus {
   position: absolute;
   width: 200px;
   left: 50%;
-  bottom: 30px;
+  top: 45%;
   -webkit-transform: translateX(-50%);
   -moz-transform: translateX(-50%);
   -ms-transform: translateX(-50%);

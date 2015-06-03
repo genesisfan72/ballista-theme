@@ -284,6 +284,7 @@ h5,
 h6 {
 	clear: both;
     color: rgba(51, 51, 51, 1);
+    text-transform: uppercase;
 }
 
 h1 {
@@ -352,6 +353,14 @@ ins {
 
 big {
 	font-size: 125%;
+}
+
+/***
+Live Composer Specifics
+***/
+.dslc-tp-meta ul {
+    padding-left: 0;
+    text-transform: uppercase;
 }
 
 /*--------------------------------------------------------------
@@ -1040,6 +1049,11 @@ a:active {
     color: rgba(51, 51, 51, 1);
     margin: 0 0 15px 0;
     text-align: center;
+}
+
+.page .entry-title {
+    text-align: left;
+    margin-left: 10%;
 }
 
 .post-meta {

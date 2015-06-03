@@ -52,7 +52,6 @@ get_header();
                 <?php the_content(); ?>
 
                 <?php get_template_part( 'template-content/nav', 'footer-post' ); ?>
-
             </article>
         </section>
     </div>
