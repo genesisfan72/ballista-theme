@@ -29,7 +29,7 @@ get_header(); ?>
 
                 <div class="page__hero transparent quick-transition" <?php echo $img; ?>></div>
 
-                <?php echo do_shortcode( '[instagram-feed num=5 cols=5]' ); ?>
+                <?php echo do_shortcode( '[instagram-feed num=5 cols=5 showheader=false imagepadding=0 showbutton=false showfollow=false height=125 heightunit=px]' ); ?>
 
                 <?php get_template_part( 'template-content/content', 'page' ); ?>
 

@@ -299,6 +299,15 @@ h2 {
     font-size: 1.4em;
 }
 
+h2:after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    left: 0px;
+    bottom: 0;
+    border-bottom: 1px solid rgba(51, 51, 51, 1);;
+}
+
 p {
 	margin-bottom: 1.5em;
 }
@@ -361,6 +370,10 @@ Live Composer Specifics
 .dslc-tp-meta ul {
     padding-left: 0;
     text-transform: uppercase;
+}
+
+.dslc-text-module-content ul {
+    padding-left: 0;
 }
 
 /*--------------------------------------------------------------
@@ -1040,6 +1053,10 @@ a:active {
 	margin: 0 0 1.5em;
 }
 
+.entry-header {
+    padding-top: 5em;
+}
+
 .entry-title {
     font-family: "Roboto Slab", serif;
     font-size: 2.8em;
@@ -1047,7 +1064,7 @@ a:active {
     letter-spacing: 3px;
     font-weight: 900;
     color: rgba(51, 51, 51, 1);
-    margin: 0 0 15px 0;
+    margin: 0;
     text-align: center;
 }
 
