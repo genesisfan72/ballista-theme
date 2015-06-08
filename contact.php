@@ -73,7 +73,6 @@ get_header(); ?>
 <?php get_template_part( 'template-content/content', 'sidebar' ); ?>
 
 <div id="theGrid" class="main">
-    <?php var_dump($_POST); ?>
     <section class="grid">
         <div class="grid__item__container">
 
