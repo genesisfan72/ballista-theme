@@ -51,8 +51,4 @@ foreach ( $post_categories as $c ) {
 			) );
 		?>
 	</div><!-- .entry-content -->
-
-	<footer class="entry-footer">
-		<?php ballista_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->
