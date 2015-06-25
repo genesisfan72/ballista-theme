@@ -18,7 +18,7 @@ if ( has_post_thumbnail() ) {
 
 <a href="<?php the_permalink(); ?>">
     <article
-        id="post-<?php the_ID(); ?>" <?php post_class( array( 'blog-excerpt', 'flex-row-container', 'flex-centered' ) ); ?> >
+        id="post-<?php the_ID(); ?>" <?php post_class( array( 'blog-excerpt', 'flex-display', 'flex-direction-row', 'flex-nowrap', 'flex-centered' ) ); ?> >
 
         <div class="excerpt-background" <?php echo $img; ?>></div>
 

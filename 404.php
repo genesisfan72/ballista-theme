@@ -7,50 +7,43 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+<button id="menu-toggle" class="menu-toggle"><span>Menu</span></button>
 
-			<section class="error-404 not-found">
-				<header class="page-header">
-					<h1 class="page-title"><?php _e( 'Oops! That page can&rsquo;t be found.', 'ballista' ); ?></h1>
-				</header><!-- .page-header -->
+<?php get_template_part( 'template-content/content', 'sidebar' ); ?>
 
-				<div class="page-content">
-					<p><?php _e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'ballista' ); ?></p>
+<div id="theGrid" class="main">
+    <section class="grid">
 
-					<?php get_search_form(); ?>
 
-					<?php the_widget( 'WP_Widget_Recent_Posts' ); ?>
+        <?php
+        // Get the header image for the blog page
+        $src = get_theme_mod('woc_404_image_header');
 
-					<?php if ( ballista_categorized_blog() ) : // Only show the widget if site has multiple categories. ?>
-					<div class="widget widget_categories">
-						<h2 class="widget-title"><?php _e( 'Most Used Categories', 'ballista' ); ?></h2>
-						<ul>
-						<?php
-							wp_list_categories( array(
-								'orderby'    => 'count',
-								'order'      => 'DESC',
-								'show_count' => 1,
-								'title_li'   => '',
-								'number'     => 10,
-							) );
-						?>
-						</ul>
-					</div><!-- .widget -->
-					<?php endif; ?>
+        if ($src != '') {
+            $img = 'style="background: url(' . esc_url( $src ) . ') 100% / cover"';
+            ?>
+            <div class="header-image transparent quick-transition" <?php echo $img; ?>></div>
+        <?php } ?>
 
-					<?php
-						/* translators: %1$s: smiley */
-						$archive_content = '<p>' . sprintf( __( 'Try looking in the monthly archives. %1$s', 'ballista' ), convert_smilies( ':)' ) ) . '</p>';
-						the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$archive_content" );
-					?>
+        <div class="page-content animated flex-display flex-nowrap flex-direction-column flex-centered fadeIn">
+            <header class="page-header">
+                <h1 class="page-title"><?php echo __('404', 'ballista'); ?></h1>
+                <h2><?php echo __( 'PAGE NOT FOUND', 'ballista' ); ?></h2>
+            </header><!-- .page-header -->
 
-					<?php the_widget( 'WP_Widget_Tag_Cloud' ); ?>
+            <div class="error-content">
+                <div class="content-message">
+                    <?php echo __( "Return home, there's nothing here", "ballista" ); ?>
+                </div>
+            </div>
 
-				</div><!-- .page-content -->
-			</section><!-- .error-404 -->
+            <div class="social-icons">
+                <?php get_template_part( 'template-content/links', 'social' ); ?>
+            </div>
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+        </div><!-- .page-content -->
+    </section>
+</div>
+
 
 <?php get_footer(); ?>

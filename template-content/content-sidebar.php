@@ -11,7 +11,13 @@
 <div id="theSidebar" class="sidebar">
     <div class="title-area">
         <button class="close-button fa fa-fw fa-close"></button>
-        <h1><?php bloginfo( 'name' ); ?></h1>
+        <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
+            <?php if ( get_theme_mod( 'woc_logo' ) ) { ?>
+                <img src="<?php echo get_theme_mod( 'woc_logo' ); ?>" alt="<?php echo get_bloginfo( 'name' ) . ' - ' . get_bloginfo( 'description' ); ?>" />
+            <?php } else { ?>
+                <h1><?php bloginfo( 'name' ); ?></h1>
+            <?php } ?>
+        </a>
 
         <div class="subtitle"><?php bloginfo( 'description' ); ?></div>
     </div>

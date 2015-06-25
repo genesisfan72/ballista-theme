@@ -34,7 +34,7 @@ foreach ( $post_categories as $c ) {
 
     <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 
-    <div class="excerpt-meta flex-row-container flex-centered">
+    <div class="excerpt-meta flex-display flex-direction-row flex-nowrap flex-centered">
         <div class="post-meta post-date"><i class="fa fa-clock-o"></i><?php the_date(); ?></div>
         <div class="post-meta post-author"><i
                 class="fa fa-user"></i><?php echo __( 'Posted by', 'ballista' ) . ' ' . get_the_author_meta( 'display_name' ); ?>

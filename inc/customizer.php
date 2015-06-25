@@ -62,7 +62,34 @@ function ballista_customize_register( $wp_customize ) {
         'priority' => 1
     ) ) );
 
-    /* Social Media & Contact Section */
+    /**
+     * Logo Section
+     */
+    $wp_customize->add_section( 'woc_logo_section', array(
+        'title'    => __( 'Logo', 'ballista' ),
+        'priority' => 3,
+    ) );
+
+
+    // Logo
+    $wp_customize->add_setting( 'woc_logo', array(
+        'default'           => '',
+        'sanitize_callback' => 'esc_url_raw' ) );
+
+    $wp_customize->add_control( new WP_Customize_Image_Control (
+        $wp_customize,
+        'woc_logo',
+        array(
+            'label'    => __( 'The logo for your site. Suggested size of roughly 200px by 30px.', 'ballista' ),
+            'section'  => 'woc_logo_section',
+            'settings' => 'woc_logo',
+            'priority' => 3
+        )
+    ) );
+
+    /**
+     * Social Media & Contact Section
+     */
     $wp_customize->add_section( 'woc_social_media_contact_section', array(
         'title' => __( 'Social Media & Contact Options', 'ballista' ),
         'priority' => 31,
@@ -359,6 +386,22 @@ function ballista_customize_register( $wp_customize ) {
                 'label' => __( 'Search Page Header Image', 'ballista' ),
                 'section' => 'woc_default_pages_section',
                 'settings' => 'woc_search_image_header'
+            )
+        )
+    );
+
+    $wp_customize->add_setting( 'woc_404_image_header', array(
+        'default' => '',
+        'transport' => 'refresh' ) );
+
+    $wp_customize->add_control(
+        new WP_Customize_Image_Control(
+            $wp_customize,
+            'woc_404_image_header',
+            array(
+                'label' => __( '404 Page Header Image', 'ballista' ),
+                'section' => 'woc_default_pages_section',
+                'settings' => 'woc_404_image_header'
             )
         )
     );

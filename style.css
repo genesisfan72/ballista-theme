@@ -299,15 +299,6 @@ h2 {
     font-size: 1.4em;
 }
 
-h2:after {
-    content: '';
-    position: absolute;
-    width: 40px;
-    left: 0px;
-    bottom: 0;
-    border-bottom: 1px solid rgba(51, 51, 51, 1);;
-}
-
 p {
 	margin-bottom: 1.5em;
 }
@@ -453,20 +444,43 @@ table {
 # Flex
 --------------------------------------------------------------*/
 
-.flex-row-container {
+.flex-display {
     display: -webkit-box;
     display: -moz-box;
     display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
+}
+
+.flex-direction-row {
     -webkit-box-direction: normal;
     -moz-box-direction: normal;
+    box-direction: normal;
     -webkit-box-orient: horizontal;
     -moz-box-orient: horizontal;
+    box-orient: horizontal;
     -webkit-flex-direction: row;
+    -moz-flex-direction: row;
     -ms-flex-direction: row;
     flex-direction: row;
+}
+
+.flex-direction-column {
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    box-orient: vertical;
+    -webkit-box-direction: normal;
+    -moz-box-direction: normal;
+    box-direction: normal;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-direction: column;
+}
+
+.flex-nowrap {
     -webkit-flex-wrap: nowrap;
+    -moz-flex-wrap: nowrap;
     -ms-flex-wrap: nowrap;
     flex-wrap: nowrap;
 }
@@ -522,6 +536,15 @@ table {
     -ms-transition: opacity 0.5s ease;
     -o-transition: opacity 0.5s ease;
     transition: opacity 0.5s ease;
+}
+
+.underline:after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    left: 0px;
+    bottom: 0;
+    border-bottom: 1px solid rgba(51, 51, 51, 1);;
 }
 
 /*--------------------------------------------------------------
@@ -662,6 +685,17 @@ input[type='submit'] {
 }
 
 /*--------------------------------------------------------------
+# Icons
+--------------------------------------------------------------*/
+.icon-container {
+    padding-right: 25px;
+}
+
+.icon-container:last-child {
+    padding-right: 0;
+}
+
+/*--------------------------------------------------------------
 # Navigation
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
@@ -690,6 +724,10 @@ a:active {
     list-style-type: none;
     padding: 0;
     margin: 0;
+}
+
+.menu ul {
+    margin-bottom: 0;
 }
 
 /*--------------------------------------------------------------
@@ -893,6 +931,10 @@ a:active {
 	margin-right: auto;
 }
 
+.centertext {
+    text-align: center;
+}
+
 /*--------------------------------------------------------------
 # Clearings
 --------------------------------------------------------------*/
@@ -1010,9 +1052,40 @@ a:active {
     height: 35em;
 }
 
+.error404 .header-image {
+    height: 100vh;
+}
+
+.error404 .page-content {
+    text-align: center;
+}
+
+.error404 h1 {
+    margin: 0;
+}
+
+.error404 h2 {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 1.1em;
+    letter-spacing: 0.3em;
+    margin: 0;
+}
+
+.error404 .social-icons {
+    margin-top: 60px;
+}
+
 .single .header-image, .page .header-image {
     height: 70vh;
     margin-bottom: 5em;
+}
+
+.archive .page-title {
+    margin: 0 auto;
+    padding: 50px 0;
+    width: 80%;
+    border-bottom: 1px solid rgb(221, 221, 221);
 }
 
 .hentry h2 {
@@ -1046,6 +1119,16 @@ a:active {
     color: rgba(135, 135, 135, 1);
     font-size: 1.4em;
     font-family: "Roboto", sans-serif;
+}
+
+.error404 .page-content {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: #fff;
+    top: 50%;
+    left: 50%;
+    margin: -150px 0 0 -150px;
 }
 
 .page-links {
@@ -1208,6 +1291,29 @@ object {
 
 .gallery-caption {
 	display: block;
+}
+
+/*--------------------------------------------------------------
+## Animations
+--------------------------------------------------------------*/
+.animated {
+    -webkit-animation-duration: 1.5s;
+    animation-duration: 1.5s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+@keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+.fadeIn {
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
 }
 
 /*-----------------*/
