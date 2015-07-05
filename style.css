@@ -485,6 +485,13 @@ table {
     flex-wrap: nowrap;
 }
 
+.flex-wrap {
+    -webkit-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
 .flex-centered {
     -webkit-box-pack: center;
     -moz-box-pack: center;
@@ -509,6 +516,18 @@ table {
     -moz-flex: 1;
     -ms-flex: 1;
     flex: 1;
+}
+
+.grid-item {
+    flex: 1 1 auto;
+    width: 50%;
+    justify-content: flex-start;
+    padding: 5% 0;
+}
+
+.grid-item img {
+    max-width: 50%;
+    margin-left: 3em;
 }
 
 /*--------------------------------------------------------------
@@ -545,6 +564,38 @@ table {
     left: 0px;
     bottom: 0;
     border-bottom: 1px solid rgba(51, 51, 51, 1);;
+}
+
+.ml-3 {
+    margin-left: 3em;
+}
+
+.mt-3 {
+    margin-top: 3em;
+}
+
+.pr-3 {
+    padding-right: 3em;
+}
+
+.roboto {
+    font-family: "Roboto", sans-serif;
+}
+
+.dark {
+    color: rgb(51, 51, 51);
+}
+
+.fw400 {
+    font-weight: 400;
+}
+
+.ul-list-none {
+    margin-left: 0 !important;
+}
+
+.ul-list-none li {
+    list-style-type: none;
 }
 
 /*--------------------------------------------------------------
@@ -987,7 +1038,7 @@ a:active {
 /*--------------------------------------------------------------
 ## Archive page
 --------------------------------------------------------------*/
-.category {
+.category, .author {
     margin: 0;
     text-align: center;
 }

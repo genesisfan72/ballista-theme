@@ -16,16 +16,14 @@ if ( has_post_thumbnail() ) {
 }
 ?>
 
-<a href="<?php the_permalink(); ?>">
-    <article
-        id="post-<?php the_ID(); ?>" <?php post_class( array( 'blog-excerpt', 'flex-display', 'flex-direction-row', 'flex-nowrap', 'flex-centered' ) ); ?> >
+<article
+    id="post-<?php the_ID(); ?>" <?php post_class( array( 'blog-excerpt', 'flex-display', 'flex-direction-row', 'flex-nowrap', 'flex-centered' ) ); ?> >
 
-        <div class="excerpt-background" <?php echo $img; ?>></div>
+    <div class="excerpt-background" <?php echo $img; ?>></div>
 
-        <?php get_template_part('template-content/content', 'blog-header'); ?>
+    <?php get_template_part('template-content/content', 'blog-header'); ?>
 
-        <footer class="entry-footer">
-            <?php edit_post_link( __( 'Edit', 'ballista' ), '<span class="edit-link">', '</span>' ); ?>
-        </footer>
-    </article>
-</a>
+    <footer class="entry-footer">
+        <?php edit_post_link( __( 'Edit', 'ballista' ), '<span class="edit-link">', '</span>' ); ?>
+    </footer>
+</article>
