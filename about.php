@@ -29,7 +29,37 @@ get_header(); ?>
 
                 <div class="page__hero transparent quick-transition" <?php echo $img; ?>></div>
 
-                <?php echo do_shortcode( '[instagram-feed num=5 cols=5 showheader=false imagepadding=0 showbutton=false showfollow=false height=125 heightunit=px]' ); ?>
+                <?php
+                if ( get_theme_mod( 'woc_show_thumbnails', false ) == true ) {
+                    if ( get_theme_mod( 'woc_about_images' ) == 'instagram' ) {
+                        echo do_shortcode( '[instagram-feed num=5 cols=5 showheader=false imagepadding=0 showbutton=false showfollow=false height=125 heightunit=px]' );
+                    } else {
+                        $images = array();
+
+                        array_push( $images, get_theme_mod( 'woc_about_page_image_1', '' ) );
+                        array_push( $images, get_theme_mod( 'woc_about_page_image_2', '' ) );
+                        array_push( $images, get_theme_mod( 'woc_about_page_image_3', '' ) );
+                        array_push( $images, get_theme_mod( 'woc_about_page_image_4', '' ) );
+                        array_push( $images, get_theme_mod( 'woc_about_page_image_5', '' ) );
+
+                        $image_count = 0;
+                        $valid_images = array();
+                        foreach ( $images as $i => $image ) {
+                            if ( $image != '' ) {
+                                $image_count++;
+                                array_push($valid_images, $i);
+                            }
+                        }
+
+                        echo '<div class="flex-display">';
+                        for ($i = 0; $i < $image_count; $i++) {
+                            echo '<div class="flex-centered thumb-container"><img src="' . $images[$i] . '" alt=""/></div>';
+                        }
+                        echo '</div>';
+
+                    }
+                }
+                ?>
 
                 <?php get_template_part( 'template-content/content', 'page' ); ?>
 

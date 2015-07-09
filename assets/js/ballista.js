@@ -192,6 +192,13 @@ jQuery(function($) {
             return false;
         });
 
+        $(document).on('change', '.input__field--nao', function() {
+            if ($(this).val().length > 0)
+                $(this).parent().addClass('input--filled');
+            else
+                $(this).parent().removeClass('input--filled');
+        });
+
 	}
 
     function loadCaseStudy(id) {
@@ -307,6 +314,8 @@ jQuery(function($) {
 		}
 		window.scrollTo(xscroll, yscroll);
 	}
+
+
 
 	init();
 

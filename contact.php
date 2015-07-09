@@ -156,7 +156,7 @@ get_header(); ?>
 
                                 <div class="form-group contact-form-human">
                                     <label
-                                        for="human"><?php echo __( 'Human verification:', 'woc_broadsword' ); ?></label>
+                                        for="human"><?php echo __( 'Human verification:', 'ballista' ); ?></label>
                                     <input id="human" name="human" type="text" class="form-control" required
                                            value=""><span> + 3 = 5</span>
                                 </div>

@@ -1094,6 +1094,13 @@ a:active {
     padding-right: 5px;
 }
 
+/*--------------------------------------------------------------
+## About page
+--------------------------------------------------------------*/
+.thumb-container {
+    max-height: 125px;
+    overflow: hidden;
+}
 
 /*--------------------------------------------------------------
 ## Posts and pages
@@ -1187,10 +1194,6 @@ a:active {
 	margin: 0 0 1.5em;
 }
 
-.entry-header {
-    padding-top: 5em;
-}
-
 .single .entry-header {
     padding-top: 0;
     margin-bottom: 7em;
@@ -1213,7 +1216,6 @@ a:active {
 
 .page .entry-title {
     text-align: left;
-    margin-left: 10%;
 }
 
 .post-meta {
@@ -1435,5 +1437,3 @@ figure.effect-goliath:hover p {
 .dslca-wp-editor, .dslca-wp-editor-inner {
     position: absolute;
 }
-
-

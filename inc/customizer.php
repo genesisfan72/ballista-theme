@@ -66,22 +66,22 @@ function ballista_customize_register( $wp_customize ) {
      * Logo Section
      */
     $wp_customize->add_section( 'woc_logo_section', array(
-        'title'    => __( 'Logo', 'ballista' ),
+        'title' => __( 'Logo', 'ballista' ),
         'priority' => 3,
     ) );
 
 
     // Logo
     $wp_customize->add_setting( 'woc_logo', array(
-        'default'           => '',
+        'default' => '',
         'sanitize_callback' => 'esc_url_raw' ) );
 
     $wp_customize->add_control( new WP_Customize_Image_Control (
         $wp_customize,
         'woc_logo',
         array(
-            'label'    => __( 'The logo for your site. Suggested size of roughly 200px by 30px.', 'ballista' ),
-            'section'  => 'woc_logo_section',
+            'label' => __( 'The logo for your site. Suggested size of roughly 200px by 30px.', 'ballista' ),
+            'section' => 'woc_logo_section',
             'settings' => 'woc_logo',
             'priority' => 3
         )
@@ -165,7 +165,7 @@ function ballista_customize_register( $wp_customize ) {
         'priority' => 2,
     ) );
 
-    $wp_customize->add_setting( 'woc_show_logos', array(
+    $wp_customize->add_setting( 'woc_show_thumbnails', array(
         'default' => 0,
         'transport' => 'refresh' ) );
 
@@ -185,11 +185,11 @@ function ballista_customize_register( $wp_customize ) {
         )
     );
 
-    $wp_customize->add_control( 'woc_show_logos', array(
+    $wp_customize->add_control( 'woc_show_thumbnails', array(
         'label' => __( 'Show logo icons slider on about page.', 'ballista' ),
         'section' => 'woc_about_section',
         'type' => 'checkbox',
-        'settings' => 'woc_show_logos',
+        'settings' => 'woc_show_thumbnails',
         'priority' => 3
     ) );
 
@@ -418,7 +418,36 @@ add_action( 'customize_register', 'ballista_customize_register' );
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
 function ballista_customize_preview_js() {
-    wp_enqueue_script( 'ballista_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20130508', true );
+    wp_enqueue_script( 'ballista_customizer', get_template_directory_uri() . '/assets/js/customizer.js', array( 'customize-preview' ), '20130508', true );
 }
 
 add_action( 'customize_preview_init', 'ballista_customize_preview_js' );
+
+
+function my_customizer_script() {
+    ?>
+    <script type="text/javascript">
+
+        "use strict";
+
+        jQuery(document).ready(function ($) {
+            let aboutSelect = $("select[data-customize-setting-link='woc_about_images']");
+
+            if (aboutSelect.val() === 'instagram') {
+                $("li[id^='customize-control-woc_about_page_image_'").hide();
+            }
+
+            $(document).on('change', aboutSelect, function() {
+                if (aboutSelect.val() === 'instagram') {
+                    $("li[id^='customize-control-woc_about_page_image_'").hide();
+                }
+                else {
+                    $("li[id^='customize-control-woc_about_page_image_'").show();
+                }
+            });
+        });
+    </script>
+<?php
+}
+
+add_action( 'customize_controls_print_footer_scripts', 'my_customizer_script' );
