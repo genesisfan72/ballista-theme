@@ -191,9 +191,9 @@ jQuery(function($) {
         document.addEventListener('change', function (e) {
             if (classie.has(e.target, 'input__field--nao')) {
                 if (e.target.value.length > 0)
-                    classie.add(e.target.parentElement(), 'input--filled');
+                    classie.add(e.target.parentElement, 'input--filled');
                 else
-                    classie.remove(e.target.parentElement(), 'input--filled');
+                    classie.remove(e.target.parentElement, 'input--filled');
             }
         }, false);
 
