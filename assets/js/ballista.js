@@ -190,10 +190,10 @@ jQuery(function($) {
 
         document.addEventListener('change', function (e) {
             if (classie.has(e.target, 'input__field--nao')) {
-                if (this.value.length > 0)
-                    classie.add(e.parentElement(), 'input--filled');
+                if (e.target.value.length > 0)
+                    classie.add(e.target.parentElement(), 'input--filled');
                 else
-                    classie.remove(e.parentElement(), 'input--filled');
+                    classie.remove(e.target.parentElement(), 'input--filled');
             }
         }, false);
 
