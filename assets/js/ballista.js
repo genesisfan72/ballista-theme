@@ -176,28 +176,26 @@ jQuery(function($) {
             });
         }
 
-        //if (typeof menuCloseCtrl !== 'undefined' && menuCloseCtrl !== null) {
-        //    menuCloseCtrl.addEventListener('click', function () {
-        //        if (classie.has(sidebarEl, 'sidebar--open')) {
-        //            classie.remove(sidebarEl, 'sidebar--open');
-        //        }
-        //    });
-        //}
+        document.addEventListener('click', function (e) {
+            var csFilter = document.querySelectorAll('.case-study-filter'), i;
+            for (i = 0; i < csFilter.length; i++) {
+                classie.remove(csFilter[i], 'selected');
+            }
+            classie.add(e.target, 'selected');
 
-        $(document).on('click', '.case-study-filter', function() {
-            $('.case-study-filter').removeClass('selected');
-            $(this).addClass('selected');
-            var filterValue = $(this).attr('data-filter');
+            var filterValue = e.target.getAttribute('data-filter');
             $isoContainer.isotope({ filter: filterValue });
-            return false;
-        });
 
-        $(document).on('change', '.input__field--nao', function() {
-            if ($(this).val().length > 0)
-                $(this).parent().addClass('input--filled');
-            else
-                $(this).parent().removeClass('input--filled');
-        });
+        }, false);
+
+        document.addEventListener('change', function (e) {
+            if (classie.has(e.target, 'input__field--nao')) {
+                if (this.value.length > 0)
+                    classie.add(e.parentElement(), 'input--filled');
+                else
+                    classie.remove(e.parentElement(), 'input--filled');
+            }
+        }, false);
 
 	}
 
