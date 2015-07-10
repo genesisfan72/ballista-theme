@@ -319,7 +319,7 @@ function ballista_load_fonts() {
 
     // Load the defaults
     wp_enqueue_style( "Roboto", "$protocol://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,700,700italic" );
-    wp_enqueue_style( "RobotoSlab", "$protocol://http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700" );
+    wp_enqueue_style( "RobotoSlab", "$protocol://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700" );
 }
 
 add_action( 'wp_print_styles', 'ballista_load_fonts' );
@@ -349,13 +349,6 @@ function ballista_load_lc_templates() {
         'title' => __( 'Contact Page Default', 'ballista' ),
         'id' => 'ballista-contact-page',
         'code' => '[dslc_modules_section show_on="desktop tablet phone" type="full" columns_spacing="spacing" bg_color="" bg_image_thumb="disabled" bg_image="" bg_image_repeat="repeat" bg_image_position="left top" bg_image_attachment="scroll" bg_image_size="auto" bg_video="" bg_video_overlay_color="#000000" bg_video_overlay_opacity="0" border_color="" border_width="0" border_style="solid" border="top right bottom left" margin_h="0" margin_b="0" padding="0" padding_h="0" custom_class="" custom_id="" ] [dslc_modules_area last="yes" first="no" size="12"] [dslc_module]YTo2OntzOjc6ImNvbnRlbnQiO3M6MjU6IjxoMj5EUk9QIFVTIEFOIEVNQUlMPC9oMj4iO3M6MTY6ImNzc19oMl9mb250X3NpemUiO3M6MjoiMTQiO3M6MTg6Im1vZHVsZV9pbnN0YW5jZV9pZCI7aToxO3M6NzoicG9zdF9pZCI7czo0OiIxOTAxIjtzOjExOiJkc2xjX21fc2l6ZSI7czoyOiIxMiI7czo5OiJtb2R1bGVfaWQiO3M6MTY6IkRTTENfVGV4dF9TaW1wbGUiO30=[/dslc_module] [/dslc_modules_area] [/dslc_modules_section] [dslc_modules_section show_on="desktop tablet phone" type="full" columns_spacing="spacing" bg_color="" bg_image_thumb="disabled" bg_image="" bg_image_repeat="repeat" bg_image_position="left top" bg_image_attachment="scroll" bg_image_size="auto" bg_video="" bg_video_overlay_color="#000000" bg_video_overlay_opacity="0" border_color="" border_width="0" border_style="solid" border="top right bottom left" margin_h="0" margin_b="0" padding="0" padding_h="0" custom_class="" custom_id="" ] [dslc_modules_area last="yes" first="no" size="12"] [dslc_module]YTo0OntzOjE4OiJtb2R1bGVfaW5zdGFuY2VfaWQiO2k6MjtzOjc6InBvc3RfaWQiO3M6NDoiMTkwMSI7czoxMToiZHNsY19tX3NpemUiO3M6MjoiMTIiO3M6OToibW9kdWxlX2lkIjtzOjE1OiJEU0xDX1RQX0NvbnRlbnQiO30=[/dslc_module] [/dslc_modules_area] [/dslc_modules_section] ',
-        'section' => 'theme'
-    );
-
-    $dslc_var_templates[ 'ballista-blog-page' ] = array(
-        'title' => __( 'Blog Page Default', 'ballista' ),
-        'id' => 'ballista-blog-page',
-        'code' => '[dslc_modules_section show_on="desktop tablet phone" type="full" columns_spacing="spacing" bg_color="" bg_image_thumb="disabled" bg_image="" bg_image_repeat="repeat" bg_image_position="left top" bg_image_attachment="scroll" bg_image_size="auto" bg_video="" bg_video_overlay_color="#000000" bg_video_overlay_opacity="0" border_color="" border_width="0" border_style="solid" border="top right bottom left" margin_h="0" margin_b="0" padding="80" padding_h="0" custom_class="" custom_id="" ] [dslc_modules_area last="yes" first="no" size="12"] [dslc_module]YTo3OntzOjY6ImFtb3VudCI7czoyOiIxMCI7czoxNToicGFnaW5hdGlvbl90eXBlIjtzOjg6InByZXZuZXh0IjtzOjc6ImNvbHVtbnMiO3M6MjoiMTIiO3M6MTg6Im1vZHVsZV9pbnN0YW5jZV9pZCI7czozOiIxMzUiO3M6NzoicG9zdF9pZCI7czozOiI3MDMiO3M6MTE6ImRzbGNfbV9zaXplIjtzOjI6IjEyIjtzOjk6Im1vZHVsZV9pZCI7czo5OiJEU0xDX0Jsb2ciO30=[/dslc_module] [/dslc_modules_area] [/dslc_modules_section]',
         'section' => 'theme'
     );
 }
