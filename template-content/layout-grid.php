@@ -71,7 +71,7 @@ if (isset($_GET['fp_layout'])) $layout = $_GET['fp_layout'];
 
                                 <div class="excerpt__content--row">
                                     <?php echo ballista_the_excerpt_max_charlength(240); ?>
-                                    <a class="post__link" href="'<?php echo get_permalink( get_the_ID() ); ?>'"><?php echo  __('Read More', 'ballista'); ?></a>
+                                    <a class="post__link" href="'<?php echo post_permalink( get_the_ID() ); ?>'"><?php echo  __('Read More', 'ballista'); ?></a>
                                 </div>
                             </div>
                         </div>

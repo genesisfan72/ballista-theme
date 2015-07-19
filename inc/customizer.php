@@ -9,10 +9,7 @@
  * Text sanitizer
  */
 function ballista_sanitize_text( $input ) {
-    //return wp_kses_post( force_balance_tags( $input ) );
-    //return expanded_alowed_tags( $input );
-    return $input;
-
+    return wp_kses_post( force_balance_tags( $input ) );
     // TODO - Need to write a proper callback that allows iframes
 }
 

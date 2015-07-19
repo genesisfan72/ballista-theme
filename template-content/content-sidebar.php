@@ -34,6 +34,6 @@
     </div>
 
     <div class="site-info">
-        <?php echo get_theme_mod( 'woc_copyright_text' ); ?>
+        <?php printf( get_theme_mod( 'woc_copyright_text' ) ); ?>
     </div><!-- .site-info -->
 </div>
