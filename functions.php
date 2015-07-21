@@ -189,7 +189,7 @@ add_action( 'widgets_init', 'ballista_widgets_init' );
 function ballista_scripts() {
     wp_enqueue_style( 'ballista-style', get_stylesheet_uri() );
 
-    wp_enqueue_style( 'ballista', get_template_directory_uri() . '/assets/css/ballista.css' );
+//    wp_enqueue_style( 'ballista', get_template_directory_uri() . '/assets/css/ballista.css' );
 
     wp_enqueue_style( 'flexslider', get_template_directory_uri() . '/assets/js/flexslider/flexslider.css' );
 
@@ -567,6 +567,6 @@ require get_template_directory() . '/inc/jetpack.php';
 require_once get_template_directory() . '/inc/post-types/CPT.php';
 
 /**
- * Portfolio Custom Post Type
+ * Case Study Custom Post Type
  */
 require_once get_template_directory() . '/inc/post-types/register-case-study.php';

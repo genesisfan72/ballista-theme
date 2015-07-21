@@ -13,6 +13,8 @@ if ( isset( $_GET[ 'fp_layout' ] ) ) $layout = $_GET[ 'fp_layout' ];
 <div id="theGrid" class="main">
     <section class="full-page-display">
 
+        <?php get_template_part( 'template-content/content', 'top-bar' ); ?>
+
         <div class="ballista-slider">
             <div class="flexslider">
                 <ul class="slides">
@@ -91,14 +93,6 @@ if ( isset( $_GET[ 'fp_layout' ] ) ) $layout = $_GET[ 'fp_layout' ];
                 </ul>
             </div>
         </div>
-
-        <section class="content">
-            <div class="scroll-wrap">
-            </div>
-            <button class="close-button"><i
-                    class="fa fa-close"></i><span><?php echo __( 'Close', 'ballista' ); ?></span></button>
-        </section>
-
     </section>
 
 </div>

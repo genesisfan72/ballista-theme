@@ -89,16 +89,14 @@ get_header(); ?>
                         if ( $right_block == '' ) $left_fullwidth = 'full-width';
                         $img = 'style="background: url(' . esc_url( $left_block ) . ') 100% / cover"';
                         ?>
-                        <div
-                            class="contact__hero contact__hero--left <?php echo esc_attr( $left_fullwidth ); ?>" <?php echo $img; ?>></div>
+                        <div class="contact__hero contact__hero--left <?php echo esc_attr( $left_fullwidth ); ?>" <?php echo $img; ?>></div>
                     <?php }
 
                     if ( $right_block != '' ) {
                         $right_fullwidth = '';
                         if ( $left_block == '' ) $right_fullwidth = 'full-width';
                         ?>
-                        <div
-                            class="contact__hero contact__hero--right <?php echo esc_attr( $right_fullwidth ); ?>"><?php echo $right_block; ?></div>
+                        <div class="contact__hero contact__hero--right <?php echo esc_attr( $right_fullwidth ); ?>"><?php echo $right_block; ?></div>
                     <?php } ?>
                 </div>
 
@@ -142,7 +140,8 @@ get_header(); ?>
                                     </svg>
                                 </span>
                                 <span class="input input--nao">
-                                    <textarea class="input__field input__field--nao" name="contactmessage" id="contactmessage" rows="10"></textarea>
+                                    <textarea class="input__field input__field--nao" name="contactmessage"
+                                              id="contactmessage" rows="10"></textarea>
                                     <label class="input__label input__label--nao" for="contactmessage">
                                         <span
                                             class="input__label-content input__label-content--nao"><?php echo __( 'Your message', 'ballista' ); ?></span>
