@@ -66,16 +66,12 @@ if ( isset( $_GET[ 'fp_layout' ] ) ) $layout = $_GET[ 'fp_layout' ];
                                                 <?php //TODO - loop through categories and create filter links for each one ?>
                                                 <?php echo __( 'By ', 'ballista' ) . get_the_author() . __( ' in ', 'ballista' ) . '<a href="#" class="case-study-filter post__link post__link--bold">' . esc_html( $term_classes ) . '</a>'; ?>
                                             </div>
-
-                                            <div class="excerpt__likes">
-                                                <?php if ( function_exists( 'dot_irecommendthis' ) ) dot_irecommendthis(); ?>
-                                            </div>
                                         </div>
 
                                         <div class="excerpt__content--row content--columns">
                                             <?php echo ballista_the_excerpt_max_charlength( 240 ); ?>
-                                            <a class="post__link"
-                                               href="'<?php echo post_permalink( get_the_ID() ); ?>'"><?php echo __( 'Read More', 'ballista' ); ?></a>
+                                            <?php $url = post_permalink( get_the_ID() ); ?>
+                                            <a class="post__link" href="<?php echo $url; ?>"><?php echo  __('Read More', 'ballista'); ?></a>
                                         </div>
                                     </div>
                                 </div>

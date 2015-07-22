@@ -71,7 +71,8 @@ if (isset($_GET['fp_layout'])) $layout = $_GET['fp_layout'];
 
                                 <div class="excerpt__content--row">
                                     <?php echo ballista_the_excerpt_max_charlength(240); ?>
-                                    <a class="post__link" href="'<?php echo post_permalink( get_the_ID() ); ?>'"><?php echo  __('Read More', 'ballista'); ?></a>
+                                    <?php $url = post_permalink( get_the_ID() ); ?>
+                                    <a class="post__link" href="<?php echo $url; ?>"><?php echo  __('Read More', 'ballista'); ?></a>
                                 </div>
                             </div>
                         </div>
@@ -80,7 +81,10 @@ if (isset($_GET['fp_layout'])) $layout = $_GET['fp_layout'];
                     else if ( $layout === 'portfolio' ) { ?>
                         <div class="grid__item grid__item--flex effect-sarah hover--overlay transparent quick-transition <?php echo $term_classes; ?>" data-id="<?php echo the_ID(); ?>" <?php echo $img; ?>>
                             <div class="portfolio__overlay">
-                                <h2 class="title"><?php the_title(); ?></span></h2>
+                                <?php $url = post_permalink( get_the_ID() ); ?>
+                                <a class="post__link" href="<?php echo $url; ?>">
+                                    <h2 class="title"><?php the_title(); ?></span></h2>
+                                </a>
                                 <div class="details">
                                     <p><?php echo esc_html( $term_classes ); ?></p>
                                     <div class="excerpt__likes">
@@ -101,8 +105,6 @@ if (isset($_GET['fp_layout'])) $layout = $_GET['fp_layout'];
                                         <?php if( function_exists('dot_irecommendthis') ) dot_irecommendthis(); ?>
                                     </div>
                                 </div>
-
-                                <div class="loader"></div>
                             </div>
                         </div>
                     <?php } ?>
