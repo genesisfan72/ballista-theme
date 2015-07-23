@@ -317,9 +317,62 @@ function ballista_load_fonts() {
         ? 'https'
         : 'http';
 
+    $primary_font   = is_serialized( get_theme_mod( 'woc_primary_font' ) )
+        ? unserialize( get_theme_mod( 'woc_primary_font' ) )
+        : array( 'default'     => true,
+            'font-family' => '"Martel Sans", sans-serif' );
+    $secondary_font = is_serialized( get_theme_mod( 'woc_secondary_font' ) )
+        ? unserialize( get_theme_mod( 'woc_secondary_font' ) )
+        : array( 'default'     => true,
+            'font-family' => '"Roboto Slab", serif' );
+    $tertiary_font  = is_serialized( get_theme_mod( 'woc_tertiary_font' ) )
+        ? unserialize( get_theme_mod( 'woc_tertiary_font' ) )
+        : array( 'default'     => true,
+            'font-family' => '"Roboto", sans-serif' );
+
+    // Enqueue the font if it's not one of the defaults
+    if ( !isset( $primary_font[ 'default' ] ) ) {
+        wp_enqueue_style( $primary_font[ 'css-name' ], "$protocol://fonts.googleapis.com/css?family=" . $primary_font[ 'css-name' ] . ":300,400,400italic,500,600,700,700italic,800,900" );
+    }
+
+    if ( !isset( $secondary_font[ 'default' ] ) ) {
+        wp_enqueue_style( $secondary_font[ 'css-name' ], "$protocol://fonts.googleapis.com/css?family=" . $secondary_font[ 'css-name' ] . ":300,400,400italic,500,600,700,700italic,800,900" );
+    }
+
+    if ( !isset( $tertiary_font[ 'default' ] ) ) {
+        wp_enqueue_style( $tertiary_font[ 'css-name' ], "$protocol://fonts.googleapis.com/css?family=" . $tertiary_font[ 'css-name' ] . ":300,400,400italic,500,600,700,700italic,800,900" );
+    }
+
     // Load the defaults
     wp_enqueue_style( "Roboto", "$protocol://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,700,700italic" );
     wp_enqueue_style( "RobotoSlab", "$protocol://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700" );
+    wp_enqueue_style( "PlayFairDisplay", "$protocol://fonts.googleapis.com/css?family=Playfair+Display:400,300,700" );
+    wp_enqueue_style( "MartelSans", "$protocol://fonts.googleapis.com/css?family=Martel+Sans:400,300,700" );
+
+    $primary_font_family = $primary_font[ 'font-family' ];
+    $primary_font_family = rtrim( $primary_font_family, ";" );
+
+    $secondary_font_family = $secondary_font[ 'font-family' ];
+    $secondary_font_family = rtrim( $secondary_font_family, ";" );
+
+    $tertiary_font_family = $tertiary_font[ 'font-family' ];
+    $tertiary_font_family = rtrim( $tertiary_font_family, ";" );
+
+    ?>
+    <style type="text/css">
+        body {
+            font-family: <?php echo $primary_font_family; ?> !important;
+        }
+
+        h1, .sidebar .title-area h1 {
+            font-family: <?php echo $secondary_font_family; ?> !important;
+        }
+
+        h2, .entry-footer, .sidebar .title-area .subtitle, .site-info, .excerpt--box, .sidebar .pages-nav {
+            font-family: <?php echo $tertiary_font_family; ?> !important;
+        }
+    </style>
+<?php
 }
 
 add_action( 'wp_print_styles', 'ballista_load_fonts' );

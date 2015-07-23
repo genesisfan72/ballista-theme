@@ -33,9 +33,12 @@ if ( isset( $_GET[ 'fp_layout' ] ) ) $layout = $_GET[ 'fp_layout' ];
 if ( $layout === 'blog' || $layout === 'portfolio' || $layout === 'portfolio-full' ) {
     get_template_part( 'template-content/layout', 'grid' );
 }
-
-if ( $layout === 'fullpage') {
+else if ( $layout === 'fullpage') {
     get_template_part( 'template-content/layout', 'full' );
+}
+else {
+    // fallback
+    get_template_part( 'template-content/layout', 'grid' );
 }
 ?>
 

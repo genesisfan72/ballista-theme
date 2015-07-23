@@ -81,8 +81,9 @@ jQuery(function($) {
                 setTimeout(function() {
                     $(self).removeClass('transparent');
                     $(self).on('click', function(ev) {
+                        console.log(this);
                         ev.preventDefault();
-                        var href = this.href;
+                        var href = this.getAttribute('data-href');
                         var topBar = document.querySelector(".top-bar");
                         classie.remove(topBar, 'loaded');
                         onEndTransition(topBar, function() {

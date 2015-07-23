@@ -71,7 +71,7 @@ if (isset($_GET['fp_layout'])) $layout = $_GET['fp_layout'];
 
                                 <div class="excerpt__content--row">
                                     <?php echo ballista_the_excerpt_max_charlength(240); ?>
-                                    <?php $url = post_permalink( get_the_ID() ); ?>
+                                    <?php $url = get_the_permalink(); ?>
                                     <a class="post__link" href="<?php echo $url; ?>"><?php echo  __('Read More', 'ballista'); ?></a>
                                 </div>
                             </div>
@@ -79,9 +79,9 @@ if (isset($_GET['fp_layout'])) $layout = $_GET['fp_layout'];
                     <?php }
 
                     else if ( $layout === 'portfolio' ) { ?>
-                        <div class="grid__item grid__item--flex effect-sarah hover--overlay transparent quick-transition <?php echo $term_classes; ?>" data-id="<?php echo the_ID(); ?>" <?php echo $img; ?>>
+                        <div class="grid__item grid__item--flex effect-sarah hover--overlay transparent quick-transition <?php echo $term_classes; ?>" data-href="<?php echo the_permalink(); ?>" <?php echo $img; ?>>
                             <div class="portfolio__overlay">
-                                <?php $url = post_permalink( get_the_ID() ); ?>
+                                <?php $url = get_the_permalink(); ?>
                                 <a class="post__link" href="<?php echo $url; ?>">
                                     <h2 class="title"><?php the_title(); ?></span></h2>
                                 </a>
@@ -96,9 +96,12 @@ if (isset($_GET['fp_layout'])) $layout = $_GET['fp_layout'];
                     <?php }
 
                     else if ( $layout === 'portfolio-full' ) { ?>
-                        <div class="grid__item grid__item--flex grid__item--portfolio--full effect-sarah hover--overlay transparent quick-transition <?php echo $term_classes; ?>" data-id="<?php echo the_ID(); ?>" <?php echo $img; ?>>
+                        <div class="grid__item grid__item--flex grid__item--portfolio--full effect-sarah hover--overlay transparent quick-transition <?php echo $term_classes; ?>" data-href="<?php echo the_permalink(); ?>" <?php echo $img; ?>>
                             <div class="portfolio__overlay">
-                                <h2 class="title"><?php the_title(); ?></span></h2>
+                                <?php $url = get_the_permalink(); ?>
+                                <a class="post__link" href="<?php echo $url; ?>">
+                                    <h2 class="title"><?php the_title(); ?></span></h2>
+                                </a>
                                 <div class="details">
                                     <p><?php echo esc_html( $term_classes ); ?></p>
                                     <div class="excerpt__likes">

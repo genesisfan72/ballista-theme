@@ -1160,7 +1160,6 @@ a:active {
     font-size: 3.1em;
     font-weight: 700;
     line-height: 1;
-    font-family: "Roboto Slab", serif;
     text-transform: uppercase;
     color: #333333;
     -webkit-box-flex: 1;
@@ -1347,7 +1346,7 @@ a:active {
     -ms-flex-line-pack: stretch;
 }
 
-.title {
+h1.title {
     margin: 0;
     font-size: 1.875em;
     font-family: "Playfair Display", serif;
@@ -1628,7 +1627,6 @@ a:active {
 
 .portfolio__overlay .title {
     color: white;
-    font-family: "Roboto", sans-serif;
     font-size: 2.4em;
     font-weight: 700;
     text-transform: uppercase;
@@ -2043,7 +2041,6 @@ header .social-icons {
 }
 
 .error404 h2 {
-    font-family: "Roboto", sans-serif;
     font-weight: 400;
     font-size: 1.1em;
     letter-spacing: 0.3em;
@@ -2124,7 +2121,6 @@ header .social-icons {
 }
 
 .entry-title {
-    font-family: "Roboto Slab", serif;
     font-size: 2.8em;
     text-transform: uppercase;
     letter-spacing: 3px;
@@ -2370,7 +2366,6 @@ object {
 .effect-sarah:hover {
     background-position: 0 !important;
     background-size: cover;
-    cursor: pointer;
 }
 
 .effect-sarah:hover:after {
