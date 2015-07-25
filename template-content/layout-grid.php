@@ -79,7 +79,7 @@ if (isset($_GET['fp_layout'])) $layout = $_GET['fp_layout'];
                     <?php }
 
                     else if ( $layout === 'portfolio' ) { ?>
-                        <div class="grid__item grid__item--flex effect-sarah hover--overlay transparent quick-transition <?php echo $term_classes; ?>" data-href="<?php echo the_permalink(); ?>" <?php echo $img; ?>>
+                        <div class="grid__item grid__item--flex effect-ballista-case-study hover--overlay transparent quick-transition <?php echo $term_classes; ?>" data-href="<?php echo the_permalink(); ?>" <?php echo $img; ?>>
                             <div class="portfolio__overlay">
                                 <?php $url = get_the_permalink(); ?>
                                 <a class="post__link" href="<?php echo $url; ?>">
@@ -96,7 +96,7 @@ if (isset($_GET['fp_layout'])) $layout = $_GET['fp_layout'];
                     <?php }
 
                     else if ( $layout === 'portfolio-full' ) { ?>
-                        <div class="grid__item grid__item--flex grid__item--portfolio--full effect-sarah hover--overlay transparent quick-transition <?php echo $term_classes; ?>" data-href="<?php echo the_permalink(); ?>" <?php echo $img; ?>>
+                        <div class="grid__item grid__item--flex grid__item--portfolio--full effect-ballista-case-study hover--overlay transparent quick-transition <?php echo $term_classes; ?>" data-href="<?php echo the_permalink(); ?>" <?php echo $img; ?>>
                             <div class="portfolio__overlay">
                                 <?php $url = get_the_permalink(); ?>
                                 <a class="post__link" href="<?php echo $url; ?>">

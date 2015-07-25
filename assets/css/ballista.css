@@ -1616,35 +1616,35 @@ button:focus {
 }
 
 /*--------------- */
-/***** Sarah **** */
+/***** Case Study Effect **** */
 /*--------------- */
-.effect-sarah {
+.effect-ballista-case-study {
     -webkit-transition: background-position 0.35s ease;
     -moz-transition: background-position 0.35s ease;
     transition: background-position 0.35s ease;
 }
 
-.effect-sarah:hover {
+.effect-ballista-case-study:hover {
     background-position: 0 !important;
     background-size: cover;
     cursor: pointer;
 }
 
-.effect-sarah:hover:after {
+.effect-ballista-case-study:hover:after {
     opacity: 0.78;
 }
 
-.effect-sarah:hover .portfolio__overlay {
+.effect-ballista-case-study:hover .portfolio__overlay {
     z-index: inherit;
 }
 
-.effect-sarah:hover .title {
+.effect-ballista-case-study:hover .title {
     opacity: 1;
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
 }
 
-.effect-sarah:hover .title::after {
+.effect-ballista-case-study:hover .title::after {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -1658,18 +1658,18 @@ button:focus {
     transform: translate3d(-40%, 0, 0);
 }
 
-.effect-sarah:hover .title::after {
+.effect-ballista-case-study:hover .title::after {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
 }
 
-.effect-sarah:hover .details {
+.effect-ballista-case-study:hover .details {
     opacity: 1;
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
 }
 
-.effect-sarah .title {
+.effect-ballista-case-study .title {
     position: relative;
     overflow: hidden;
     padding: 0.5em 0;
@@ -1681,7 +1681,7 @@ button:focus {
     transform: translate3d(-100%, 0, 0);
 }
 
-.effect-sarah .details {
+.effect-ballista-case-study .details {
     position: relative;
     opacity: 0;
     -webkit-transition: all 0.35s linear;
@@ -1694,7 +1694,7 @@ button:focus {
     text-transform: uppercase;
 }
 
-.effect-sarah .details .fa {
+.effect-ballista-case-study .details .fa {
     padding-right: 5px;
 }
 

@@ -7,8 +7,6 @@
 get_header();
 ?>
 
-    <button id="menu-toggle" class="menu-toggle"><span>Menu</span></button>
-
 <?php get_template_part( 'template-content/content', 'sidebar' ); ?>
 
 <?php while ( have_posts() ) : the_post(); ?>

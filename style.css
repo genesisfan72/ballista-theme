@@ -1,6 +1,6 @@
 /*
 Theme Name: Ballista
-Theme URI: http://underscores.me/
+Theme URI: http://www.warriorsofcode.com/
 Author: Warriors of Code
 Author URI: http://www.warriorsofcode.com
 Description: Description
@@ -1758,7 +1758,7 @@ h1.title {
 
 .ballista-slider .excerpt--box {
     max-height: inherit;
-    height: auto;
+    height: 20vh;
     position: absolute;
     bottom: 20px;
     left: 20px;
@@ -1995,6 +1995,10 @@ header .social-icons {
     padding-right: 5px;
 }
 
+.num-comments {
+    display: none;
+}
+
 /*--------------------------------------------------------------
 ## About page
 --------------------------------------------------------------*/
@@ -2021,7 +2025,7 @@ header .social-icons {
 --------------------------------------------------------------*/
 
 .page__hero {
-    height: 450px;
+    height: 50vh;
 }
 
 .blog .header-image, .archive .header-image, .search .header-image {
@@ -2354,35 +2358,35 @@ object {
     animation-name: fadeIn;
 }
 
-/*--------------- */
-/***** Sarah **** */
-/*--------------- */
-.effect-sarah {
+/*--------------------------- */
+/***** Case Study Effect **** */
+/*--------------------------- */
+.effect-ballista-case-study {
     -webkit-transition: background-position 0.35s ease;
     -moz-transition: background-position 0.35s ease;
     transition: background-position 0.35s ease;
 }
 
-.effect-sarah:hover {
+.effect-ballista-case-study:hover {
     background-position: 0 !important;
     background-size: cover;
 }
 
-.effect-sarah:hover:after {
+.effect-ballista-case-study:hover:after {
     opacity: 0.78;
 }
 
-.effect-sarah:hover .portfolio__overlay {
+.effect-ballista-case-study:hover .portfolio__overlay {
     z-index: inherit;
 }
 
-.effect-sarah:hover .title {
+.effect-ballista-case-study:hover .title {
     opacity: 1;
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
 }
 
-.effect-sarah:hover .title::after {
+.effect-ballista-case-study:hover .title::after {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -2396,18 +2400,18 @@ object {
     transform: translate3d(-40%, 0, 0);
 }
 
-.effect-sarah:hover .title::after {
+.effect-ballista-case-study:hover .title::after {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
 }
 
-.effect-sarah:hover .details {
+.effect-ballista-case-study:hover .details {
     opacity: 1;
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
 }
 
-.effect-sarah .title {
+.effect-ballista-case-study .title {
     position: relative;
     overflow: hidden;
     padding: 0.5em 0;
@@ -2419,7 +2423,7 @@ object {
     transform: translate3d(-100%, 0, 0);
 }
 
-.effect-sarah .details {
+.effect-ballista-case-study .details {
     position: relative;
     opacity: 0;
     -webkit-transition: all 0.35s linear;
@@ -2432,13 +2436,9 @@ object {
     text-transform: uppercase;
 }
 
-.effect-sarah .details .fa {
+.effect-ballista-case-study .details .fa {
     padding-right: 5px;
 }
-
-/*-----------------*/
-/***** Goliath *****/
-/*-----------------*/
 
 .grid__item figure {
     position: relative;
@@ -2450,55 +2450,6 @@ object {
     background: #3085a3;
     text-align: center;
     cursor: pointer;
-}
-
-figure.effect-goliath {
-    background: #df4e4e;
-}
-
-figure.effect-goliath img,
-figure.effect-goliath h2 {
-    -webkit-transition: -webkit-transform 0.35s;
-    transition: transform 0.35s;
-}
-
-figure.effect-goliath img {
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-}
-
-figure.effect-goliath h2,
-figure.effect-goliath p {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    padding: 30px;
-}
-
-figure.effect-goliath p {
-    text-transform: none;
-    font-size: 90%;
-    opacity: 0;
-    -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
-    transition: opacity 0.35s, transform 0.35s;
-    -webkit-transform: translate3d(0, 50px, 0);
-    transform: translate3d(0, 50px, 0);
-}
-
-figure.effect-goliath:hover img {
-    -webkit-transform: translate3d(0, -80px, 0);
-    transform: translate3d(0, -80px, 0);
-}
-
-figure.effect-goliath:hover h2 {
-    -webkit-transform: translate3d(0, -100px, 0);
-    transform: translate3d(0, -100px, 0);
-}
-
-figure.effect-goliath:hover p {
-    opacity: 1;
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
 }
 
 .dslca-wp-editor, .dslca-wp-editor-inner {
@@ -2632,6 +2583,10 @@ section.grid, #theGrid {
     .post-nav .grid__item {
         height: 430px;
     }
+
+    .page__hero {
+        height: 450px;
+    }
 }
 
 @media screen and (min-width: 900px) {
@@ -2658,6 +2613,10 @@ section.grid, #theGrid {
 
     .grid__item--loading.grid__item::before {
         opacity: 0;
+    }
+
+    .num-comments {
+        display: block;
     }
 }
 

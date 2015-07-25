@@ -68,8 +68,6 @@ if ( !$human == 0 ) {
 
 get_header(); ?>
 
-<button id="menu-toggle" class="menu-toggle"><span>Menu</span></button>
-
 <?php get_template_part( 'template-content/content', 'sidebar' ); ?>
 
 <div id="theGrid" class="main">
