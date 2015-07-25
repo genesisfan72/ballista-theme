@@ -27,16 +27,14 @@ if ( isset( $_GET[ 'fp_layout' ] ) ) $layout = $_GET[ 'fp_layout' ];
 
 <?php get_header(); ?>
 
-    <?php get_template_part( 'template-content/content', 'sidebar' ); ?>
+<?php get_template_part( 'template-content/content', 'sidebar' ); ?>
 
 <?php
 if ( $layout === 'blog' || $layout === 'portfolio' || $layout === 'portfolio-full' ) {
     get_template_part( 'template-content/layout', 'grid' );
-}
-else if ( $layout === 'fullpage') {
+} else if ( $layout === 'fullpage' ) {
     get_template_part( 'template-content/layout', 'full' );
-}
-else {
+} else {
     // fallback
     get_template_part( 'template-content/layout', 'grid' );
 }

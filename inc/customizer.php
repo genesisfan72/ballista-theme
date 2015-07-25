@@ -86,7 +86,7 @@ function ballista_customize_register( $wp_customize ) {
 
     /* Typography Section */
     $wp_customize->add_section( 'woc_typography_section', array(
-        'title'    => __( 'Typography', 'ballista' ),
+        'title' => __( 'Typography', 'ballista' ),
         'priority' => 4,
     ) );
 
@@ -95,20 +95,20 @@ function ballista_customize_register( $wp_customize ) {
 
     $wp_customize->add_setting( 'woc_primary_font', array(
         'sanitize_callback' => 'ballista_sanitize_text',
-        'default'           => serialize( array(
+        'default' => serialize( array(
             'font-family' => "'Martel Sans', sans-serif;",
-            'css-name'    => 'Martel+Sans'
+            'css-name' => 'Martel+Sans'
         ) ),
-        'transport'         => 'refresh'
+        'transport' => 'refresh'
     ) );
 
     $wp_customize->add_control( 'woc_primary_font',
         array(
-            'label'    => __( 'Select your primary font. This is the main body text.', 'ballista' ),
-            'section'  => 'woc_typography_section',
+            'label' => __( 'Select your primary font. This is the main body text.', 'ballista' ),
+            'section' => 'woc_typography_section',
             'settings' => 'woc_primary_font',
-            'type'     => 'select',
-            'choices'  => $google_fonts
+            'type' => 'select',
+            'choices' => $google_fonts
         )
     );
 
@@ -116,40 +116,40 @@ function ballista_customize_register( $wp_customize ) {
     // Secondary font
     $wp_customize->add_setting( 'woc_secondary_font', array(
         'sanitize_callback' => 'ballista_sanitize_text',
-        'default'           => serialize( array(
+        'default' => serialize( array(
             'font-family' => "'Roboto Slab', serif;",
-            'css-name'    => 'Roboto+Slab'
+            'css-name' => 'Roboto+Slab'
         ) ),
-        'transport'         => 'refresh'
+        'transport' => 'refresh'
     ) );
 
     $wp_customize->add_control( 'woc_secondary_font',
         array(
-            'label'    => __( 'Select your secondary font. Used for H1 tags and the title font.', 'ballista' ),
-            'section'  => 'woc_typography_section',
+            'label' => __( 'Select your secondary font. Used for H1 tags and the title font.', 'ballista' ),
+            'section' => 'woc_typography_section',
             'settings' => 'woc_secondary_font',
-            'type'     => 'select',
-            'choices'  => $google_fonts
+            'type' => 'select',
+            'choices' => $google_fonts
         )
     );
 
     // Tertiary font
     $wp_customize->add_setting( 'woc_tertiary_font', array(
         'sanitize_callback' => 'ballista_sanitize_text',
-        'default'           => serialize( array(
+        'default' => serialize( array(
             'font-family' => "'Roboto', sans-serif;",
-            'css-name'    => 'Roboto'
+            'css-name' => 'Roboto'
         ) ),
-        'transport'         => 'refresh'
+        'transport' => 'refresh'
     ) );
 
     $wp_customize->add_control( 'woc_tertiary_font',
         array(
-            'label'    => __( 'Select your third level font. Used primarily for h2 tags, subtitles, and smaller titles.', 'ballista' ),
-            'section'  => 'woc_typography_section',
+            'label' => __( 'Select your third level font. Used primarily for h2 tags, subtitles, and smaller titles.', 'ballista' ),
+            'section' => 'woc_typography_section',
             'settings' => 'woc_tertiary_font',
-            'type'     => 'select',
-            'choices'  => $google_fonts
+            'type' => 'select',
+            'choices' => $google_fonts
         )
     );
 
@@ -503,7 +503,7 @@ function my_customizer_script() {
                 $("li[id^='customize-control-woc_about_page_image_'").hide();
             }
 
-            $(document).on('change', aboutSelect, function() {
+            $(document).on('change', aboutSelect, function () {
                 if (aboutSelect.val() === 'instagram') {
                     $("li[id^='customize-control-woc_about_page_image_'").hide();
                 }

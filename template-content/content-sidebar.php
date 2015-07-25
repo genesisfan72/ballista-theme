@@ -13,7 +13,8 @@
         <button class="close-button fa fa-fw fa-close"></button>
         <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
             <?php if ( get_theme_mod( 'woc_logo' ) ) { ?>
-                <img src="<?php echo get_theme_mod( 'woc_logo' ); ?>" alt="<?php echo get_bloginfo( 'name' ) . ' - ' . get_bloginfo( 'description' ); ?>" />
+                <img src="<?php echo get_theme_mod( 'woc_logo' ); ?>"
+                     alt="<?php echo get_bloginfo( 'name' ) . ' - ' . get_bloginfo( 'description' ); ?>"/>
             <?php } else { ?>
                 <h1><?php bloginfo( 'name' ); ?></h1>
             <?php } ?>
@@ -35,5 +36,6 @@
 
     <div class="site-info">
         <?php printf( get_theme_mod( 'woc_copyright_text' ) ); ?>
-    </div><!-- .site-info -->
+    </div>
+    <!-- .site-info -->
 </div>

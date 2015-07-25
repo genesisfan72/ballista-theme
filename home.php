@@ -13,29 +13,29 @@ get_header(); ?>
     <section class="grid">
 
 
-            <?php
-            // Get the header image for the blog page
-            $src = get_theme_mod('woc_blog_image_header');
+        <?php
+        // Get the header image for the blog page
+        $src = get_theme_mod( 'woc_blog_image_header' );
 
-            if ($src != '') {
-                $img = 'style="background: url(' . esc_url( $src ) . ') 60% / cover"';
+        if ( $src != '' ) {
+            $img = 'style="background: url(' . esc_url( $src ) . ') 60% / cover"';
             ?>
-                <div class="header-image transparent quick-transition" <?php echo $img; ?>></div>
-            <?php } ?>
+            <div class="header-image transparent quick-transition" <?php echo $img; ?>></div>
+        <?php } ?>
 
-            <?php if ( have_posts() ) : ?>
+        <?php if ( have_posts() ) : ?>
 
-                <?php while ( have_posts() ) : the_post(); ?>
+            <?php while ( have_posts() ) : the_post(); ?>
 
-                    <?php get_template_part( 'template-content/content', 'blog' ); ?>
+                <?php get_template_part( 'template-content/content', 'blog' ); ?>
 
-                <?php endwhile; // end of the loop. ?>
+            <?php endwhile; // end of the loop. ?>
 
-            <?php else : ?>
+        <?php else : ?>
 
-                <?php get_template_part( 'template-content/content', 'none' ); ?>
+            <?php get_template_part( 'template-content/content', 'none' ); ?>
 
-            <?php endif; ?>
+        <?php endif; ?>
 
 
     </section>

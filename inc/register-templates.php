@@ -9,82 +9,89 @@ function ds_default_post_templates_step_2() {
 
     if ( is_user_logged_in() && current_user_can( 'manage_options' ) ) {
 
-		// If not step 3 and the "option" to proceed is set and LC is active
-		if ( ! isset( $_GET['ds_install_lc_tpl'] ) && get_option( 'ds_def_tpl_install' ) == 'step_2' && in_array( 'ds-live-composer/ds-live-composer.php', get_option('active_plugins') ) ) :
+        // If not step 3 and the "option" to proceed is set and LC is active
+        if ( !isset( $_GET[ 'ds_install_lc_tpl' ] ) && get_option( 'ds_def_tpl_install' ) == 'step_2' && in_array( 'ds-live-composer/ds-live-composer.php', get_option( 'active_plugins' ) ) ) :
 
-			// Get the amount of templates
-			$count = wp_count_posts( 'dslc_templates' );
+            // Get the amount of templates
+            $count = wp_count_posts( 'dslc_templates' );
 
-			// There are no templates
-			if ( $count->publish == 0 ) {
+            // There are no templates
+            if ( $count->publish == 0 ) {
 
-				?>
-					<div class="update-nag">
-						<p><strong>Important:</strong> You should install the default Live Composer "post templates" that come with the theme. <a href="<?php echo add_query_arg( array( 'ds_install_lc_tpl' => 'install' ), get_admin_url() ); ?>">Install</a></p>
-					</div>
-				<?php
+                ?>
+                <div class="update-nag">
+                    <p><strong>Important:</strong> You should install the default Live Composer "post templates" that
+                        come with the theme. <a
+                            href="<?php echo add_query_arg( array( 'ds_install_lc_tpl' => 'install' ), get_admin_url() ); ?>">Install</a>
+                    </p>
+                </div>
+                <?php
 
-			// There are templates
-			} else {
+                // There are templates
+            } else {
 
-				// Remove the "option" to avoid rechecking
-				delete_option( 'ds_def_tpl_install' );
+                // Remove the "option" to avoid rechecking
+                delete_option( 'ds_def_tpl_install' );
 
-			}
+            }
 
-	    endif;
+        endif;
 
-	   }
+    }
 
-} add_action( 'admin_notices', 'ds_default_post_templates_step_2' );
+}
+
+add_action( 'admin_notices', 'ds_default_post_templates_step_2' );
 
 
 /**
  * Installing Post Templates - Step 3
- * 
+ *
  * Install the templates and remove the "option" not to do checks again
  */
 function ds_default_post_templates_step_3() {
 
-	if ( is_user_logged_in() && current_user_can( 'manage_options' ) ) {
+    if ( is_user_logged_in() && current_user_can( 'manage_options' ) ) {
 
-		// Check if installation should proceed
-		if ( isset( $_GET['ds_install_lc_tpl'] ) && $_GET['ds_install_lc_tpl'] == 'install' ) {
+        // Check if installation should proceed
+        if ( isset( $_GET[ 'ds_install_lc_tpl' ] ) && $_GET[ 'ds_install_lc_tpl' ] == 'install' ) {
 
-			// Get amount of templates
-			$count = wp_count_posts( 'dslc_templates' );
+            // Get amount of templates
+            $count = wp_count_posts( 'dslc_templates' );
 
-			// If no templates let's add the default ones
-			if ( $count->publish == 0 ) {
-				
-				ds_default_post_templates_install();
+            // If no templates let's add the default ones
+            if ( $count->publish == 0 ) {
 
-				// Remove the option ( so the step 2 does not fire again )
-				delete_option( 'ds_def_tpl_install' );
+                ds_default_post_templates_install();
 
-				?>
-				<div class="updated">
-					<p>"Case Study templates" successfully installed.</p>
-				</div>
-				<?php
-			}
+                // Remove the option ( so the step 2 does not fire again )
+                delete_option( 'ds_def_tpl_install' );
 
-		}
+                ?>
+                <div class="updated">
+                    <p>"Case Study templates" successfully installed.</p>
+                </div>
+            <?php
+            }
 
-	}
+        }
 
-} add_action( 'admin_notices', 'ds_default_post_templates_step_3' );
+    }
+
+}
+
+add_action( 'admin_notices', 'ds_default_post_templates_step_3' );
 
 function ds_default_post_templates_install() {
 
-	if ( is_user_logged_in() && current_user_can( 'manage_options' ) ) {
+    if ( is_user_logged_in() && current_user_can( 'manage_options' ) ) {
 
-		/* Start register Templates */
+        /* Start register Templates */
 
-		$single_post_templates = array();
+        $single_post_templates = array();
 
-		$single_post_templates['case_study_default'] = array(
-            'title' => __( 'Case Study Default', 'ballista'),
+        $single_post_templates[ 'case_study_default' ] = array(
+            'title' => __( 'Case Study Default', 'ballista' ),
             'custom_fields' => array(
                 'dslc_template_base' => 'theme',
                 'dslc_template_for' => 'case_study',
@@ -93,8 +100,8 @@ function ds_default_post_templates_install() {
             )
         );
 
-        $single_post_templates['case_study_variant'] = array(
-            'title' => __( 'Case Study Variant', 'ballista'),
+        $single_post_templates[ 'case_study_variant' ] = array(
+            'title' => __( 'Case Study Variant', 'ballista' ),
             'custom_fields' => array(
                 'dslc_template_base' => 'theme',
                 'dslc_template_for' => 'case_study',
@@ -103,32 +110,32 @@ function ds_default_post_templates_install() {
             )
         );
 
-		/* End register templates */
-		
-		foreach ( $single_post_templates as $post_template ) {
+        /* End register templates */
 
-			// Create post object
-			$the_post = array(
-				'post_title' => $post_template['title'],
-				'post_status' => 'publish',
-				'post_type' => 'dslc_templates',
-			);
+        foreach ( $single_post_templates as $post_template ) {
 
-			// Insert the post into the database
-			$post_id = wp_insert_post( $the_post );
+            // Create post object
+            $the_post = array(
+                'post_title' => $post_template[ 'title' ],
+                'post_status' => 'publish',
+                'post_type' => 'dslc_templates',
+            );
 
-			// If post added
-			if ( $post_id ) {
+            // Insert the post into the database
+            $post_id = wp_insert_post( $the_post );
 
-				// Go through the custom fields and add them
-				foreach ( $post_template['custom_fields'] as $custom_field_id => $custom_field_value ) {
-					add_post_meta( $post_id, $custom_field_id, $custom_field_value );
-				}
+            // If post added
+            if ( $post_id ) {
 
-			}
+                // Go through the custom fields and add them
+                foreach ( $post_template[ 'custom_fields' ] as $custom_field_id => $custom_field_value ) {
+                    add_post_meta( $post_id, $custom_field_id, $custom_field_value );
+                }
 
-		}
+            }
 
-	}
+        }
+
+    }
 
 }

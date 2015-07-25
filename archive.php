@@ -15,38 +15,38 @@ get_header(); ?>
     <section class="grid">
 
 
-            <?php
-            // Get the header image for the blog page
-            $src = get_theme_mod('woc_archive_image_header');
+        <?php
+        // Get the header image for the blog page
+        $src = get_theme_mod( 'woc_archive_image_header' );
 
-            if ($src != '') {
-                $img = 'style="background: url(' . esc_url( $src ) . ') 60% / cover"';
+        if ( $src != '' ) {
+            $img = 'style="background: url(' . esc_url( $src ) . ') 60% / cover"';
+            ?>
+            <div class="header-image transparent quick-transition" <?php echo $img; ?>></div>
+        <?php } ?>
+
+        <?php if ( have_posts() ) : ?>
+
+            <header class="page-header">
+                <?php
+                the_archive_title( '<h1 class="page-title">', '</h1>' );
+                the_archive_description( '<div class="taxonomy-description">', '</div>' );
                 ?>
-                <div class="header-image transparent quick-transition" <?php echo $img; ?>></div>
-            <?php } ?>
+            </header><!-- .page-header -->
 
-            <?php if ( have_posts() ) : ?>
+            <?php while ( have_posts() ) : the_post(); ?>
 
-                <header class="page-header">
-                    <?php
-                    the_archive_title( '<h1 class="page-title">', '</h1>' );
-                    the_archive_description( '<div class="taxonomy-description">', '</div>' );
-                    ?>
-                </header><!-- .page-header -->
+                <?php get_template_part( 'template-content/content', 'blog' ); ?>
 
-                <?php while ( have_posts() ) : the_post(); ?>
+            <?php endwhile; // end of the loop. ?>
 
-                    <?php get_template_part( 'template-content/content', 'blog' ); ?>
+            <?php the_posts_navigation(); ?>
 
-                <?php endwhile; // end of the loop. ?>
+        <?php else : ?>
 
-                <?php the_posts_navigation(); ?>
+            <?php get_template_part( 'template-content/content', 'none' ); ?>
 
-            <?php else : ?>
-
-                <?php get_template_part( 'template-content/content', 'none' ); ?>
-
-            <?php endif; ?>
+        <?php endif; ?>
 
 
     </section>

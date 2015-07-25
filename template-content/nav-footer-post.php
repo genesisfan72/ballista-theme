@@ -39,7 +39,7 @@ if ( has_post_thumbnail( $next_post->ID ) ) {
 <div class="post-nav">
     <div class="grid__item grid__item--flex text-center post-nav-block relative"
          data-id="<?php echo esc_attr( $prev_post->ID ); ?>">
-        <a href="<?php echo get_permalink($prev_post->ID); ?>" class="full-width">
+        <a href="<?php echo get_permalink( $prev_post->ID ); ?>" class="full-width">
             <div class="quick-transition post-nav-background" <?php echo $prev_bg_style; ?>></div>
             <div class="excerpt--box">
                 <div class="excerpt__title--row">
@@ -56,7 +56,7 @@ if ( has_post_thumbnail( $next_post->ID ) ) {
 
     <div class="grid__item grid__item--flex text-center post-nav-block relative"
          data-id="<?php echo esc_attr( $next_post->ID ); ?>">
-        <a href="<?php echo get_permalink($next_post->ID); ?>" class="full-width">
+        <a href="<?php echo get_permalink( $next_post->ID ); ?>" class="full-width">
             <div class="quick-transition post-nav-background" <?php echo $next_bg_style; ?>></div>
             <div class="excerpt--box">
                 <div class="excerpt__title--row">

@@ -45,13 +45,13 @@ get_header(); ?>
                         foreach ( $images as $i => $image ) {
                             if ( $image != '' ) {
                                 $image_count++;
-                                array_push($valid_images, $i);
+                                array_push( $valid_images, $i );
                             }
                         }
 
                         echo '<div class="flex-display">';
-                        for ($i = 0; $i < $image_count; $i++) {
-                            echo '<div class="flex-centered thumb-container"><img src="' . $images[$i] . '" alt=""/></div>';
+                        for ( $i = 0; $i < $image_count; $i++ ) {
+                            echo '<div class="flex-centered thumb-container"><img src="' . $images[ $i ] . '" alt=""/></div>';
                         }
                         echo '</div>';
 

@@ -35,10 +35,10 @@ get_header();
             <article>
                 <header class="top-bar top-bar__single--header">
                     <div class="top-bar__post-nav--arrows">
-                        <a href="<?php echo get_permalink($prev_post->ID); ?>">
+                        <a href="<?php echo get_permalink( $prev_post->ID ); ?>">
                             <div class="post__nav--arrow post__nav--arrow-prev"><i class="fa fa-arrow-left"></i></div>
                         </a>
-                        <a href="<?php echo get_permalink($next_post->ID); ?>">
+                        <a href="<?php echo get_permalink( $next_post->ID ); ?>">
                             <div class="post__nav--arrow post__nav--arrow-next"><i class="fa fa-arrow-right"></i></div>
                         </a>
                     </div>

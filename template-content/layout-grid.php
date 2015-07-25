@@ -7,7 +7,7 @@
 <?php
 $layout = get_theme_mod( 'woc_front_page_style' );
 
-if (isset($_GET['fp_layout'])) $layout = $_GET['fp_layout'];
+if ( isset( $_GET[ 'fp_layout' ] ) ) $layout = $_GET[ 'fp_layout' ];
 ?>
 
 <div id="theGrid" class="main">
@@ -35,9 +35,9 @@ if (isset($_GET['fp_layout'])) $layout = $_GET['fp_layout'];
 
                     $terms = get_the_terms( $post->ID, 'case_study_tags' );
                     $term_classes = "";
-                    if ( $terms && ! is_wp_error( $terms ) ) {
+                    if ( $terms && !is_wp_error( $terms ) ) {
                         foreach ( $terms as $term ) {
-                            $term_classes .= " " . strtolower( str_replace(" ", "-", $term->name ) );
+                            $term_classes .= " " . strtolower( str_replace( " ", "-", $term->name ) );
                         }
                     }
 
@@ -48,19 +48,21 @@ if (isset($_GET['fp_layout'])) $layout = $_GET['fp_layout'];
                         if ( $i > 0 ) {
                             $cat_string .= ', ';
                         }
-                        $cat_string .= '<a class="post__link post__link--bold" href="' . get_category_link($category->cat_ID) . '">' . $category->name . '</a>';
+                        $cat_string .= '<a class="post__link post__link--bold" href="' . get_category_link( $category->cat_ID ) . '">' . $category->name . '</a>';
                     }
                     ?>
 
                     <?php if ( $layout === 'blog' ) { ?>
-                        <div class="grid__item grid__item--flex transparent quick-transition <?php echo $term_classes; ?>" data-href="<?php echo the_permalink(); ?>" <?php echo $img; ?>>
+                        <div
+                            class="grid__item grid__item--flex transparent quick-transition <?php echo $term_classes; ?>"
+                            data-href="<?php echo the_permalink(); ?>" <?php echo $img; ?>>
                             <div class="excerpt--box">
                                 <div class="excerpt__title--row">
                                     <div class="excerpt__title">
                                         <?php the_title(); ?>
                                     </div>
                                     <div class="excerpt__likes">
-                                        <?php if( function_exists('dot_irecommendthis') ) dot_irecommendthis(); ?>
+                                        <?php if ( function_exists( 'dot_irecommendthis' ) ) dot_irecommendthis(); ?>
                                     </div>
                                 </div>
 
@@ -70,49 +72,55 @@ if (isset($_GET['fp_layout'])) $layout = $_GET['fp_layout'];
                                 </div>
 
                                 <div class="excerpt__content--row">
-                                    <?php echo ballista_the_excerpt_max_charlength(240); ?>
+                                    <?php echo ballista_the_excerpt_max_charlength( 240 ); ?>
                                     <?php $url = get_the_permalink(); ?>
-                                    <a class="post__link" href="<?php echo $url; ?>"><?php echo  __('Read More', 'ballista'); ?></a>
+                                    <a class="post__link"
+                                       href="<?php echo $url; ?>"><?php echo __( 'Read More', 'ballista' ); ?></a>
                                 </div>
                             </div>
                         </div>
-                    <?php }
-
-                    else if ( $layout === 'portfolio' ) { ?>
-                        <div class="grid__item grid__item--flex effect-ballista-case-study hover--overlay transparent quick-transition <?php echo $term_classes; ?>" data-href="<?php echo the_permalink(); ?>" <?php echo $img; ?>>
+                    <?php } else if ( $layout === 'portfolio' ) { ?>
+                        <div
+                            class="grid__item grid__item--flex effect-ballista-case-study hover--overlay transparent quick-transition <?php echo $term_classes; ?>"
+                            data-href="<?php echo the_permalink(); ?>" <?php echo $img; ?>>
                             <div class="portfolio__overlay">
                                 <?php $url = get_the_permalink(); ?>
                                 <a class="post__link" href="<?php echo $url; ?>">
                                     <h2 class="title"><?php the_title(); ?></span></h2>
                                 </a>
+
                                 <div class="details">
                                     <p><?php echo esc_html( $term_classes ); ?></p>
+
                                     <div class="excerpt__likes">
-                                        <?php if( function_exists('dot_irecommendthis') ) dot_irecommendthis(); ?>
+                                        <?php if ( function_exists( 'dot_irecommendthis' ) ) dot_irecommendthis(); ?>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    <?php }
-
-                    else if ( $layout === 'portfolio-full' ) { ?>
-                        <div class="grid__item grid__item--flex grid__item--portfolio--full effect-ballista-case-study hover--overlay transparent quick-transition <?php echo $term_classes; ?>" data-href="<?php echo the_permalink(); ?>" <?php echo $img; ?>>
+                    <?php } else if ( $layout === 'portfolio-full' ) { ?>
+                        <div
+                            class="grid__item grid__item--flex grid__item--portfolio--full effect-ballista-case-study hover--overlay transparent quick-transition <?php echo $term_classes; ?>"
+                            data-href="<?php echo the_permalink(); ?>" <?php echo $img; ?>>
                             <div class="portfolio__overlay">
                                 <?php $url = get_the_permalink(); ?>
                                 <a class="post__link" href="<?php echo $url; ?>">
                                     <h2 class="title"><?php the_title(); ?></span></h2>
                                 </a>
+
                                 <div class="details">
                                     <p><?php echo esc_html( $term_classes ); ?></p>
+
                                     <div class="excerpt__likes">
-                                        <?php if( function_exists('dot_irecommendthis') ) dot_irecommendthis(); ?>
+                                        <?php if ( function_exists( 'dot_irecommendthis' ) ) dot_irecommendthis(); ?>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     <?php } ?>
 
-                <?php endwhile; wp_reset_query(); ?>
+                <?php endwhile;
+                wp_reset_query(); ?>
 
             <?php else : ?>
 

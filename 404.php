@@ -15,9 +15,9 @@ get_header(); ?>
 
         <?php
         // Get the header image for the blog page
-        $src = get_theme_mod('woc_404_image_header');
+        $src = get_theme_mod( 'woc_404_image_header' );
 
-        if ($src != '') {
+        if ( $src != '' ) {
             $img = 'style="background: url(' . esc_url( $src ) . ') 100% / cover"';
             ?>
             <div class="header-image transparent quick-transition" <?php echo $img; ?>></div>
@@ -25,9 +25,11 @@ get_header(); ?>
 
         <div class="page-content animated flex-display flex-nowrap flex-direction-column flex-centered fadeIn">
             <header class="page-header">
-                <h1 class="page-title"><?php echo __('404', 'ballista'); ?></h1>
+                <h1 class="page-title"><?php echo __( '404', 'ballista' ); ?></h1>
+
                 <h2><?php echo __( 'PAGE NOT FOUND', 'ballista' ); ?></h2>
-            </header><!-- .page-header -->
+            </header>
+            <!-- .page-header -->
 
             <div class="error-content">
                 <div class="content-message">
@@ -39,7 +41,8 @@ get_header(); ?>
                 <?php get_template_part( 'template-content/links', 'social' ); ?>
             </div>
 
-        </div><!-- .page-content -->
+        </div>
+        <!-- .page-content -->
     </section>
 </div>
 

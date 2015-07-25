@@ -1,206 +1,282 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <head lang="en">
-	<meta http-equiv="content-type" content="text/html;charset=utf-8">
-	<title>Live Composer - Usage Documentation</title>
-	<!-- Framework CSS -->
-	<link rel="stylesheet" href="assets/blueprint-css/screen.css" type="text/css" media="screen, projection">
-	<link rel="stylesheet" href="assets/blueprint-css/print.css" type="text/css" media="print">
-	<!--[if lt IE 8]><link rel="stylesheet" href="assets/blueprint-css/ie.css" type="text/css" media="screen, projection"><![endif]-->
-	<link rel="stylesheet" href="assets/blueprint-css/plugins/fancy-type/screen.css" type="text/css" media="screen, projection">
-	<style type="text/css" media="screen">
-		p, table, hr, .box { margin-bottom:25px; }
-		hr { margin: 40px 0; }
-		.box p { margin-bottom:10px; }
-	</style>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <title>Live Composer - Usage Documentation</title>
+    <!-- Framework CSS -->
+    <link rel="stylesheet" href="assets/blueprint-css/screen.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" href="assets/blueprint-css/print.css" type="text/css" media="print">
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="assets/blueprint-css/ie.css" type="text/css" media="screen, projection"><![endif]-->
+    <link rel="stylesheet" href="assets/blueprint-css/plugins/fancy-type/screen.css" type="text/css"
+          media="screen, projection">
+    <style type="text/css" media="screen">
+        p, table, hr, .box {
+            margin-bottom: 25px;
+        }
+
+        hr {
+            margin: 40px 0;
+        }
+
+        .box p {
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 
 
 <body>
-	<div class="container">
-	
-		<h3 class="center alt">&ldquo;Live Composer&rdquo; <strong>User Documentation</strong></h3>
-		
-		<hr>
-		
-		<h1 class="center">&ldquo;Live Composer&rdquo;</h1>
-		
-		<div class="borderTop">
-			<div class="span-6 colborder info prepend-1">
-				<p class="prepend-top">
-					Created: <strong>January 8th, 2014</strong><br>
-					By: <a href="http://themeforest.net/user/DanyDuchaine" target="_blank"><strong>DanyDuchaine</strong></a>
-				</p>
-			</div><!-- end div .span-6 -->		
-	
-			<div class="span-12 last">
-				<p class="prepend-top append-0">First of all, thank you for purchasing Live Composer. If you have any questions that are not covered in this documentation, please feel free to visit the <a href="http://livecomposerplugin.com/forum">support forum</a>.</p>
-			</div>
-		</div><!-- end div .borderTop -->
-		
-		<hr>
-		
-		<h2 id="toc" class="alt">Table of Contents</h2>
-		<ol class="alpha">
-			<li><a href="#installation">Installation</a></li>
-			<li><a href="#lc-pages">Live Composer for Pages</a></li>
-			<li><a href="#lc-posts">Live Composer for Posts ( Post Templates )</a></li>
-			<li><a href="#settings">Settings</a></li>
-			<li><a href="#final">Final Words</a></li>
-			<li><a href="#credits">Sources and Credits</a></li>
-		</ol>
-		
-		<br><hr><br>
-		
-		<!--
-		
-			Installation
-		
-		-->
-		
-		<h3 id="installation">A) Installation - <a href="#toc">top</a></h3>
+<div class="container">
 
-		<p>In the package you got from Themeforest you'll find a zip called <strong>ds-live-composer.zip</strong>, that's the installable plugin zip. You can install it from the WordPress admin panel or by using FTP, it's up to you.</p>
-		
-		<p>If you're installing though WordPress admin panel here's how:</p>
-		
-		<ul>
-			<li>Go to WordPress Admin</li>
-			<li>Go to <strong><em>"Plugins"</em></strong></li>
-			<li>Go to <strong><em>"Add New"</em></strong></li>
-			<li>Click <strong><em>"Upload"</em></strong></li>
-			<li>Click <strong><em>"Choose file"</em></strong> (or "Browse", depending on your browser) and choose the zipped plugin file we talked about earlier</li>
-			<li>Click <strong><em>"Install Now"</em></strong></li>
-			<li>After WordPress finishes the installation click <strong><em>"Activate"</em></strong></li>
-		</ul>
-		
-		That's it, you have installed and activated the plugin.
-		
-		<br><hr><br>
+    <h3 class="center alt">&ldquo;Live Composer&rdquo; <strong>User Documentation</strong></h3>
 
-		<h3 id="lc-pages">B) Live Composer for Pages - <a href="#toc">top</a></h3>
+    <hr>
 
-		<p>If you're logged in as administrator and you visit a page on your website you will be seeing a <strong>green button</strong> ( "Activate Editor" ) in the bottom right corner. Clicking that button will reopen the page in <strong>Live Composer Mode</strong>.</p>
+    <h1 class="center">&ldquo;Live Composer&rdquo;</h1>
 
-		<p class="center"><img src="assets/images/activate.png" /></p>
+    <div class="borderTop">
+        <div class="span-6 colborder info prepend-1">
+            <p class="prepend-top">
+                Created: <strong>January 8th, 2014</strong><br>
+                By: <a href="http://themeforest.net/user/DanyDuchaine" target="_blank"><strong>DanyDuchaine</strong></a>
+            </p>
+        </div>
+        <!-- end div .span-6 -->
 
-		<p>When you're in the <strong>Live Composer Mode</strong> there will be a <strong>red button</strong> ( "Disable Editor" ) in the same place where the button for activation was. Clicking that button brings you back to the regular page view.</p>
+        <div class="span-12 last">
+            <p class="prepend-top append-0">First of all, thank you for purchasing Live Composer. If you have any
+                questions that are not covered in this documentation, please feel free to visit the <a
+                        href="http://livecomposerplugin.com/forum">support forum</a>.</p>
+        </div>
+    </div>
+    <!-- end div .borderTop -->
 
-		<p class="center"><img src="assets/images/disable.png" /></p>
+    <hr>
 
-		<p>When you're done creating/editing a page you will need to publish the changes by clicking the <strong>"Publish Changes"</strong> button which is positioned in the bottom right corner as well.</p>
+    <h2 id="toc" class="alt">Table of Contents</h2>
+    <ol class="alpha">
+        <li><a href="#installation">Installation</a></li>
+        <li><a href="#lc-pages">Live Composer for Pages</a></li>
+        <li><a href="#lc-posts">Live Composer for Posts ( Post Templates )</a></li>
+        <li><a href="#settings">Settings</a></li>
+        <li><a href="#final">Final Words</a></li>
+        <li><a href="#credits">Sources and Credits</a></li>
+    </ol>
 
-		<p class="center"><img src="assets/images/publish.png" /></p>
+    <br>
+    <hr>
+    <br>
 
-		<hr>
+    <!--
 
-		<h4>Interactive Tutorials</h4>
+        Installation
 
-		<p>We have made a set of interactive tutorials that explain how it all works much better than words and pictures could, you can start from a specific one but if it's your first time then it's best to start from the first one:</p>
+    -->
 
-		<ul>
-			<li><a target="_blank" href="http://livecomposerplugin.com/sandbox/tutorial-chapter-one/?dslc=active&dslc_tut=start">Chapter One - Rows</a></li>
-			<li><a target="_blank" href="http://livecomposerplugin.com/sandbox/tutorial-chapter-two/?dslc=active&dslc_tut=start">Chapter Two - Areas ( columns )</a></li>
-			<li><a target="_blank" href="http://livecomposerplugin.com/sandbox/tutorial-chapter-three/?dslc=active&dslc_tut=start">Chapter Three - Modules</a></li>
-			<li><a target="_blank" href="http://livecomposerplugin.com/sandbox/tutorial-chapter-four/?dslc=active&dslc_tut=start">Chapter Four - Templates</a></li>
-		</ul>
+    <h3 id="installation">A) Installation - <a href="#toc">top</a></h3>
 
-		<hr>
+    <p>In the package you got from Themeforest you'll find a zip called <strong>ds-live-composer.zip</strong>, that's
+        the installable plugin zip. You can install it from the WordPress admin panel or by using FTP, it's up to you.
+    </p>
 
-		<h4>Videos</h4>
+    <p>If you're installing though WordPress admin panel here's how:</p>
 
-		<p>There's also plenty of videos that will help you understand how it works, <a target="_blank" href="http://livecomposerplugin.com/sandbox/blog-example-1/">go to our website</a> and click the "Launch The Video" button in the top right, a playlist with all the videos will open.</p>
+    <ul>
+        <li>Go to WordPress Admin</li>
+        <li>Go to <strong><em>"Plugins"</em></strong></li>
+        <li>Go to <strong><em>"Add New"</em></strong></li>
+        <li>Click <strong><em>"Upload"</em></strong></li>
+        <li>Click <strong><em>"Choose file"</em></strong> (or "Browse", depending on your browser) and choose the zipped
+            plugin file we talked about earlier
+        </li>
+        <li>Click <strong><em>"Install Now"</em></strong></li>
+        <li>After WordPress finishes the installation click <strong><em>"Activate"</em></strong></li>
+    </ul>
 
-		<hr>
+    That's it, you have installed and activated the plugin.
 
-		<h4>Play with it</h4>
+    <br>
+    <hr>
+    <br>
 
-		<p>After you go through the tutorials and watch a few of the videos just go and play around with it, it's the best way to get familiar with it.</p>
+    <h3 id="lc-pages">B) Live Composer for Pages - <a href="#toc">top</a></h3>
 
-		<br><hr><br>
+    <p>If you're logged in as administrator and you visit a page on your website you will be seeing a <strong>green
+        button</strong> ( "Activate Editor" ) in the bottom right corner. Clicking that button will reopen the page in
+        <strong>Live Composer Mode</strong>.</p>
 
-		<h3 id="lc-posts">C) Live Composer for Posts ( Post Templates ) - <a href="#toc">top</a></h3>
+    <p class="center"><img src="assets/images/activate.png"/></p>
 
-		<p>The <strong>Post Templates</strong> feature allows you to create a template for each post type ( blog, projects, downloads, galleries ) which will then be used when showing the single page of that post type ( ex. a blog post, gallery, project ).</p>
+    <p>When you're in the <strong>Live Composer Mode</strong> there will be a <strong>red button</strong> ( "Disable
+        Editor" ) in the same place where the button for activation was. Clicking that button brings you back to the
+        regular page view.</p>
 
-		If a post type does not have a specific template created, the regular single post template from the theme ( single.php ) will be used to show the content for the posts of that post type.
+    <p class="center"><img src="assets/images/disable.png"/></p>
 
-		<hr>
+    <p>When you're done creating/editing a page you will need to publish the changes by clicking the <strong>"Publish
+        Changes"</strong> button which is positioned in the bottom right corner as well.</p>
 
-		<h4>Creating A Post Template</h4>
+    <p class="center"><img src="assets/images/publish.png"/></p>
 
-		<p>Go to the <strong>WordPress admin</strong>, in the main menu you will see <strong>Templates</strong>, click to <strong>Add New</strong>. Everything is the same as when adding a post/page except these 3 options ( <em>check screenshot bellow</em> )</p>
+    <hr>
 
-		<p><img src="assets/images/post-template-opts.png" /></p>
+    <h4>Interactive Tutorials</h4>
 
-		<p>They're all explained there so no need to do it here as well. When you publish the template click "View Template" button. From there everything's the same as when using the Live Composer to create a page.</p>
+    <p>We have made a set of interactive tutorials that explain how it all works much better than words and pictures
+        could, you can start from a specific one but if it's your first time then it's best to start from the first
+        one:</p>
 
-		<p>The only difference between creating a page with LC and creating a template with LC is that when creating a template there are a few more modules available ( title, comments, thumbnail... )</p>
+    <ul>
+        <li><a target="_blank"
+               href="http://livecomposerplugin.com/sandbox/tutorial-chapter-one/?dslc=active&dslc_tut=start">Chapter One
+            - Rows</a></li>
+        <li><a target="_blank"
+               href="http://livecomposerplugin.com/sandbox/tutorial-chapter-two/?dslc=active&dslc_tut=start">Chapter Two
+            - Areas ( columns )</a></li>
+        <li><a target="_blank"
+               href="http://livecomposerplugin.com/sandbox/tutorial-chapter-three/?dslc=active&dslc_tut=start">Chapter
+            Three - Modules</a></li>
+        <li><a target="_blank"
+               href="http://livecomposerplugin.com/sandbox/tutorial-chapter-four/?dslc=active&dslc_tut=start">Chapter
+            Four - Templates</a></li>
+    </ul>
 
-		<hr>
+    <hr>
 
-		<h4>Choosing a Template</h4>
+    <h4>Videos</h4>
 
-		<p>All posts will use the default template <small>( the template that has "Type" set to "Default")</small> for their post type, but you can also set some posts to use a different template <small>( a template that has "Type" set to "Regular" )</small>.</p>
+    <p>There's also plenty of videos that will help you understand how it works, <a target="_blank"
+                                                                                    href="http://livecomposerplugin.com/sandbox/blog-example-1/">go
+        to our website</a> and click the "Launch The Video" button in the top right, a playlist with all the videos will
+        open.</p>
 
-		<p>If you go to edit a post ( blog or download or whichever ) you will see a "Template" option ( <em>check screenshot bellow</em> ). That is where you choose which template should that post use when being viewed.</p>
+    <hr>
 
-		<p class="center"><img src="assets/images/post-template-choose.png" /></p>
+    <h4>Play with it</h4>
 
-		<br><hr><br>
+    <p>After you go through the tutorials and watch a few of the videos just go and play around with it, it's the best
+        way to get familiar with it.</p>
 
-		<h3 id="settings">D) Settings - <a href="#toc">top</a></h3>
+    <br>
+    <hr>
+    <br>
 
-		<p>Most of the options for modules are located right in the front-end ( <strong>Live Composer Mode</strong> ) but there are also some more general options that are located in the WordPress Admin.</p>
+    <h3 id="lc-posts">C) Live Composer for Posts ( Post Templates ) - <a href="#toc">top</a></h3>
 
-		<p>To access them go to the <strong>WordPress Admin</strong> and at the bottom of the main navigation you'll see <strong>Live Composer</strong>, clicking that takes you to the options page.</p>
+    <p>The <strong>Post Templates</strong> feature allows you to create a template for each post type ( blog, projects,
+        downloads, galleries ) which will then be used when showing the single page of that post type ( ex. a blog post,
+        gallery, project ).</p>
 
-		<p class="center"><img src="assets/images/options.png" /></p>
+    If a post type does not have a specific template created, the regular single post template from the theme (
+    single.php ) will be used to show the content for the posts of that post type.
 
-		<p>There are just a few options in there since all the important module options are located in the front-end, but there will be more as the plugin evolves.</p>
+    <hr>
 
-		<p>The <strong>most important</strong> option in there at the moment is the <strong>Max Width</strong> option. That is where you set how wide the modules section in a row is when set to <strong>wrapped</strong>. When this option has no value Live Composer will use the theme's $content_width variable to figure out how wide it should be.</p>.
+    <h4>Creating A Post Template</h4>
 
-		<br><hr><br>
+    <p>Go to the <strong>WordPress admin</strong>, in the main menu you will see <strong>Templates</strong>, click to
+        <strong>Add New</strong>. Everything is the same as when adding a post/page except these 3 options ( <em>check
+            screenshot bellow</em> )</p>
 
-		<h3 id="final">E) Final Words - <a href="#toc">top</a></h3>
+    <p><img src="assets/images/post-template-opts.png"/></p>
 
-		<p>Those are the most important things you need to know about Live Composer. If you have any questions that weren't covered in the <strong>interactive tutorials</strong> and this <strong>usage documention</strong> feel free to ask us on the <a href="http://livecomposerplugin.com/forum">support forum</a>.</p>
+    <p>They're all explained there so no need to do it here as well. When you publish the template click "View Template"
+        button. From there everything's the same as when using the Live Composer to create a page.</p>
 
-		<p>Both the <strong>usage documentation</strong> and <strong>interactive tutorials</strong> will be updated as we get feedback from you, the users.</p>
+    <p>The only difference between creating a page with LC and creating a template with LC is that when creating a
+        template there are a few more modules available ( title, comments, thumbnail... )</p>
 
-		<p>We hope Live Composer will greatly help you in website creation and extending themes that don't really have all the features that you want or don't really give you the flexibility that you need.</p>
+    <hr>
 
-		<!--
+    <h4>Choosing a Template</h4>
 
-			Sources and Credits
+    <p>All posts will use the default template
+        <small>( the template that has "Type" set to "Default")</small>
+        for their post type, but you can also set some posts to use a different template
+        <small>( a template that has "Type" set to "Regular" )</small>
+        .
+    </p>
 
-		-->
+    <p>If you go to edit a post ( blog or download or whichever ) you will see a "Template" option ( <em>check
+        screenshot bellow</em> ). That is where you choose which template should that post use when being viewed.</p>
 
-		<br><hr><br>
+    <p class="center"><img src="assets/images/post-template-choose.png"/></p>
 
-		<h3 id="credits">F) Sources and Credits - <a href="#toc">top</a></h3>
+    <br>
+    <hr>
+    <br>
 
-		<ul>
-			<li><a href="http://brandonaaron.net">jQuery MouseWheel</a> - Brandon Aaron</li>
-			<li><a href="https://github.com/jquery/jquery-color">jQuery Color</a> - Scott Gonzalez</li>
-			<li><a href="https://github.com/sofish/pen">jQuery Pen Editor</a> - Sofish</li>
-			<li><a href="http://www.eyecon.ro">jQuery ColorPicker</a> - Stefan Petre</li>
-			<li><a href="http://jscrollpane.kelvinluck.com/">jScrollPane</a> - Kelvin Luck</li>
-			<li><a href="http://www.appelsiini.net/projects/viewport">Viewport</a> - Mika Tuupola</li>
-			<li><a href="http://matanich.com">elementQuery</a> - Tyson Matanich</li>
-			<li><a href="http://matanich.com">getEmPixels</a> - Tyson Matanich</li>
-			<li><a href="http://masonry.desandro.com">Masonry</a> - David DeSandro</li>
-			<li><a href="http://www.owlgraphic.com/owlcarousel">OwlCarousel</a> - Bartosz Wojciechowski</li>
-			<li><a href="http://mediaelementjs.com/">MediaElement.js</a> - John Dyer</li>
-			<li><a href="http://dimsemenov.com/plugins/magnific-popup/">Magnific Popup</a> - Dmitry Semenov</li>
-		</ul>
+    <h3 id="settings">D) Settings - <a href="#toc">top</a></h3>
 
-		<br><hr><br>
-		
-		<p class="append-bottom alt large"><strong>DanyDuchaine</strong></p>
-		<p><a href="#toc">Go To Table of Contents</a></p>
-		
-		<hr class="space">
-	</div><!-- end div .container -->
+    <p>Most of the options for modules are located right in the front-end ( <strong>Live Composer Mode</strong> ) but
+        there are also some more general options that are located in the WordPress Admin.</p>
+
+    <p>To access them go to the <strong>WordPress Admin</strong> and at the bottom of the main navigation you'll see
+        <strong>Live Composer</strong>, clicking that takes you to the options page.</p>
+
+    <p class="center"><img src="assets/images/options.png"/></p>
+
+    <p>There are just a few options in there since all the important module options are located in the front-end, but
+        there will be more as the plugin evolves.</p>
+
+    <p>The <strong>most important</strong> option in there at the moment is the <strong>Max Width</strong> option. That
+        is where you set how wide the modules section in a row is when set to <strong>wrapped</strong>. When this option
+        has no value Live Composer will use the theme's $content_width variable to figure out how wide it should be.</p>
+    .
+
+    <br>
+    <hr>
+    <br>
+
+    <h3 id="final">E) Final Words - <a href="#toc">top</a></h3>
+
+    <p>Those are the most important things you need to know about Live Composer. If you have any questions that weren't
+        covered in the <strong>interactive tutorials</strong> and this <strong>usage documention</strong> feel free to
+        ask us on the <a href="http://livecomposerplugin.com/forum">support forum</a>.</p>
+
+    <p>Both the <strong>usage documentation</strong> and <strong>interactive tutorials</strong> will be updated as we
+        get feedback from you, the users.</p>
+
+    <p>We hope Live Composer will greatly help you in website creation and extending themes that don't really have all
+        the features that you want or don't really give you the flexibility that you need.</p>
+
+    <!--
+
+        Sources and Credits
+
+    -->
+
+    <br>
+    <hr>
+    <br>
+
+    <h3 id="credits">F) Sources and Credits - <a href="#toc">top</a></h3>
+
+    <ul>
+        <li><a href="http://brandonaaron.net">jQuery MouseWheel</a> - Brandon Aaron</li>
+        <li><a href="https://github.com/jquery/jquery-color">jQuery Color</a> - Scott Gonzalez</li>
+        <li><a href="https://github.com/sofish/pen">jQuery Pen Editor</a> - Sofish</li>
+        <li><a href="http://www.eyecon.ro">jQuery ColorPicker</a> - Stefan Petre</li>
+        <li><a href="http://jscrollpane.kelvinluck.com/">jScrollPane</a> - Kelvin Luck</li>
+        <li><a href="http://www.appelsiini.net/projects/viewport">Viewport</a> - Mika Tuupola</li>
+        <li><a href="http://matanich.com">elementQuery</a> - Tyson Matanich</li>
+        <li><a href="http://matanich.com">getEmPixels</a> - Tyson Matanich</li>
+        <li><a href="http://masonry.desandro.com">Masonry</a> - David DeSandro</li>
+        <li><a href="http://www.owlgraphic.com/owlcarousel">OwlCarousel</a> - Bartosz Wojciechowski</li>
+        <li><a href="http://mediaelementjs.com/">MediaElement.js</a> - John Dyer</li>
+        <li><a href="http://dimsemenov.com/plugins/magnific-popup/">Magnific Popup</a> - Dmitry Semenov</li>
+    </ul>
+
+    <br>
+    <hr>
+    <br>
+
+    <p class="append-bottom alt large"><strong>DanyDuchaine</strong></p>
+
+    <p><a href="#toc">Go To Table of Contents</a></p>
+
+    <hr class="space">
+</div>
+<!-- end div .container -->
 </body>
 </html>

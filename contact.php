@@ -87,14 +87,16 @@ get_header(); ?>
                         if ( $right_block == '' ) $left_fullwidth = 'full-width';
                         $img = 'style="background: url(' . esc_url( $left_block ) . ') 100% / cover"';
                         ?>
-                        <div class="contact__hero contact__hero--left <?php echo esc_attr( $left_fullwidth ); ?>" <?php echo $img; ?>></div>
+                        <div
+                            class="contact__hero contact__hero--left <?php echo esc_attr( $left_fullwidth ); ?>" <?php echo $img; ?>></div>
                     <?php }
 
                     if ( $right_block != '' ) {
                         $right_fullwidth = '';
                         if ( $left_block == '' ) $right_fullwidth = 'full-width';
                         ?>
-                        <div class="contact__hero contact__hero--right <?php echo esc_attr( $right_fullwidth ); ?>"><?php echo $right_block; ?></div>
+                        <div
+                            class="contact__hero contact__hero--right <?php echo esc_attr( $right_fullwidth ); ?>"><?php echo $right_block; ?></div>
                     <?php } ?>
                 </div>
 

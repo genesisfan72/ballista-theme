@@ -24,7 +24,7 @@
 
             $categories = get_categories( $args );
             foreach ( $categories as $category ) {
-                $cat_string .= '<a href="#" data-filter=".' . strtolower( str_replace(" ", "-", $category->name ) ) . '" class="case-study-filter">' . $category->name . '</a>';
+                $cat_string .= '<a href="#" data-filter=".' . strtolower( str_replace( " ", "-", $category->name ) ) . '" class="case-study-filter">' . $category->name . '</a>';
             }
         }
 

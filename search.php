@@ -15,9 +15,9 @@ get_header(); ?>
 
         <?php
         // Get the header image for the blog page
-        $src = get_theme_mod('woc_search_image_header');
+        $src = get_theme_mod( 'woc_search_image_header' );
 
-        if ($src != '') {
+        if ( $src != '' ) {
             $img = 'style="background: url(' . esc_url( $src ) . ') 60% / cover"';
             ?>
             <div class="header-image transparent quick-transition" <?php echo $img; ?>></div>
@@ -33,10 +33,10 @@ get_header(); ?>
 
                 <?php
                 /**
-                * Run the loop for the search to output the results.
-                * If you want to overload this in a child theme then include a file
-                * called content-search.php and that will be used instead.
-                */
+                 * Run the loop for the search to output the results.
+                 * If you want to overload this in a child theme then include a file
+                 * called content-search.php and that will be used instead.
+                 */
                 ?>
 
                 <?php get_template_part( 'template-content/content', 'blog' ); ?>
