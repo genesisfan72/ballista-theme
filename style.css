@@ -4,6 +4,8 @@ Theme URI: http://www.warriorsofcode.com/
 Author: Warriors of Code
 Author URI: http://www.warriorsofcode.com
 Description: Description
+Text Domain: ballista
+Domain Path: /languages
 Version: 1.0.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -1859,6 +1861,7 @@ h1.title {
 }
 
 header .categories {
+    width: 50%;
     display: -webkit-box;
     display: -moz-box;
     display: box;
@@ -1896,9 +1899,11 @@ header .categories a {
     -webkit-transition: all 0.35s ease;
     -moz-transition: all 0.35s ease;
     transition: all 0.35s ease;
+    padding-top: 10px;
 }
 
 header .social-icons {
+    width: 50%;
     display: -webkit-box;
     display: -moz-box;
     display: box;
@@ -2628,6 +2633,10 @@ section.grid, #theGrid {
     /* 3 columns */
     .grid__item {
         width: 33.333%;
+    }
+
+    header .social-icons {
+        width: 25%;
     }
 }
 
