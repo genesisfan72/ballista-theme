@@ -39,7 +39,7 @@ function ballista_sanitize_layout( $input ) {
 function ballista_customize_register( $wp_customize ) {
 
     /**
-     * General Section
+     * Homepage Section
      */
     $wp_customize->add_section( 'woc_layout_section', array(
         'title' => __( 'Homepage Options', 'ballista' ),
@@ -58,6 +58,31 @@ function ballista_customize_register( $wp_customize ) {
         'settings' => 'woc_front_page_style',
         'priority' => 1
     ) ) );
+
+    $wp_customize->add_setting( 'woc_fp_source', array(
+        'default' => 'post',
+        'transport' => 'refresh' ) );
+
+    // build an array of post types, including custom post types
+    $post_types = get_post_types( array( '_builtin' => false ), 'objects' );
+    $post_type_list = array( 'post' => __( 'Posts', 'ballista' ), 'page' => __( 'Pages', 'ballista' ) );
+    foreach( $post_types as $post_type ) {
+        if ( strpos($post_type->name, 'dslc_' ) === false ) {
+            $post_type_list[ $post_type->name ] = $post_type->labels->name;
+        }
+    }
+
+    $wp_customize->add_control( 'woc_fp_source',
+        array(
+            'label' => __( 'Select the source for the front page.', 'ballista' ),
+            'section' => 'woc_layout_section',
+            'settings' => 'woc_fp_source',
+            'type' => 'select',
+            'choices' => $post_type_list,
+            'priority' => 3
+        )
+    );
+
 
     /**
      * Logo Section
@@ -497,7 +522,7 @@ function my_customizer_script() {
         "use strict";
 
         jQuery(document).ready(function ($) {
-            let aboutSelect = $("select[data-customize-setting-link='woc_about_images']");
+            var aboutSelect = $("select[data-customize-setting-link='woc_about_images']");
 
             if (aboutSelect.val() === 'instagram') {
                 $("li[id^='customize-control-woc_about_page_image_'").hide();

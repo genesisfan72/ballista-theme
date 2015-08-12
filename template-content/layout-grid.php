@@ -18,7 +18,7 @@ if ( isset( $_GET[ 'fp_layout' ] ) ) $layout = $_GET[ 'fp_layout' ];
         <div class="grid__item__container">
 
             <?php
-            $loop = new WP_Query( array( 'post_type' => 'case_study', 'posts_per_page' => -1 ) );
+            $loop = new WP_Query( array( 'post_type' => get_theme_mod( 'woc_fp_source', 'post' ), 'posts_per_page' => -1 ) );
 
             if ( $loop->have_posts() ) : ?>
 
@@ -33,30 +33,39 @@ if ( isset( $_GET[ 'fp_layout' ] ) ) $layout = $_GET[ 'fp_layout' ];
                         $img = 'style="background: url(' . esc_url( $thumb_url ) . ') 40% / cover"';
                     }
 
-                    $terms = get_the_terms( $post->ID, 'case_study_tags' );
-                    $term_classes = "";
+                    $terms = woc_custom_taxonomies_terms_links();
+                    $term_classes = [];
+                    $term_links = "";
                     if ( $terms && !is_wp_error( $terms ) ) {
                         foreach ( $terms as $term ) {
-                            $term_classes .= " " . strtolower( str_replace( " ", "-", $term->name ) );
+                            $term_link = get_term_link( $term );
+                            // If there was an error, continue to the next term.
+                            if ( is_wp_error( $term_link ) ) {
+                                continue;
+                            }
+                            $term_classes[] = strtolower( str_replace( " ", "-", $term->name ) );
+                            $term_links .= " " . '<a href="' . esc_url( $term_link ) . '" class="case-study-filter post__link post__link--bold">' . strtolower( str_replace( " ", "-", $term->name ) ) . '</a>';
                         }
                     }
+                    $term_classes_string = implode( $term_classes );
 
-                    $categories = array();
-                    $i = 0;
-                    $cat_string = "";
-                    foreach ( get_the_category() as $category ) {
-                        if ( $i > 0 ) {
-                            $cat_string .= ', ';
-                        }
-                        $cat_string .= '<a class="post__link post__link--bold" href="' . get_category_link( $category->cat_ID ) . '">' . $category->name . '</a>';
-                    }
+//                    $categories = array();
+//                    $i = 0;
+//                    $cat_string = "";
+//                    foreach ( get_the_category() as $category ) {
+//                        if ( $i > 0 ) {
+//                            $cat_string .= ', ';
+//                        }
+//                        $cat_string .= '<a class="post__link post__link--bold" href="' . get_category_link( $category->cat_ID ) . '">' . $category->name . '</a>';
+//                    }
                     ?>
 
                     <?php if ( $layout === 'blog' ) { ?>
                         <div
-                            class="grid__item grid__item--flex transparent quick-transition <?php echo $term_classes; ?>"
+                            class="grid__item grid__item--flex transparent quick-transition <?php echo $term_classes_string; ?>"
                             data-href="<?php echo the_permalink(); ?>" <?php echo $img; ?>>
                             <div class="excerpt--box">
+
                                 <div class="excerpt__title--row">
                                     <div class="excerpt__title">
                                         <?php the_title(); ?>
@@ -68,7 +77,7 @@ if ( isset( $_GET[ 'fp_layout' ] ) ) $layout = $_GET[ 'fp_layout' ];
 
                                 <div class="excerpt__byline--row">
                                     <?php //TODO - loop through categories and create filter links for each one ?>
-                                    <?php echo __( 'By ', 'ballista' ) . get_the_author() . __( ' in ', 'ballista' ) . '<a href="#" class="case-study-filter post__link post__link--bold">' . esc_html( $term_classes ) . '</a>'; ?>
+                                    <?php echo __( 'By ', 'ballista' ) . get_the_author() . __( ' in ', 'ballista' ) . $term_links; ?>
                                 </div>
 
                                 <div class="excerpt__content--row">
@@ -81,7 +90,7 @@ if ( isset( $_GET[ 'fp_layout' ] ) ) $layout = $_GET[ 'fp_layout' ];
                         </div>
                     <?php } else if ( $layout === 'portfolio' ) { ?>
                         <div
-                            class="grid__item grid__item--flex effect-ballista-case-study hover--overlay transparent quick-transition <?php echo $term_classes; ?>"
+                            class="grid__item grid__item--flex effect-ballista-case-study hover--overlay transparent quick-transition <?php echo $term_classes_string; ?>"
                             data-href="<?php echo the_permalink(); ?>" <?php echo $img; ?>>
                             <div class="portfolio__overlay">
                                 <?php $url = get_the_permalink(); ?>
@@ -100,7 +109,7 @@ if ( isset( $_GET[ 'fp_layout' ] ) ) $layout = $_GET[ 'fp_layout' ];
                         </div>
                     <?php } else if ( $layout === 'portfolio-full' ) { ?>
                         <div
-                            class="grid__item grid__item--flex grid__item--portfolio--full effect-ballista-case-study hover--overlay transparent quick-transition <?php echo $term_classes; ?>"
+                            class="grid__item grid__item--flex grid__item--portfolio--full effect-ballista-case-study hover--overlay transparent quick-transition <?php echo $term_classes_string; ?>"
                             data-href="<?php echo the_permalink(); ?>" <?php echo $img; ?>>
                             <div class="portfolio__overlay">
                                 <?php $url = get_the_permalink(); ?>
