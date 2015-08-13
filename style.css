@@ -1272,6 +1272,10 @@ a:active {
     font-weight: 700;
 }
 
+.grid__item {
+    width: 100%;
+}
+
 .grid__item__container .grid__item {
     padding: 10px;
     position: relative;
@@ -1309,6 +1313,7 @@ a:active {
     -moz-align-content: stretch;
     align-content: stretch;
     -ms-flex-line-pack: stretch;
+
 }
 
 .grid__item__container .grid__item--portfolio--full {
@@ -1648,9 +1653,9 @@ h1.title {
     color: #333333;
     overflow: hidden;
     position: relative;
-    -webkit-transition: max-height 0.8s, opacity 0.8s;
-    -moz-transition: max-height 0.8s, opacity 0.8s;
-    transition: max-height 0.8s, opacity 0.8s;
+    -webkit-transition: max-height 0.4s, opacity 0.8s;
+    -moz-transition: max-height 0.4s, opacity 0.8s;
+    transition: max-height 0.4s, opacity 0.8s;
     display: -webkit-box;
     display: -moz-box;
     display: box;
@@ -1681,7 +1686,6 @@ h1.title {
     font-weight: 700;
     letter-spacing: 1px;
     width: 100%;
-    height: 50px;
     min-height: 50px;
     display: -webkit-box;
     display: -moz-box;
@@ -1718,10 +1722,10 @@ h1.title {
 .excerpt--box .excerpt__title--row .excerpt__title {
     text-transform: uppercase;
     color: black;
-    -webkit-align-self: center;
-    -moz-align-self: center;
-    align-self: center;
-    -ms-flex-item-align: center;
+    -webkit-align-self: flex-start;
+    -moz-align-self: flex-start;
+    align-self: flex-start;
+    -ms-flex-item-align: flex-start;
     -webkit-box-flex: 1;
     -moz-box-flex: 1;
     box-flex: 1;
@@ -1858,6 +1862,13 @@ h1.title {
     max-height: 100%;
     height: 100%;
     opacity: 0.9;
+}
+
+.grid__item__container .grid__item:hover .excerpt--box .excerpt__title--row .excerpt__title {
+    -webkit-align-self: center;
+    -moz-align-self: center;
+    align-self: center;
+    -ms-flex-item-align: center;
 }
 
 header .categories {

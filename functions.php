@@ -335,7 +335,7 @@ function ballista_register_cpt_post_templates( $tpl ) {
 
 }
 
-add_filter( 'dslc_post_templates_post_types', 'ballista_register_cpt_post_templates' );
+//add_filter( 'dslc_post_templates_post_types', 'ballista_register_cpt_post_templates' );
 
 
 /**
