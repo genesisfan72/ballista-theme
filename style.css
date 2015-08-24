@@ -1501,7 +1501,7 @@ h1.title {
     font-size: 1.4em;
     width: 100%;
     line-height: 1;
-    padding: 0 40px 19px 40px;
+    padding: 0 20px 19px 20px;
     color: #878787;
     text-transform: uppercase;
     -webkit-transition: -webkit-transform 0.2s, opacity 0.2s;
@@ -2609,7 +2609,7 @@ section.grid, #theGrid {
     }
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 768px) {
     /* 2 columns */
     .grid__item {
         width: 50%;
@@ -2648,6 +2648,10 @@ section.grid, #theGrid {
 
     header .social-icons {
         width: 25%;
+    }
+
+    .top-bar {
+        padding: 22px 20px 10px 20px;
     }
 }
 
@@ -2694,10 +2698,6 @@ section.grid, #theGrid {
 
     .sidebar.sidebar--open ~ .main {
         pointer-events: none;
-    }
-
-    .top-bar {
-        padding: 22px 15px 10px 60px;
     }
 
     .menu-toggle {
