@@ -99,7 +99,7 @@ if ( isset( $_GET[ 'fp_layout' ] ) ) $layout = $_GET[ 'fp_layout' ];
                                 </a>
 
                                 <div class="details">
-                                    <p><?php echo esc_html( $term_classes ); ?></p>
+                                    <p><?php echo $term_links; ?></p>
 
                                     <div class="excerpt__likes">
                                         <?php if ( function_exists( 'dot_irecommendthis' ) ) dot_irecommendthis(); ?>
@@ -118,7 +118,7 @@ if ( isset( $_GET[ 'fp_layout' ] ) ) $layout = $_GET[ 'fp_layout' ];
                                 </a>
 
                                 <div class="details">
-                                    <p><?php echo esc_html( $term_classes ); ?></p>
+                                    <p><?php echo $term_links; ?></p>
 
                                     <div class="excerpt__likes">
                                         <?php if ( function_exists( 'dot_irecommendthis' ) ) dot_irecommendthis(); ?>

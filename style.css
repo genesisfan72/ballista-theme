@@ -768,9 +768,6 @@ input[type='submit'] {
 /*--------------------------------------------------------------
 # Icons
 --------------------------------------------------------------*/
-.icon-container {
-    padding-right: 25px;
-}
 
 .icon-container:last-child {
     padding-right: 0;
@@ -1722,10 +1719,10 @@ h1.title {
 .excerpt--box .excerpt__title--row .excerpt__title {
     text-transform: uppercase;
     color: black;
-    -webkit-align-self: flex-start;
-    -moz-align-self: flex-start;
-    align-self: flex-start;
-    -ms-flex-item-align: flex-start;
+    -webkit-align-self: center;
+    -moz-align-self: center;
+    align-self: center;
+    -ms-flex-item-align: center;
     -webkit-box-flex: 1;
     -moz-box-flex: 1;
     box-flex: 1;
@@ -1936,12 +1933,12 @@ header .social-icons {
     -webkit-box-pack: end;
     -moz-box-pack: end;
     box-pack: end;
-    -webkit-justify-content: flex-end;
-    -moz-justify-content: flex-end;
-    -ms-justify-content: flex-end;
-    -o-justify-content: flex-end;
-    justify-content: flex-end;
-    -ms-flex-pack: end;
+    -webkit-justify-content: space-around;
+    -moz-justify-content: space-around;
+    -ms-justify-content: space-around;
+    -o-justify-content: space-around;
+    justify-content: space-around;
+    -ms-flex-pack: justify;
 }
 
 .single .social-icons {

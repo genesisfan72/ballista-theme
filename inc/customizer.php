@@ -38,6 +38,8 @@ function ballista_sanitize_layout( $input ) {
  */
 function ballista_customize_register( $wp_customize ) {
 
+    //$wp_customize->register_control_type( 'WOC_Layout_Control' );
+
     /**
      * Homepage Section
      */
