@@ -1646,7 +1646,7 @@ h1.title {
     max-height: 50px;
     height: 100%;
     font-family: "Roboto", sans-serif;
-    font-size: 1.8em;
+    font-size: 1.6em;
     color: #333333;
     overflow: hidden;
     position: relative;
@@ -1751,7 +1751,7 @@ h1.title {
 .excerpt--box .excerpt__content--row, .excerpt--box .excerpt__byline--row {
     width: 100%;
     color: #878787;
-    font-size: 0.79em;
+    font-size: 0.9em;
 }
 
 .ballista-slider .content--columns {

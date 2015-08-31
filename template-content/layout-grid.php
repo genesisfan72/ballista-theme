@@ -37,17 +37,22 @@ if ( isset( $_GET[ 'fp_layout' ] ) ) $layout = $_GET[ 'fp_layout' ];
                     $term_classes = [];
                     $term_links = "";
                     if ( $terms && !is_wp_error( $terms ) ) {
+                        $i = 0;
                         foreach ( $terms as $term ) {
                             $term_link = get_term_link( $term );
                             // If there was an error, continue to the next term.
                             if ( is_wp_error( $term_link ) ) {
                                 continue;
                             }
-                            $term_classes[] = strtolower( str_replace( " ", "-", $term->name ) );
-                            $term_links .= " " . '<a href="' . esc_url( $term_link ) . '" class="case-study-filter post__link post__link--bold">' . strtolower( str_replace( " ", "-", $term->name ) ) . '</a>';
+                            $term_classes[] = strtolower( str_replace( " ", "-", "filter-" . $term->name ) );
+                            if ( $i > 0 ) {
+                                $term_links .= " / ";
+                            }
+                            $term_links .= '<a href="' . esc_url( $term_link ) . '" class="case-study-filter post__link post__link--bold">' . strtolower( str_replace( " ", "-", $term->name ) ) . '</a>';
+                            $i++;
                         }
                     }
-                    $term_classes_string = implode( $term_classes );
+                    $term_classes_string = implode( ' ', $term_classes );
 
 //                    $categories = array();
 //                    $i = 0;

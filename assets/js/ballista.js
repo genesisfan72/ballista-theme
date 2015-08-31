@@ -113,15 +113,17 @@
         }
 
         document.addEventListener('click', function (e) {
-            var csFilter = document.querySelectorAll('.case-study-filter'), i;
-            for (i = 0; i < csFilter.length; i++) {
-                classie.remove(csFilter[i], 'selected');
-            }
-            classie.add(e.target, 'selected');
+            if (classie.has(e.target, 'case-study-filter')) {
+                var csFilter = document.querySelectorAll('.case-study-filter'), i;
+                for (i = 0; i < csFilter.length; i++) {
+                    classie.remove(csFilter[i], 'selected');
+                }
+                classie.add(e.target, 'selected');
 
-            var filterValue = e.target.getAttribute('data-filter');
-            if ($isoContainer !== null) {
-                $($isoContainer).isotope({filter: filterValue});
+                var filterValue = e.target.getAttribute('data-filter');
+                if ($isoContainer !== null) {
+                    $($isoContainer).isotope({filter: filterValue});
+                }
             }
         }, false);
 
