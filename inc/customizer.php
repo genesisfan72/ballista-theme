@@ -65,22 +65,13 @@ function ballista_customize_register( $wp_customize ) {
         'default' => 'post',
         'transport' => 'refresh' ) );
 
-    // build an array of post types, including custom post types
-    $post_types = get_post_types( array( '_builtin' => false ), 'objects' );
-    $post_type_list = array( 'post' => __( 'Posts', 'ballista' ), 'page' => __( 'Pages', 'ballista' ) );
-    foreach( $post_types as $post_type ) {
-        if ( strpos($post_type->name, 'dslc_' ) === false ) {
-            $post_type_list[ $post_type->name ] = $post_type->labels->name;
-        }
-    }
-
     $wp_customize->add_control( 'woc_fp_source',
         array(
             'label' => __( 'Select the source for the front page.', 'ballista' ),
             'section' => 'woc_layout_section',
             'settings' => 'woc_fp_source',
             'type' => 'select',
-            'choices' => $post_type_list,
+            'choices' => array( 'post' => __( 'Posts', 'ballista' ), 'page' => __( 'Pages', 'ballista' ) ),
             'priority' => 3
         )
     );

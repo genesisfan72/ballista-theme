@@ -1,8 +1,8 @@
 <?php
 /**
- * The case studies front page template for Ballista
+ * The front page template for Ballista
  *
- * Template Name: Case Studies Front Page
+ * Template Name: Ballista Front Page
  *
  * @package Ballista
  * @since 1.0

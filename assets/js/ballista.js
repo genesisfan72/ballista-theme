@@ -60,6 +60,7 @@
                             var topBar = document.querySelector(".top-bar");
                             classie.remove(topBar, 'loaded');
                             onEndTransition(topBar, function () {
+                                classie.addClass(topBar, 'loaded');
                                 location.href = href;
                             });
                         });
@@ -74,8 +75,6 @@
                 classie.removeClass(item, 'transparent');
             }, 300);
         });
-
-        classie.addClass(topBar, 'loaded');
     }
 
     function initIsotope() {

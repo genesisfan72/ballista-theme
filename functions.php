@@ -49,11 +49,6 @@ function ballista_register_required_plugins() {
             'force_activation' => true
         ),
         array(
-            'name' => 'Intuitive Custom Post Order',
-            'slug' => 'intuitive-custom-post-order',
-            'required' => false
-        ),
-        array(
             'name' => 'Instagram Feed',
             'slug' => 'instagram-feed',
             'required' => false
@@ -238,51 +233,51 @@ add_filter( 'the_content', 'ballista_filter_ptags_on_images' );
  * Find the first image in post content. Used for portfolio layouts.
  * @return string
  */
-function ballista_first_image() {
-    global $post, $posts;
-    $first_img = '';
-    ob_start();
-    ob_end_clean();
-    $output = preg_match_all( '/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches );
-    $first_img = $matches[ 1 ][ 0 ];
-
-    if ( empty( $first_img ) ) {
-        $first_img = "/path/to/default.png";
-    }
-    return $first_img;
-}
+//function ballista_first_image() {
+//    global $post, $posts;
+//    $first_img = '';
+//    ob_start();
+//    ob_end_clean();
+//    $output = preg_match_all( '/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches );
+//    $first_img = $matches[ 1 ][ 0 ];
+//
+//    if ( empty( $first_img ) ) {
+//        $first_img = "/path/to/default.png";
+//    }
+//    return $first_img;
+//}
 
 /**
  * Find all taxonomies for the current post type
  * @return string
  */
-function woc_custom_taxonomies_terms_links(){
-    // get post by post id
-    $post = get_post( $post->ID );
-
-    // get post type by post
-    $post_type = $post->post_type;
-
-    // get post type taxonomies
-    $taxonomies = get_object_taxonomies( $post_type, 'objects' );
-
-    $out = array();
-    foreach ( $taxonomies as $taxonomy_slug => $taxonomy ){
-
-        if ( $taxonomy_slug != 'category' && $taxonomy_slug != 'post_format') {
-            // get the terms related to post
-            $terms = get_the_terms( $post->ID, $taxonomy_slug );
-
-            if ( !empty( $terms ) ) {
-                foreach ( $terms as $term ) {
-                    $out[] = $term;
-                }
-            }
-        }
-    }
-
-    return $out;
-}
+//function woc_custom_taxonomies_terms_links(){
+//    // get post by post id
+//    $post = get_post( $post->ID );
+//
+//    // get post type by post
+//    $post_type = $post->post_type;
+//
+//    // get post type taxonomies
+//    $taxonomies = get_object_taxonomies( $post_type, 'objects' );
+//
+//    $out = array();
+//    foreach ( $taxonomies as $taxonomy_slug => $taxonomy ){
+//
+//        if ( $taxonomy_slug != 'category' && $taxonomy_slug != 'post_format') {
+//            // get the terms related to post
+//            $terms = get_the_terms( $post->ID, $taxonomy_slug );
+//
+//            if ( !empty( $terms ) ) {
+//                foreach ( $terms as $term ) {
+//                    $out[] = $term;
+//                }
+//            }
+//        }
+//    }
+//
+//    return $out;
+//}
 
 /**
  * Add a 'Read more' string to the excerpt
@@ -327,13 +322,13 @@ function ballista_the_excerpt_max_charlength( $charlength ) {
     }
 }
 
-function ballista_register_cpt_post_templates( $tpl ) {
-
-    $tpl[ 'case_study' ] = __( 'Case Studies', 'ballista' );
-
-    return $tpl;
-
-}
+//function ballista_register_cpt_post_templates( $tpl ) {
+//
+//    $tpl[ 'case_study' ] = __( 'Case Studies', 'ballista' );
+//
+//    return $tpl;
+//
+//}
 
 //add_filter( 'dslc_post_templates_post_types', 'ballista_register_cpt_post_templates' );
 
