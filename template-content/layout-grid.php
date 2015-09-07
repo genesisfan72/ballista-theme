@@ -64,13 +64,13 @@ if ( isset( $_GET[ 'fp_layout' ] ) ) $layout = $_GET[ 'fp_layout' ];
                                 </div>
 
                                 <div class="excerpt__byline--row">
-                                    <?php //TODO - loop through categories and create filter links for each one ?>
                                     <?php echo __( 'By ', 'ballista' ) . get_the_author() . __( ' in ', 'ballista' ) . $cat_string; ?>
                                 </div>
 
                                 <div class="excerpt__content--row">
                                     <?php echo ballista_the_excerpt_max_charlength( 240 ); ?>
                                     <?php $url = get_the_permalink(); ?>
+                                    <br /> <br />
                                     <a class="post__link"
                                        href="<?php echo $url; ?>"><?php echo __( 'Read More', 'ballista' ); ?></a>
                                 </div>

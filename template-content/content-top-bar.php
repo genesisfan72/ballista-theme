@@ -6,7 +6,7 @@
  */
 ?>
 
-<header class="top-bar">
+<header class="top-bar animate">
 
     <?php get_template_part( 'template-content/filter', 'categories' ); ?>
 

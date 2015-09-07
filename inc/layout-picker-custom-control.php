@@ -16,7 +16,7 @@ class Layout_Picker_Custom_Control extends WP_Customize_Control {
                                                 alt="Vertical Full BG."/><span
                     style="position: absolute; top: 29%; left: 19%"><input type="radio" name="<?php echo $this->id; ?>"
                                                                            value="blog"
-                                                                           data-customize-setting-link="woc_front_page_style"/><?php echo __( 'Blog', 'ballista' ); ?></span>
+                                                                           data-customize-setting-link="woc_front_page_style"/><?php echo __( 'Grid', 'ballista' ); ?></span>
             </li>
             <li style="position: relative"><img src="<?php echo $imageDirectory; ?>vertical-col-bg.jpg"
                                                 alt="Vertical Column BG."/><span

@@ -14,7 +14,7 @@ get_header();
     <?php
     $prev_post = get_previous_post();
     $prev_bg_style = "";
-    $args = array( 'order' => 'ASC', 'post_type' => 'case_study', 'post_status' => 'publish', 'orderby' => 'post_date', 'posts_per_page' => -1 );
+    $args = array( 'order' => 'ASC', 'post_status' => 'publish', 'orderby' => 'post_date', 'posts_per_page' => -1 );
     $posts_array = get_posts( $args );
     $first_post = count( $posts_array ) > 0 ? $posts_array[ 0 ] : NULL;
     $last_post = count( $posts_array ) > 0 ? $posts_array[ count( $posts_array ) - 1 ] : NULL;

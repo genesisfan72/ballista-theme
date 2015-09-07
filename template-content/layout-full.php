@@ -17,10 +17,10 @@ if ( isset( $_GET[ 'fp_layout' ] ) ) $layout = $_GET[ 'fp_layout' ];
 
         <div class="ballista-slider">
             <div class="flexslider">
-                <ul class="slides">
+                <ul id="flexSlides" class="slides">
 
                     <?php
-                    $loop = new WP_Query( array( 'post_type' => 'case_study', 'posts_per_page' => -1 ) );
+                    $loop = new WP_Query( array( 'post_type' => get_theme_mod( 'woc_fp_source', 'post' ), 'posts_per_page' => -1 ) );
 
                     if ( $loop->have_posts() ) : ?>
 
@@ -35,26 +35,22 @@ if ( isset( $_GET[ 'fp_layout' ] ) ) $layout = $_GET[ 'fp_layout' ];
                                 $img = 'style="background: url(' . esc_url( $thumb_url ) . ') 40% / cover"';
                             }
 
-                            $terms = get_the_terms( $post->ID, 'case_study_tags' );
-                            $term_classes = "";
-                            if ( $terms && !is_wp_error( $terms ) ) {
-                                foreach ( $terms as $term ) {
-                                    $term_classes .= " " . strtolower( str_replace( " ", "-", $term->name ) );
-                                }
-                            }
-
                             $categories = array();
                             $i = 0;
                             $cat_string = "";
+                            $term_classes = [];
                             foreach ( get_the_category() as $category ) {
+                                $term_classes[] = strtolower( str_replace( " ", "-", "filter-" . $category->name ) );
                                 if ( $i > 0 ) {
-                                    $cat_string .= ', ';
+                                    $cat_string .= ' / ';
                                 }
                                 $cat_string .= '<a class="post__link post__link--bold" href="' . get_category_link( $category->cat_ID ) . '">' . $category->name . '</a>';
+                                $i++;
                             }
+                            $term_classes_string = implode( ' ', $term_classes );
                             ?>
 
-                            <li>
+                            <li class="<?php echo $term_classes_string; ?>">
                                 <div class="slide-content" <?php echo $img; ?>>
                                     <div class="excerpt--box">
                                         <div class="excerpt__title--row">
@@ -63,8 +59,7 @@ if ( isset( $_GET[ 'fp_layout' ] ) ) $layout = $_GET[ 'fp_layout' ];
                                             </div>
 
                                             <div class="excerpt__byline--row">
-                                                <?php //TODO - loop through categories and create filter links for each one ?>
-                                                <?php echo __( 'By ', 'ballista' ) . get_the_author() . __( ' in ', 'ballista' ) . '<a href="#" class="case-study-filter post__link post__link--bold">' . esc_html( $term_classes ) . '</a>'; ?>
+                                                <?php echo __( 'By ', 'ballista' ) . get_the_author() . __( ' in ', 'ballista' ) . $cat_string; ?>
                                             </div>
                                         </div>
 

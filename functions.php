@@ -284,11 +284,11 @@ add_filter( 'the_content', 'ballista_filter_ptags_on_images' );
  * @param $more
  * @return string
  */
-function ballista_new_excerpt_more( $more ) {
-    return '[...]<br/><br />';
-}
-
-add_filter( 'excerpt_more', 'ballista_new_excerpt_more' );
+//function ballista_new_excerpt_more( $more ) {
+//    return '<br /><br /><a class="more-link" href="' . get_permalink() . '">' . __( 'Read More', 'ballista' ) . '</a>' ;
+//}
+//
+//add_filter( 'the_content_more_link', 'ballista_new_excerpt_more' );
 
 /**
  * Limit the excerpt length
@@ -316,7 +316,7 @@ function ballista_the_excerpt_max_charlength( $charlength ) {
         } else {
             echo $subex;
         }
-        echo '[...]<br /><br />';
+        echo '[...]';
     } else {
         echo $excerpt;
     }
@@ -547,13 +547,3 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
-
-/**
- * Custom Post Types
- */
-require_once get_template_directory() . '/inc/post-types/CPT.php';
-
-/**
- * Case Study Custom Post Type
- */
-require_once get_template_directory() . '/inc/post-types/register-case-study.php';
