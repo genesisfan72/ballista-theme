@@ -16,7 +16,7 @@ get_header(); ?>
 <?php get_template_part( 'template-content/content', 'sidebar' ); ?>
 
 <?php while ( have_posts() ) : the_post(); ?>
-    <?php if ( count( $is_dslc ) > 0 ) { ?>
+
         <?php
         $prev_post = get_previous_post();
         $prev_bg_style = "";
@@ -55,35 +55,30 @@ get_header(); ?>
                         </div>
                     </header>
 
-                    <?php the_content(); ?>
+                    <?php if ( count( $is_dslc ) > 0 ) { ?>
+                        <?php the_content(); ?>
+                    <?php } else { ?>
+                        <div class="grid__item__container">
+
+                            <?php get_template_part( 'template-content/content', 'header-image' ); ?>
+
+                            <div class="content-container">
+                                <?php get_template_part( 'template-content/content', 'single' ); ?>
+
+                                <?php
+                                // If comments are open or we have at least one comment, load up the comment template
+                                if ( comments_open() || get_comments_number() ) :
+                                    comments_template();
+                                endif;
+                                ?>
+                            </div>
+                        </div>
+                    <?php } ?>
 
                     <?php get_template_part( 'template-content/nav', 'footer-post' ); ?>
                 </article>
             </section>
         </div>
-    <?php } else { ?>
-        <div id="theGrid" class="main">
-            <section class="grid">
-                <div class="grid__item__container">
-
-                    <?php get_template_part( 'template-content/content', 'header-image' ); ?>
-
-                    <div class="content-container">
-                        <?php get_template_part( 'template-content/content', 'single' ); ?>
-
-                        <?php
-                        // If comments are open or we have at least one comment, load up the comment template
-                        if ( comments_open() || get_comments_number() ) :
-                            comments_template();
-                        endif;
-                        ?>
-                    </div>
-
-                    <?php ballista_post_navigation(); ?>
-                </div>
-            </section>
-        </div>
-    <?php } ?>
 
 <?php endwhile; // end of the loop. ?>
 

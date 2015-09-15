@@ -490,6 +490,9 @@ function ballista_customize_register( $wp_customize ) {
         )
     );
 
+    // 'Colors' section not required
+    $wp_customize->remove_section( 'colors' );
+
     $wp_customize->get_setting( 'blogname' )->transport = 'postMessage';
     $wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
     $wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';

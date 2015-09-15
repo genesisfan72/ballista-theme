@@ -10,7 +10,7 @@
 
 $prev_post = get_previous_post();
 $prev_bg_style = "";
-$args = array( 'order' => 'ASC', 'post_type' => 'case_study', 'post_status' => 'publish', 'orderby' => 'post_date', 'posts_per_page' => -1 );
+$args = array( 'order' => 'ASC', 'post_status' => 'publish', 'orderby' => 'post_date', 'posts_per_page' => -1 );
 $posts_array = get_posts( $args );
 $first_post = count( $posts_array ) > 0 ? $posts_array[ 0 ] : NULL;
 $last_post = count( $posts_array ) > 0 ? $posts_array[ count( $posts_array ) - 1 ] : NULL;
@@ -26,9 +26,11 @@ if ( has_post_thumbnail( $prev_post->ID ) ) {
 
 $next_post = get_next_post();
 $next_bg_style = "";
+
 if ( empty( $next_post ) ) {
     $next_post = $first_post;
 }
+
 if ( has_post_thumbnail( $next_post->ID ) ) {
     $next_feat_image = wp_get_attachment_url( get_post_thumbnail_id( $next_post->ID ) );
     $next_bg_style = 'style="background: url(' . $next_feat_image . ') 100% / cover"';

@@ -936,6 +936,10 @@ a:active {
     display: -moz-flex;
     display: -ms-flexbox;
     display: flex;
+    -webkit-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
 }
 
 .post-nav .grid__item {
@@ -1351,6 +1355,8 @@ a:active {
     -moz-align-content: stretch;
     align-content: stretch;
     -ms-flex-line-pack: stretch;
+    height: 250px;
+    width: 100%;
 }
 
 h1.title {
@@ -1574,6 +1580,10 @@ h1.title {
     -ms-transform: translate3d(0, 0, 0);
     -o-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
+    -webkit-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
 }
 
 .top-bar__headline {
@@ -1595,15 +1605,7 @@ h1.title {
 }
 
 .top-bar__post-nav--arrows {
-    position: absolute;
-    width: 200px;
-    left: 50%;
-    top: 45%;
-    -webkit-transform: translateX(-50%);
-    -moz-transform: translateX(-50%);
-    -ms-transform: translateX(-50%);
-    -o-transform: translateX(-50%);
-    transform: translateX(-50%);
+    width: 100%;
     text-align: center;
 }
 
@@ -1915,7 +1917,7 @@ header .categories a {
 }
 
 header .social-icons {
-    width: 50%;
+    width: 100%;
     display: -webkit-box;
     display: -moz-box;
     display: box;
@@ -1945,12 +1947,6 @@ header .social-icons {
     -ms-flex-pack: justify;
 }
 
-.single .social-icons {
-    position: absolute;
-    top: 45%;
-    width: 200px;
-    right: 40px;
-}
 
 /*--------------------------------------------------------------
 ## Archive page
@@ -2027,13 +2023,24 @@ header .social-icons {
 ## Contact page
 --------------------------------------------------------------*/
 .contact__hero {
-    width: 50%;
+    width: 100%;
     height: 100%;
     float: left;
+    overflow: hidden;
 }
 
 .contact__hero iframe {
     width: 100%;
+    height: 100%;
+}
+
+.alert-success {
+    font-style: italic;
+    color: rgb(51, 51, 51);
+}
+
+input[id="human"] {
+    width: 139px;
 }
 
 /*--------------------------------------------------------------
@@ -2540,7 +2547,7 @@ section.grid, #theGrid {
 /**** "I Recommend This" plugin styles */
 /*------------------------------------ */
 .dot-irecommendthis {
-    background-position: 0 8px;
+    background-position: 0 5px;
     color: #333333 !important;
     margin-bottom: 0 !important;
 }
@@ -2639,16 +2646,43 @@ section.grid, #theGrid {
     .num-comments {
         display: block;
     }
+
+    .top-bar__post-nav--arrows {
+        position: absolute;
+        width: 200px;
+        left: 50%;
+        top: 45%;
+        -webkit-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        -o-transform: translateX(-50%);
+        transform: translateX(-50%);
+    }
+
+    header .social-icons {
+        width: 25%;
+    }
+
+    .post-nav {
+        -webkit-flex-wrap: nowrap;
+        -moz-flex-wrap: nowrap;
+        -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+    }
+
+    .contact__hero {
+        width: 50%;
+    }
+
+    input[id="human"] {
+        width: auto;
+    }
 }
 
 @media screen and (min-width: 1200px) {
     /* 3 columns */
     .grid__item {
         width: 33.333%;
-    }
-
-    header .social-icons {
-        width: 25%;
     }
 
     .top-bar {

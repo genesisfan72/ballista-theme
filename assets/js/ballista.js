@@ -55,22 +55,15 @@
                 [].slice.call(gridItems).forEach(function (item, pos) {
                     setTimeout(function () {
                         classie.removeClass(item, 'transparent');
-                        item.addEventListener('click', function (ev) {
-                            ev.preventDefault();
-                            var href = this.getAttribute('data-href');
-                            classie.remove(topBar, 'loaded');
-                            onEndTransition(topBar, function () {
-                                classie.addClass(topBar, 'loaded');
-                                location.href = href;
-                            });
-                        });
                     }, 200 * pos);
                 });
             }
         }
 
         setTimeout(function() {
-            classie.addClass(topBar, 'loaded');
+            if (topBar) {
+                classie.addClass(topBar, 'loaded');
+            }
         }, 500);
 
         var headers = document.querySelectorAll('.page__hero, .contact__hero, .header-image');
@@ -82,7 +75,7 @@
     }
 
     function initIsotope() {
-        if (isoContainer !== null) {
+        if (isoContainer !== null && classie.hasClass(bodyEl, 'page-template-ballista-front-page')) {
             jQuery(isoContainer).isotope({
                 itemSelector: '.grid__item',
                 layout: 'masonry'
@@ -147,7 +140,7 @@
                     });
                 }
                 else {
-                    if (isoContainer !== null) {
+                    if (isoContainer !== null && classie.hasClass(bodyEl, 'page-template-ballista-front-page')) {
                         $(isoContainer).isotope({filter: filterValue});
                     }
                 }
