@@ -34,6 +34,16 @@
         </nav>
     </div>
 
+    <?php
+    if ( is_active_sidebar( 'sidebar-1' ) ) {
+    ?>
+
+        <div id="secondary" class="widget-area" role="complementary">
+            <?php dynamic_sidebar( 'sidebar-1' ); ?>
+        </div><!-- #secondary -->
+
+    <?php } ?>
+
     <div class="site-info">
         <?php printf( get_theme_mod( 'woc_copyright_text' ) ); ?>
     </div>

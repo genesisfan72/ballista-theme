@@ -38,6 +38,7 @@
         sidebarEl = document.getElementById('theSidebar'),
         gridItemsContainer = gridEl.querySelector('section.grid'),
         topBar = document.querySelector('.top-bar'),
+        sideBar = document.querySelector('.sidebar'),
         gridItems = gridItemsContainer !== null ? gridItemsContainer.querySelectorAll('.grid__item') : null,
         menuCtrl = document.getElementById('menu-toggle'),
         menuCloseCtrl = sidebarEl.querySelector('.close-button'),
@@ -63,6 +64,7 @@
         setTimeout(function() {
             if (topBar) {
                 classie.addClass(topBar, 'loaded');
+                classie.addClass(sideBar, 'loaded');
             }
         }, 500);
 
@@ -75,7 +77,7 @@
     }
 
     function initIsotope() {
-        if (isoContainer !== null && classie.hasClass(bodyEl, 'page-template-ballista-front-page')) {
+        if (isoContainer !== null && classie.hasClass(bodyEl, 'home')) {
             jQuery(isoContainer).isotope({
                 itemSelector: '.grid__item',
                 layout: 'masonry'
@@ -140,8 +142,8 @@
                     });
                 }
                 else {
-                    if (isoContainer !== null && classie.hasClass(bodyEl, 'page-template-ballista-front-page')) {
-                        $(isoContainer).isotope({filter: filterValue});
+                    if (isoContainer !== null && classie.hasClass(bodyEl, 'home')) {
+                        $(isoContainer).isotope({filter: "." + filterValue});
                     }
                 }
             }
@@ -155,7 +157,6 @@
                     classie.remove(e.target.parentElement, 'input--filled');
             }
         }, false);
-
     }
 
     // Kick things off

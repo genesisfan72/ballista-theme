@@ -76,7 +76,6 @@ function ballista_customize_register( $wp_customize ) {
         )
     );
 
-
     /**
      * Logo Section
      */
@@ -533,6 +532,7 @@ function my_customizer_script() {
                 }
             });
         });
+
     </script>
 <?php
 }

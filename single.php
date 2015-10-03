@@ -8,8 +8,8 @@
 $page_id = get_queried_object_id();
 $meta = get_post_meta( $page_id );
 $is_dslc = $meta[ 'dslc_post_template' ];
-$template_to_load = '';
-if ( count( $is_dslc ) > 0 ) $template_to_load = $page_for[ 0 ];
+//$template_to_load = '';
+//if ( count( $is_dslc ) > 0 ) $template_to_load = $page_for[ 0 ];
 
 get_header(); ?>
 
@@ -55,7 +55,7 @@ get_header(); ?>
                         </div>
                     </header>
 
-                    <?php if ( count( $is_dslc ) > 0 ) { ?>
+                    <?php if ( count( $is_dslc ) > 0 && $is_dslc[ 0 ] != 'default' ) { ?>
                         <?php the_content(); ?>
                     <?php } else { ?>
                         <div class="grid__item__container">

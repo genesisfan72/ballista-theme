@@ -220,6 +220,9 @@ input[type="number"]::-webkit-outer-spin-button {
 input[type="search"] {
     -webkit-appearance: textfield;
     box-sizing: content-box;
+    font-family: "Roboto", sans-serif;
+    color: rgb(123, 123, 123);
+    font-size: 1.5em;
 }
 
 input[type="search"]::-webkit-search-cancel-button,
@@ -764,9 +767,12 @@ input[type='submit'] {
     background-color: #333333;
     border: 0;
     color: #ffffff; /* text color */
-    font-family: "SourceSansPro", sans-serif;
+    font-family: "Roboto", sans-serif;
     font-size: 14px;
-    font-weight: bold;
+    font-weight: 500;
+    line-height: 1.2em;
+    padding: 0.8em 1em;
+    text-transform: uppercase;
 }
 
 /*--------------------------------------------------------------
@@ -1067,8 +1073,25 @@ a:active {
 /*--------------------------------------------------------------
 # Widgets
 --------------------------------------------------------------*/
+.widget-area {
+    padding: 2.8em 0;
+    border-bottom: 1px solid #dddddd;
+}
+
 .widget {
     margin: 0 0 1.5em;
+}
+
+.widget h1 {
+    font-size: 1.5em;
+    font-weight: 500;
+}
+
+.widget ul {
+    font-size: 1.3em;
+    padding-left: 0;
+    list-style-type: square;
+    font-family: "Roboto", sans-serif;
 }
 
 /* Make sure select elements fit in widgets. */
@@ -1101,6 +1124,16 @@ a:active {
     left: 0;
     padding: 0 4em 2em 4em;
     overflow-y: scroll;
+    opacity: 0;
+    -webkit-transition: opacity 1500ms ease-in;
+    -moz-transition: opacity 1500ms ease-in;
+    -ms-transition: opacity 1500ms ease-in;
+    -o-transition: opacity 1500ms ease-in;
+    transition: opacity 1500ms ease-in;
+}
+
+.sidebar.loaded {
+    opacity: 1;
 }
 
 .sidebar a {
@@ -2111,6 +2144,7 @@ input[id="human"] {
 
 .content-container {
     padding: 0 10%;
+    line-height: 1.8;
 }
 
 .page-content,
@@ -2241,6 +2275,15 @@ input[id="human"] {
 
 .bypostauthor {
     display: block;
+}
+
+.comments-area {
+    font-size: 1.4em;
+}
+
+.comments-area ol {
+    padding-left: 0;
+    margin-left: 0;
 }
 
 /*--------------------------------------------------------------
@@ -2578,6 +2621,7 @@ section.grid, #theGrid {
 .flexslider {
     margin: 0 !important;
     border: 0 !important;
+    background: #000 !important;
 }
 
 .flex-direction-nav a:before {
