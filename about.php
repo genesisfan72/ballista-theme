@@ -29,7 +29,7 @@ get_header(); ?>
 
                 <?php
                 if ( get_theme_mod( 'woc_show_thumbnails', false ) == true ) {
-                    if ( get_theme_mod( 'woc_about_images' ) == 'instagram' && function_exists( 'instagram-feed' ) ) {
+                    if ( get_theme_mod( 'woc_about_images' ) == 'instagram' && function_exists( 'display_instagram' ) ) {
                         echo do_shortcode( '[instagram-feed num=5 cols=5 showheader=false imagepadding=0 showbutton=false showfollow=false height=125 heightunit=px]' );
                     } else {
                         $images = array();

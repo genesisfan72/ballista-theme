@@ -252,11 +252,12 @@ optgroup {
 table {
     border-collapse: collapse;
     border-spacing: 0;
+    border: 1px solid #878787;
 }
 
 td,
 th {
-    padding: 0;
+    padding: 5px 5px 5px 10px;
 }
 
 /*--------------------------------------------------------------
@@ -271,6 +272,10 @@ textarea {
     font-size: 16px;
     font-size: 1rem;
     line-height: 1.5;
+}
+
+textarea {
+    border-color: #ccc;
 }
 
 h1,
@@ -390,6 +395,11 @@ body {
     overflow-y: scroll;
 }
 
+blockquote {
+    padding-left: 60px;
+    position: relative;
+}
+
 blockquote:before,
 blockquote:after,
 q:before,
@@ -400,6 +410,19 @@ q:after {
 blockquote,
 q {
     quotes: "" "";
+}
+
+blockquote p {
+    font-style: italic;
+}
+
+blockquote:before {
+    content: "\f101";
+    font-size: 30px;
+    font-family: FontAwesome;
+    position: absolute;
+    top: -4px;
+    left: 20px;
 }
 
 hr {
@@ -415,7 +438,8 @@ ol {
 }
 
 ul {
-    list-style: disc;
+    list-style: none;
+    padding-left: 0;
 }
 
 ol {
@@ -444,6 +468,15 @@ img {
 table {
     margin: 0 0 1.5em;
     width: 100%;
+}
+
+thead {
+    border-bottom: 1px solid #878787;
+}
+
+tbody tr {
+    border-bottom: 1px solid #eee;
+    border-left: 1px solid #878787;
 }
 
 a:hover, a:focus {
@@ -542,7 +575,7 @@ button:focus {
 
 .grid-item img {
     max-width: 50%;
-    margin-left: 3em;
+    margin-left: 0;
 }
 
 /*--------------------------------------------------------------
@@ -582,7 +615,7 @@ button:focus {
 }
 
 .ml-3 {
-    margin-left: 3em;
+    margin-left: 0;
 }
 
 .mt-3 {
@@ -1090,8 +1123,8 @@ a:active {
 .widget ul {
     font-size: 1.3em;
     padding-left: 0;
-    list-style-type: square;
     font-family: "Roboto", sans-serif;
+    margin-left: 1.3em;
 }
 
 /* Make sure select elements fit in widgets. */
@@ -1142,6 +1175,12 @@ a:active {
 
 .sidebar li {
     padding-bottom: 10px;
+}
+
+.sidebar ul li:before,  .grid__item__container ul li:before {
+    font-family: "FontAwesome";
+    content: "\f105";
+    padding-right: 5px;
 }
 
 .sidebar li:last-child {
@@ -1950,7 +1989,7 @@ header .categories a {
 }
 
 header .social-icons {
-    width: 100%;
+    width: 50%;
     display: -webkit-box;
     display: -moz-box;
     display: box;
@@ -2111,6 +2150,10 @@ input[id="human"] {
     margin-top: 60px;
 }
 
+.error404 .fa {
+    padding: 0 10px;
+}
+
 .single .header-image, .page .header-image {
     height: 70vh;
     margin-bottom: 5em;
@@ -2223,8 +2266,8 @@ input[id="human"] {
     left: 0;
     display: block;
     width: 100%;
-    height: 2px;
-    background-color: #81c483;
+    height: 1px;
+    background-color: #878787;
     font-size: 0px;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -2238,7 +2281,7 @@ input[id="human"] {
     left: 0;
     width: 100%;
     height: 100%;
-    background: #81c483;
+    background: #878787;
     content: "";
 }
 
@@ -2251,11 +2294,11 @@ input[id="human"] {
 }
 
 .menu-toggle span:after {
-    -webkit-transform: translateY(-7px);
-    -moz-transform: translateY(-7px);
-    -ms-transform: translateY(-7px);
-    -o-transform: translateY(-7px);
-    transform: translateY(-7px);
+    -webkit-transform: translateY(7px);
+    -moz-transform: translateY(7px);
+    -ms-transform: translateY(7px);
+    -o-transform: translateY(7px);
+    transform: translateY(7px);
 }
 
 /*--------------------------------------------------------------
@@ -2269,6 +2312,48 @@ input[id="human"] {
 /*--------------------------------------------------------------
 ## Comments
 --------------------------------------------------------------*/
+article.comment {
+    border-bottom: 1px solid #ddd;
+    padding-top: 20px;
+}
+
+.comments-title {
+    border-bottom: 1px solid #878787;
+}
+
+.comment-content, .comment-meta-content {
+    text-align: left;
+}
+
+.comment-meta-content {
+    display: table-cell;
+    padding-left: 10px;
+    vertical-align: top;
+}
+
+.comment-meta-content h3 {
+    padding-top: 0;
+}
+
+.comment-meta {
+    display: table;
+    width: 100%;
+}
+
+.comment-avatar {
+    display: table-cell;
+    width: 65px;
+}
+
+.gravatar {
+    margin: 0;
+}
+
+.gravatar img {
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+
 .comment-content a {
     word-wrap: break-word;
 }
@@ -2284,6 +2369,61 @@ input[id="human"] {
 .comments-area ol {
     padding-left: 0;
     margin-left: 0;
+}
+
+.comment-author {
+    margin: 0;
+    font-weight: 500;
+    font-family: "Roboto", sans-serif;
+    color: #333;
+    text-transform: uppercase;
+}
+
+.comment-author-link {
+    color: #333;
+    font-weight: 500;
+}
+
+.comment-edit-link .comment-meta-item, .comment-reply .comment-meta-item {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: #333;
+    color: #fff;
+    padding: 5px 10px;
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    margin-top: 0;
+}
+
+.comment-reply a {
+    color: #fff;
+}
+
+time.comment-meta-item {
+    font-style: italic;
+    font-size: 0.9em;
+}
+
+.comment-form-field {
+    padding: 0 0 0 80px;
+    margin-bottom: 10px;
+}
+
+.comment-form-field label {
+    float: left;
+    margin-left: -80px;
+    padding-top: 6px;
+}
+
+.comment-form-field input {
+    height: 35px;
+    padding: 4px 10px 0;
+}
+
+.comment-respond .form-submit {
+    padding-left: 80px;
 }
 
 /*--------------------------------------------------------------
@@ -2720,6 +2860,14 @@ section.grid, #theGrid {
 
     input[id="human"] {
         width: auto;
+    }
+
+    .ml-3 {
+        margin-left: 3em;
+    }
+
+    .grid-item img {
+        margin-left: 3em;
     }
 }
 

@@ -25,7 +25,7 @@ if ( post_password_required() ) {
     <?php if ( have_comments() ) : ?>
         <h2 class="comments-title">
             <?php
-            printf( _nx( 'One thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', get_comments_number(), 'comments title', 'ballista' ),
+            printf( _nx( 'One comment on &ldquo;%2$s&rdquo;', '%1$s comments on &ldquo;%2$s&rdquo;', get_comments_number(), 'comments title', 'ballista' ),
                 number_format_i18n( get_comments_number() ), '<span>' . get_the_title() . '</span>' );
             ?>
         </h2>
@@ -71,6 +71,27 @@ if ( post_password_required() ) {
         <p class="no-comments"><?php _e( 'Comments are closed.', 'ballista' ); ?></p>
     <?php endif; ?>
 
-    <?php comment_form(); ?>
+    <?php
+    $fields =  array(
+
+        'author' =>
+            '<div class="comment-form-field"><label for="author">' . __( 'Name', 'ballista' ) .
+            ( $req ? '<span class="required">*</span>' : '' ) . '</label> ' .
+            '<input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) .
+            '" size="30"' . $aria_req . ' /></div>',
+
+        'email' =>
+            '<div class="comment-form-field"><label for="email">' . __( 'Email', 'ballista' ) . ( $req ? '<span class="required">*</span>' : '' ) . '</label> ' .
+            '<input id="email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) .
+            '" size="30"' . $aria_req . ' /></div>',
+
+        'url' =>
+            '<div class="comment-form-field"><label for="url">' . __( 'Website', 'ballista' ) . '</label>' .
+            '<input id="url" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) .
+            '" size="30" /></div>',
+    );
+    ?>
+
+    <?php comment_form( array( 'fields' => apply_filters( 'comment_form_default_fields', $fields ), 'comment_field' =>  '<div class="comment-form-field"><label for="comment">' . _x( 'Comment', 'ballista' ) . '</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></div>' ) ); ?>
 
 </div><!-- #comments -->
