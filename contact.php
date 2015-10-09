@@ -96,7 +96,9 @@ get_header(); ?>
                         if ( $left_block == '' ) $right_fullwidth = 'full-width';
                         ?>
                         <div
-                            class="contact__hero contact__hero--right <?php echo esc_attr( $right_fullwidth ); ?>"><?php echo $right_block; ?></div>
+                            class="contact__hero contact__hero--right <?php echo esc_attr( $right_fullwidth ); ?>">
+                            <iframe src=<?php echo esc_url( $right_block ); ?> width="600" height="450" frameborder="0" style="border:0"></iframe>
+                        </div>
                     <?php } ?>
                 </div>
 

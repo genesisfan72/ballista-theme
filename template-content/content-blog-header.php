@@ -25,7 +25,7 @@ foreach ( $post_categories as $c ) {
             $category_link = get_category_link( $cats[ $i ][ 'id' ] );
 
             $cat_string .= '<a href="' . esc_url( $category_link ) . '">';
-            $cat_string .= esc_html( __( $cats[ $i ][ 'name' ] ) );
+            $cat_string .= esc_html( __( $cats[ $i ][ 'name' ], 'ballista' ) );
             $cat_string .= '</a>';
 
             if ( $i < ( $count - 1 ) ) {

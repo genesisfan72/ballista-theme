@@ -92,6 +92,6 @@ if ( post_password_required() ) {
     );
     ?>
 
-    <?php comment_form( array( 'fields' => apply_filters( 'comment_form_default_fields', $fields ), 'comment_field' =>  '<div class="comment-form-field"><label for="comment">' . _x( 'Comment', 'ballista' ) . '</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></div>' ) ); ?>
+    <?php comment_form( array( 'fields' => apply_filters( 'comment_form_default_fields', $fields ), 'comment_field' =>  '<div class="comment-form-field"><label for="comment">' . __( 'Comment', 'ballista' ) . '</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></div>' ) ); ?>
 
 </div><!-- #comments -->

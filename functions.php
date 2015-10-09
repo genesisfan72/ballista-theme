@@ -55,7 +55,7 @@ function ballista_register_required_plugins() {
         )
     );
 
-    $theme_text_domain = 'woc_broadsword';
+    $theme_text_domain = 'ballista';
 
     /**
      * Array of configuration settings. Uncomment and amend each line as needed.
@@ -76,18 +76,18 @@ function ballista_register_required_plugins() {
         'is_automatic' => false,
         // Automatically activate plugins after installation or not.
         'strings' => array(
-            'page_title' => __( 'Install Recommended Plugins', $theme_text_domain ),
-            'menu_title' => __( 'Install Plugins', $theme_text_domain ),
-            'instructions_install' => __( 'The %1$s plugin is recommended for this theme. Click on the big blue button below to install and activate %1$s.', $theme_text_domain ),
-            'instructions_activate' => __( 'The %1$s is installed but currently inactive. Please go to the <a href="%2$s">plugin administration page</a> page to activate it.', $theme_text_domain ),
-            'button' => __( 'Install %s Now', $theme_text_domain ),
-            'installing' => __( 'Installing Plugin: %s', $theme_text_domain ),
-            'oops' => __( 'Something went wrong with the plugin API.', $theme_text_domain ),
-            'notice_can_install' => __( 'This theme recommends the use of the %1$s plugin. <a href="%2$s"><strong>Click here to begin the installation process</strong></a>. You may be asked for FTP credentials based on your server setup.', $theme_text_domain ),
-            'notice_cannot_install' => __( 'Sorry, but you do not have the correct permissions to install the %s plugin. Contact the administrator of this site for help on getting the plugin installed.', $theme_text_domain ),
-            'notice_can_activate' => __( 'This theme recommends the use of the %1$s plugin. That plugin is currently inactive, so please go to the <a href="%2$s">plugin administration page</a> to activate it.', $theme_text_domain ),
-            'notice_cannot_activate' => __( 'Sorry, but you do not have the correct permissions to activate the %s plugin. Contact the administrator of this site for help on getting the plugin activated.', $theme_text_domain ),
-            'return' => __( 'Return to Plugins Installer', $theme_text_domain ),
+            'page_title' => __( 'Install Recommended Plugins', 'ballista' ),
+            'menu_title' => __( 'Install Plugins', 'ballista' ),
+            'instructions_install' => __( 'The %1$s plugin is recommended for this theme. Click on the big blue button below to install and activate %1$s.', 'ballista' ),
+            'instructions_activate' => __( 'The %1$s is installed but currently inactive. Please go to the <a href="%2$s">plugin administration page</a> page to activate it.', 'ballista' ),
+            'button' => __( 'Install %s Now', 'ballista' ),
+            'installing' => __( 'Installing Plugin: %s', 'ballista' ),
+            'oops' => __( 'Something went wrong with the plugin API.', 'ballista' ),
+            'notice_can_install' => __( 'This theme recommends the use of the %1$s plugin. <a href="%2$s"><strong>Click here to begin the installation process</strong></a>. You may be asked for FTP credentials based on your server setup.', 'ballista' ),
+            'notice_cannot_install' => __( 'Sorry, but you do not have the correct permissions to install the %s plugin. Contact the administrator of this site for help on getting the plugin installed.', 'ballista' ),
+            'notice_can_activate' => __( 'This theme recommends the use of the %1$s plugin. That plugin is currently inactive, so please go to the <a href="%2$s">plugin administration page</a> to activate it.', 'ballista' ),
+            'notice_cannot_activate' => __( 'Sorry, but you do not have the correct permissions to activate the %s plugin. Contact the administrator of this site for help on getting the plugin activated.', 'ballista' ),
+            'return' => __( 'Return to Plugins Installer', 'ballista' ),
         ),
     );
 
@@ -186,7 +186,7 @@ function ballista_scripts() {
 
     wp_enqueue_style( 'flexslider', get_template_directory_uri() . '/assets/js/flexslider/flexslider.css' );
 
-    wp_enqueue_style( 'fontawesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' );
+    wp_enqueue_style( 'fontawesome', get_template_directory_uri() . '/assets/fonts/font-awesome-4.3.0/css/font-awesome.min.css' );
 
     wp_enqueue_script( 'ballista-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), '20120206', true );
 

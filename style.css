@@ -10,7 +10,7 @@ Version: 1.0.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: ballista
-Tags:
+Tags: light, silver, white, two-columns, fluid-layout, responsive-layout, custom-menu, featured-images, theme-options, translation-ready
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
@@ -594,7 +594,7 @@ button:focus {
 }
 
 .full-width {
-    width: 100%;
+    width: 100% !important;
 }
 
 .quick-transition {
@@ -1183,6 +1183,10 @@ a:active {
     padding-right: 5px;
 }
 
+.sidebar ul.menu li:before {
+    content: "";
+}
+
 .sidebar li:last-child {
     padding-bottom: 0;
 }
@@ -1317,6 +1321,14 @@ a:active {
 .main {
     position: relative;
     z-index: 50;
+}
+
+.sticky {
+    font-style: inherit;
+}
+
+.sticky .excerpt__title {
+    font-style: italic;
 }
 
 /*--------------------------------------------------------------

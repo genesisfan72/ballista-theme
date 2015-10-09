@@ -21,7 +21,7 @@ foreach ( $post_categories as $c ) {
             $cat_string = '';
             $count = count( $cats );
             for ( $i = 0; $i < $count; $i++ ) {
-                $cat_string .= esc_html( __( $cats[ $i ][ 'name' ] ) );
+                $cat_string .= esc_html( __( $cats[ $i ][ 'name' ], 'ballista' ) );
 
                 if ( $i < ( $count - 1 ) ) {
                     $cat_string .= ', ';

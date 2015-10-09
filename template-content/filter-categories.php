@@ -1,6 +1,6 @@
 <?php
 /**
- * The template part for showing the case study category filters
+ * The template part for showing the post category filters
  *
  * @package Ballista
  */

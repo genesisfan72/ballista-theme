@@ -6,14 +6,6 @@
  */
 
 /**
- * Text sanitizer
- */
-function ballista_sanitize_text( $input ) {
-    return wp_kses_post( force_balance_tags( $input ) );
-    // TODO - Need to write a proper callback that allows iframes
-}
-
-/**
  * Front page layout sanitizer
  */
 function ballista_sanitize_layout( $input ) {
@@ -63,7 +55,8 @@ function ballista_customize_register( $wp_customize ) {
 
     $wp_customize->add_setting( 'woc_fp_source', array(
         'default' => 'post',
-        'transport' => 'refresh' ) );
+        'transport' => 'refresh',
+        'sanitize_callback' => 'esc_html') );
 
     $wp_customize->add_control( 'woc_fp_source',
         array(
@@ -111,7 +104,7 @@ function ballista_customize_register( $wp_customize ) {
     include 'google-fonts.php';
 
     $wp_customize->add_setting( 'woc_primary_font', array(
-        'sanitize_callback' => 'ballista_sanitize_text',
+        'sanitize_callback' => 'esc_html',
         'default' => serialize( array(
             'font-family' => "'Martel Sans', sans-serif;",
             'css-name' => 'Martel+Sans'
@@ -132,7 +125,7 @@ function ballista_customize_register( $wp_customize ) {
 
     // Secondary font
     $wp_customize->add_setting( 'woc_secondary_font', array(
-        'sanitize_callback' => 'ballista_sanitize_text',
+        'sanitize_callback' => 'esc_html',
         'default' => serialize( array(
             'font-family' => "'Roboto Slab', serif;",
             'css-name' => 'Roboto+Slab'
@@ -152,7 +145,7 @@ function ballista_customize_register( $wp_customize ) {
 
     // Tertiary font
     $wp_customize->add_setting( 'woc_tertiary_font', array(
-        'sanitize_callback' => 'ballista_sanitize_text',
+        'sanitize_callback' => 'esc_html',
         'default' => serialize( array(
             'font-family' => "'Roboto', sans-serif;",
             'css-name' => 'Roboto'
@@ -250,11 +243,13 @@ function ballista_customize_register( $wp_customize ) {
 
     $wp_customize->add_setting( 'woc_show_thumbnails', array(
         'default' => 0,
-        'transport' => 'refresh' ) );
+        'transport' => 'refresh',
+        'sanitize_callback' => 'esc_html') );
 
     $wp_customize->add_setting( 'woc_about_images', array(
         'default' => 1,
-        'transport' => 'refresh' ) );
+        'transport' => 'refresh',
+        'sanitize_callback' => 'esc_html') );
 
     $wp_customize->add_control( 'woc_about_image_source',
         array(
@@ -278,7 +273,8 @@ function ballista_customize_register( $wp_customize ) {
 
     $wp_customize->add_setting( 'woc_about_page_image_1', array(
         'default' => '',
-        'transport' => 'refresh' ) );
+        'transport' => 'refresh',
+        'sanitize_callback' => 'esc_url') );
 
     $wp_customize->add_control(
         new WP_Customize_Image_Control(
@@ -294,7 +290,8 @@ function ballista_customize_register( $wp_customize ) {
 
     $wp_customize->add_setting( 'woc_about_page_image_2', array(
         'default' => '',
-        'transport' => 'refresh' ) );
+        'transport' => 'refresh',
+        'sanitize_callback' => 'esc_url') );
 
     $wp_customize->add_control(
         new WP_Customize_Image_Control(
@@ -310,7 +307,8 @@ function ballista_customize_register( $wp_customize ) {
 
     $wp_customize->add_setting( 'woc_about_page_image_3', array(
         'default' => '',
-        'transport' => 'refresh' ) );
+        'transport' => 'refresh',
+        'sanitize_callback' => 'esc_url') );
 
     $wp_customize->add_control(
         new WP_Customize_Image_Control(
@@ -326,7 +324,8 @@ function ballista_customize_register( $wp_customize ) {
 
     $wp_customize->add_setting( 'woc_about_page_image_4', array(
         'default' => '',
-        'transport' => 'refresh' ) );
+        'transport' => 'refresh',
+        'sanitize_callback' => 'esc_url') );
 
     $wp_customize->add_control(
         new WP_Customize_Image_Control(
@@ -342,7 +341,8 @@ function ballista_customize_register( $wp_customize ) {
 
     $wp_customize->add_setting( 'woc_about_page_image_5', array(
         'default' => '',
-        'transport' => 'refresh' ) );
+        'transport' => 'refresh',
+        'sanitize_callback' => 'esc_url') );
 
     $wp_customize->add_control(
         new WP_Customize_Image_Control(
@@ -366,7 +366,8 @@ function ballista_customize_register( $wp_customize ) {
 
     $wp_customize->add_setting( 'woc_contact_page_header_left', array(
         'default' => '',
-        'transport' => 'refresh' ) );
+        'transport' => 'refresh',
+        'sanitize_callback' => 'esc_url') );
 
     $wp_customize->add_control(
         new WP_Customize_Image_Control(
@@ -383,11 +384,11 @@ function ballista_customize_register( $wp_customize ) {
 
     $wp_customize->add_setting( 'woc_contact_page_header_right', array(
         'default' => __( '', 'ballista' ),
-        'sanitize_callback' => 'ballista_sanitize_text'
+        'sanitize_callback' => 'esc_url'
     ) );
 
     $wp_customize->add_control( 'woc_google_map', array(
-        'label' => __( 'Enter the <iframe> code generated by Google Maps.', 'ballista' ),
+        'label' => __( 'Enter your Google Maps iframe code', 'ballista' ),
         'settings' => 'woc_contact_page_header_right',
         'section' => 'woc_contact_section',
         'type' => 'text',
@@ -406,7 +407,7 @@ function ballista_customize_register( $wp_customize ) {
 <span class="sep"> | </span>' . __( 'Theme: Ballista by', 'ballista' ) . ' <a href="' . esc_url( 'http://www.warriorsofcode.com' ) . '" rel="designer">' . __( 'Warriors of Code', 'ballista' ) . '</a>.';
     $wp_customize->add_setting( 'woc_copyright_text', array(
         'default' => $default_footer_text,
-        'sanitize_callback' => 'ballista_sanitize_text'
+        'sanitize_callback' => 'esc_html'
     ) );
 
     $wp_customize->add_control( 'woc_copyright_text', array(
@@ -427,7 +428,8 @@ function ballista_customize_register( $wp_customize ) {
 
     $wp_customize->add_setting( 'woc_blog_image_header', array(
         'default' => '',
-        'transport' => 'refresh' ) );
+        'transport' => 'refresh',
+        'sanitize_callback' => 'esc_url') );
 
     $wp_customize->add_control(
         new WP_Customize_Image_Control(
@@ -443,7 +445,8 @@ function ballista_customize_register( $wp_customize ) {
 
     $wp_customize->add_setting( 'woc_archive_image_header', array(
         'default' => '',
-        'transport' => 'refresh' ) );
+        'transport' => 'refresh',
+        'sanitize_callback' => 'esc_url') );
 
     $wp_customize->add_control(
         new WP_Customize_Image_Control(
@@ -459,7 +462,8 @@ function ballista_customize_register( $wp_customize ) {
 
     $wp_customize->add_setting( 'woc_search_image_header', array(
         'default' => '',
-        'transport' => 'refresh' ) );
+        'transport' => 'refresh',
+        'sanitize_callback' => 'esc_url') );
 
     $wp_customize->add_control(
         new WP_Customize_Image_Control(
@@ -475,7 +479,8 @@ function ballista_customize_register( $wp_customize ) {
 
     $wp_customize->add_setting( 'woc_404_image_header', array(
         'default' => '',
-        'transport' => 'refresh' ) );
+        'transport' => 'refresh',
+        'sanitize_callback' => 'esc_url') );
 
     $wp_customize->add_control(
         new WP_Customize_Image_Control(

@@ -50,7 +50,7 @@ if ( isset( $_GET[ 'fp_layout' ] ) ) $layout = $_GET[ 'fp_layout' ];
 
                     <?php if ( $layout === 'blog' ) { ?>
                         <div
-                            class="grid__item grid__item--flex transparent quick-transition <?php echo $term_classes_string; ?>"
+                            class="grid__item grid__item--flex transparent quick-transition <?php echo $term_classes_string; ?> <?php echo is_sticky() ? 'sticky' : ''; ?>"
                             data-href="<?php echo the_permalink(); ?>" <?php echo $img; ?>>
                             <div class="excerpt--box">
 
