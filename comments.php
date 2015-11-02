@@ -78,12 +78,12 @@ if ( post_password_required() ) {
             '<div class="comment-form-field"><label for="author">' . __( 'Name', 'ballista' ) .
             ( $req ? '<span class="required">*</span>' : '' ) . '</label> ' .
             '<input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) .
-            '" size="30"' . $aria_req . ' /></div>',
+            '" size="30" /></div>',
 
         'email' =>
             '<div class="comment-form-field"><label for="email">' . __( 'Email', 'ballista' ) . ( $req ? '<span class="required">*</span>' : '' ) . '</label> ' .
             '<input id="email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) .
-            '" size="30"' . $aria_req . ' /></div>',
+            '" size="30" /></div>',
 
         'url' =>
             '<div class="comment-form-field"><label for="url">' . __( 'Website', 'ballista' ) . '</label>' .

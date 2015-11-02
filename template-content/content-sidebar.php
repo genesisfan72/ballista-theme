@@ -6,7 +6,9 @@
  */
 ?>
 
-<button id="menu-toggle" class="menu-toggle"><span>Menu</span></button>
+<div class="toggle-container">
+    <button id="menu-toggle" class="menu-toggle"><span><?php echo __('Menu', 'ballista'); ?></span></button>
+</div>
 
 <div id="theSidebar" class="sidebar">
     <div class="title-area">
